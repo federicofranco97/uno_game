@@ -38,4 +38,10 @@ public class Jugador {
         manoCartas.addAll(sumadas);
     }
     
+    public void imprimirMano(){
+        for (int i = 0; i < getManoCartas().size(); i++) {
+            System.out.println(getManoCartas().get(i).getTipo()+" "+getManoCartas().get(i).getValor());
+        }
+    }
+    
 }

@@ -39,10 +39,10 @@ public class Mazo {
             Carta t2= new Carta(temp, "especial", "turn");
             Carta p= new Carta(temp, "especial", "+2");
             Carta p2= new Carta(temp, "especial", "+2");
-            Carta m1= new Carta(temp, "especial", "+4");
-            Carta m2= new Carta(temp, "especial", "+4");
-            Carta m3= new Carta(temp, "especial", "+4");
-            Carta m4= new Carta(temp, "especial", "+4");
+            Carta m1= new Carta( "especial", "+4");
+            Carta m2= new Carta( "especial", "+4");
+            Carta m3= new Carta( "especial", "+4");
+            Carta m4= new Carta( "especial", "+4");
             Carta c1= new Carta(temp, "especial", "color");
             Carta c2= new Carta(temp, "especial", "color");
             Carta c3= new Carta(temp, "especial", "color");
@@ -58,10 +58,6 @@ public class Mazo {
         for (Carta carta : mazoPrincipal) {
             System.out.println(carta.getColor()+" "+carta.getValor());
         }
-    }
-    
-    public void copiarMazo(){
-        
     }
     
     public void mezclarMazo(){
