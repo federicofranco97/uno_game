@@ -8,7 +8,7 @@ public class TestClass {
     
         Mazo mazo = new Mazo();
         mazo.llenarMazo();
-        mazo.mezclarMazo();
+        
         mazo.imprimirMazo();
         
         

@@ -8,7 +8,7 @@ public class Mazo {
     private ArrayList<Carta> mazoPrincipal= new ArrayList<>();
 
     public Mazo() {
-        
+        llenarMazo();
     }
 
     public void llenarMazo(){
