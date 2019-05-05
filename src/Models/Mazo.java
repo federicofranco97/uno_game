@@ -78,4 +78,7 @@ public class Mazo {
         return mazoPrincipal;
     }
     
+    public void removeCarta(int posicion){
+        mazoPrincipal.remove(posicion);
+    }
 }

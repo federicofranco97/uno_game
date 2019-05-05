@@ -57,6 +57,11 @@ public class Juego {
         return mano;
     }
     
+    
+    /*
+    Elige una carta aleatoria del mazo, que no sea una carta especial, y la saca del
+    mazo una vez que se tira.
+    */
     public void primerCartaPozo(){
         listaMazos.get(0).mezclarMazo();
         for(int i=0;i<listaMazos.get(0).getMazoPrincipal().size();i++){
@@ -65,16 +70,27 @@ public class Juego {
                 pozo.setColor(c.getColor());
                 pozo.setTipo(c.getTipo());
                 pozo.setValor(c.getValor());
+                listaMazos.get(0).removeCarta(i);
             }
         }
+        
     }
     
+    /*
+    Trae una carta aleatoria de la mano del jugador.
+    */
     public Carta generarCarta(Jugador j){
         int random = (int)(Math.random()*j.getManoCartas().size());
         Carta cartaJugada=j.getManoCartas().get(random);
         return cartaJugada;
     }
     
+    
+    /*
+    Asigna como jugador que esta jugando a la posicion de j en el array. Valida la carta que tira el jugador
+    contra la carta que esta en el pozo. Y aplica las consecuencias si la carta es especial.
+    Y saca la carta de la mano del jugador, siempre que la jugada haya sido valida.
+    */
     public void turnoJugador(Jugador j){
         jugadorFocus=listaJugadores.indexOf(j);
         Carta cartaJugada = generarCarta(j);
@@ -90,6 +106,7 @@ public class Juego {
                 pozo.setTipo("numero");
                 pozo.setColor(cartaJugada.getColor());
             }
+            j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
         }else{
             System.out.println("Jugada no valida!");
             System.out.print("\n");
@@ -101,25 +118,35 @@ public class Juego {
     
     }
     
+    /*
+    Checkea si el mazo principal esta vacio, si lo esta lo rellena usando el refil
+    */
     public void checkMazoVacio(){
         if(listaMazos.get(0).getMazoPrincipal().isEmpty()){
             refillMazo();
         }
     }
     
+    /*l
+    Toma el mazo secundario, lo mezcla y agrega al mazo principal todas las cartas ya mezcladas
+    */
     public void refillMazo(){
         listaMazos.get(1).mezclarMazo();
         listaMazos.get(0).getMazoPrincipal().addAll(listaMazos.get(1).getMazoPrincipal());
     }
     
+    /*
+    Toma una carta aleatoria del mazo y la agrega a la mano del jugador
+    */
     public void levantarCartaMazo(Jugador j){
         checkMazoVacio();
         int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
-        
+        j.getManoCartas().add(listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
     }
     
     /*
     Falta implementar
+    Metodo que toma la carta especial, y lleva a cabo la accion que trae la carta.
     */
     public void aplicarCartaEspecial(Carta c){
         checkMazoVacio();

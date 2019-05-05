@@ -43,5 +43,9 @@ public class Jugador {
             System.out.println(getManoCartas().get(i).getTipo()+" "+getManoCartas().get(i).getValor());
         }
     }
+
+    public void removeCarta(int posicion){
+        manoCartas.remove(posicion);
+    }
     
 }
