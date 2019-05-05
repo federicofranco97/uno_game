@@ -39,24 +39,24 @@ public class Mazo {
             Carta t2= new Carta(temp, "especial", "turn");
             Carta p= new Carta(temp, "especial", "+2");
             Carta p2= new Carta(temp, "especial", "+2");
-            Carta m1= new Carta( "especial", "+4");
-            Carta m2= new Carta( "especial", "+4");
-            Carta m3= new Carta( "especial", "+4");
-            Carta m4= new Carta( "especial", "+4");
             Carta c1= new Carta(temp, "especial", "color");
             Carta c2= new Carta(temp, "especial", "color");
             Carta c3= new Carta(temp, "especial", "color");
             Carta c4= new Carta(temp, "especial", "color");
-            especiales.addAll(Arrays.asList(s,s2,t,t2,p,p2,m1,m2,m3,m4,c1,c2,c3,c4));
+            especiales.addAll(Arrays.asList(s,s2,t,t2,p,p2,c1,c2,c3,c4));
         }
-        
+        Carta m1= new Carta("+4", "especial");
+        Carta m2= new Carta( "+4","especial" );
+        Carta m3= new Carta( "+4","especial");
+        Carta m4= new Carta( "+4","especial");
+        especiales.addAll(Arrays.asList(m1,m2,m3,m4));
         mazoPrincipal.addAll(numeros);
         mazoPrincipal.addAll(especiales);
     }   
     
     public void imprimirMazo(){
         for (Carta carta : mazoPrincipal) {
-            System.out.println(carta.getColor()+" "+carta.getValor());
+            System.out.println(carta.getTipo()+" "+carta.getValor());
         }
     }
     

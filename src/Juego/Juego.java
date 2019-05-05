@@ -1,5 +1,8 @@
-package Models;
+package Juego;
 
+import Models.Carta;
+import Models.Jugador;
+import Models.Mazo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -28,7 +31,6 @@ public class Juego {
         Jugador jugador3 = new Jugador("Jugador1");
         jugador3.setManoCartas(generarMano());
         listaJugadores.addAll(Arrays.asList(jugador,jugador2,jugador3));
-        jugador.imprimirMano();
     }
 
     public ArrayList<Jugador> getListaJugadores() {
@@ -48,7 +50,7 @@ public class Juego {
     public ArrayList<Carta> generarMano(){
         ArrayList<Carta>mano=new ArrayList<>();
         Mazo mazo = listaMazos.get(0);
-        for(int i=0;i<8;i++){
+        for(int i=0;i<7;i++){
             int random= (int)(Math.random()*mazo.getMazoPrincipal().size());
             mano.add(mazo.getMazoPrincipal().get(random));
         }

@@ -1,6 +1,6 @@
 package Pruebas;
 
-import Models.Juego;
+import Juego.Juego;
 import Models.Mazo;
 
 public class TestClass {
