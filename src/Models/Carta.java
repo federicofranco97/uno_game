@@ -16,7 +16,7 @@ public class Carta {
         this.tipo = tipo;
     }
 
-    public Carta(String valor, String tipo) {
+    public Carta(String tipo, String valor) {
         this.valor = valor;
         this.tipo = tipo;
     }
@@ -42,8 +42,16 @@ public class Carta {
     public void setValor(String valor) {
         this.valor = valor;
     }
- 
+    
+    /*
+    Agregar validacion de que pasa cuando la carta que se tira es un +4 o un cambio de color.
+    Ahora si la carta es un +4 o un cambio de color, el color al cual se pasa lo define la
+    siguiente carta que se tira.
+    */
     public boolean validarCarta(Carta c){
+        if(getTipo().equals("especial") && (getValor().equals("+4") || getValor().equals("color"))){
+            return true;
+        }
         if(getColor().equals(c.getColor()) || getValor().equals(c.getValor()) || c.getValor().equals("cambioColor")
                 || c.getValor().equals("+4")){
             return true;

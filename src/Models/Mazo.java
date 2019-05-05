@@ -15,6 +15,9 @@ public class Mazo {
         ArrayList<Carta>numeros=new ArrayList<>();
         ArrayList<Carta>especiales=new ArrayList<>();
         
+        /*
+        Add cartas numericas
+        */
         for(int i=0;i<4;i++){
             String temp="";
             if(i==0)temp=("rojo");
@@ -27,6 +30,9 @@ public class Mazo {
             }            
         }
         
+        /*
+        Add cartas +2, spin, skip
+        */
         for(int i=0;i<4;i++){
             String temp="";
             if(i==0)temp=("rojo");
@@ -35,21 +41,25 @@ public class Mazo {
             if(i==3)temp=("amarillo");
             Carta s= new Carta(temp, "especial", "skip");
             Carta s2= new Carta(temp, "especial", "skip");
-            Carta t= new Carta(temp, "especial", "turn");
-            Carta t2= new Carta(temp, "especial", "turn");
+            Carta t= new Carta(temp, "especial", "spin");
+            Carta t2= new Carta(temp, "especial", "spin");
             Carta p= new Carta(temp, "especial", "+2");
             Carta p2= new Carta(temp, "especial", "+2");
-            Carta c1= new Carta(temp, "especial", "color");
-            Carta c2= new Carta(temp, "especial", "color");
-            Carta c3= new Carta(temp, "especial", "color");
-            Carta c4= new Carta(temp, "especial", "color");
-            especiales.addAll(Arrays.asList(s,s2,t,t2,p,p2,c1,c2,c3,c4));
+            
+            especiales.addAll(Arrays.asList(s,s2,t,t2,p,p2));
         }
-        Carta m1= new Carta("+4", "especial");
-        Carta m2= new Carta( "+4","especial" );
-        Carta m3= new Carta( "+4","especial");
-        Carta m4= new Carta( "+4","especial");
-        especiales.addAll(Arrays.asList(m1,m2,m3,m4));
+        /*
+        Add cartas especiales +4 / cambio color
+        */
+        Carta c1= new Carta("joker","especial", "color");
+        Carta c2= new Carta("joker","especial", "color");
+        Carta c3= new Carta("joker", "especial", "color");
+        Carta c4= new Carta("joker", "especial", "color");
+        Carta m1= new Carta("joker","especial","+4");
+        Carta m2= new Carta("joker","especial","+4");
+        Carta m3= new Carta("joker","especial","+4");
+        Carta m4= new Carta("joker","especial","+4");
+        especiales.addAll(Arrays.asList(m1,m2,m3,m4,c1,c2,c3,c4));
         mazoPrincipal.addAll(numeros);
         mazoPrincipal.addAll(especiales);
     }   
