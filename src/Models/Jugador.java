@@ -40,7 +40,7 @@ public class Jugador {
     
     public void imprimirMano(){
         for (int i = 0; i < getManoCartas().size(); i++) {
-            System.out.println(getManoCartas().get(i).getTipo()+" "+getManoCartas().get(i).getValor());
+            System.out.println(getManoCartas().get(i).getTipo()+" "+getManoCartas().get(i).getValor()+" "+getManoCartas().get(i).getColor());
         }
     }
 

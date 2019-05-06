@@ -5,6 +5,7 @@ import Models.Jugador;
 import Models.Mazo;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 public class Juego {
     
@@ -154,12 +155,27 @@ public class Juego {
     }
     
     /*
+    Accion a tomar en el turno
+    */
+    public void preguntarMovida(){
+        String msj="1-Tirar carta\n2-Levantar carta del mazo\n3-Pasar turno";
+        int opcion=Integer.parseInt(JOptionPane.showInputDialog(msj));
+        switch(opcion){
+            case(1):break;
+            case(2):break;
+            case(3):break;
+            
+        }
+    }
+    
+    /*
     Toma una carta aleatoria del mazo y la agrega a la mano del jugador
     */
     public void levantarCartaMazo(Jugador j){
         checkMazoVacio();
         int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
         j.getManoCartas().add(listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
+        listaMazos.get(0).removeCarta(listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom));
     }
     
     /*
@@ -187,6 +203,10 @@ public class Juego {
     /*
     Falta implementar
     Metodo que toma la carta especial, y lleva a cabo la accion que trae la carta.
+    +2---> funciona
+    +4---> suma las 4  cartas pero falta resolver el tema del cambio de color.
+    skip--->
+    spin--->
     */
     public void aplicarCartaEspecial(Carta c){
         checkMazoVacio();
@@ -194,21 +214,35 @@ public class Juego {
         String valorCarta= c.getValor();
         if(tipoCarta.equals("numero"))return;
         
-        switch(tipoCarta){
+        switch(valorCarta){
             
             case("+2"):                
                 int numeroRandom = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
                 int numeroRandom2 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size()-1);
                 nextPlayer().addCartas(Arrays.asList(listaMazos.get(0).getMazoPrincipal().get(numeroRandom),listaMazos.get(0).getMazoPrincipal().get(numeroRandom2)));
+                listaMazos.get(0).removeCarta(numeroRandom);
+                listaMazos.get(0).removeCarta(numeroRandom2);
                 break;
             
-            case("+4"):break;
-            
-            case("skip"):break;
-            
-            case("spin"):
-                rondaHoraria=!rondaHoraria;
+            case("+4"):
+                int n1 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
+                int n2 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
+                int n3 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
+                int n4 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
+                nextPlayer().addCartas(Arrays.asList(listaMazos.get(0).getMazoPrincipal().get(n3),listaMazos.get(0).getMazoPrincipal().get(n4)
+                ,listaMazos.get(0).getMazoPrincipal().get(n1),listaMazos.get(0).getMazoPrincipal().get(n2)));
+                listaMazos.get(0).removeCarta(n1);
+                listaMazos.get(0).removeCarta(n2);
+                listaMazos.get(0).removeCarta(n3);
+                listaMazos.get(0).removeCarta(n4);
                 break;
+            case("skip"):
+                
+                break;
+            
+            case("spin"):rondaHoraria=!rondaHoraria;break;
+            
+            case("color"):break;
             
         }   
     }

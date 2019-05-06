@@ -1,6 +1,7 @@
 package Pruebas;
 
 import Juego.Juego;
+import Models.Carta;
 import Models.Mazo;
 
 public class TestClass {
@@ -10,15 +11,9 @@ public class TestClass {
         Juego juego = new Juego();
         juego.llenarMazos();
         juego.llenarJugadores();
-        System.out.println(juego.nextPlayer().getNombre());
-        /*
-        Se genera una carta numerica random en el pozo, y un jugador genera una carta random y se valida 
-        si la carta del jugador es compatible con la carta del pozo. Si es asi la carta del pozo pasa a ser
-        la carta que tiro el jugador.
-        */
-//        juego.primerCartaPozo();
-//        juego.turnoJugador(juego.getListaJugadores().get(0));
-        
+        Carta carta = new Carta("especial", "+4");
+        juego.aplicarCartaEspecial(carta);
+        juego.getListaJugadores().get(1).imprimirMano();
         
         
     }
