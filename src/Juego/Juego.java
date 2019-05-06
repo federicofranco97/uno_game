@@ -158,12 +158,14 @@ public class Juego {
     Accion a tomar en el turno
     (Falta implementar)
     */
-    public void preguntarMovida(){
+    public void preguntarMovida(Jugador j){
         String msj="1-Tirar carta\n2-Levantar carta del mazo\n3-Pasar turno";
         int opcion=Integer.parseInt(JOptionPane.showInputDialog(msj));
         switch(opcion){
             case(1):break;
-            case(2):break;
+            case(2):
+                levantarCartaMazo(j);
+                break;
             case(3):break;
             
         }
@@ -185,7 +187,7 @@ public class Juego {
     */
     public Jugador nextPlayer(){
         int lastPlayer=jugadorFocus;
-        int nextPlayer=-1;
+        int nextPlayer;
         if(rondaHoraria){
             if(lastPlayer==listaJugadores.size()-1){
                 nextPlayer=0;
@@ -207,7 +209,7 @@ public class Juego {
     +2---> funciona
     +4---> suma las 4  cartas pero falta resolver el tema del cambio de color.
     skip--->
-    spin--->
+    spin--->cambia el sentido de la ronda, falta implementar que le pregunte al siguiente jugador que accion quiere tomar
     */
     public void aplicarCartaEspecial(Carta c){
         checkMazoVacio();
@@ -223,8 +225,7 @@ public class Juego {
                 int numeroRandom2 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta ca2= listaMazos.get(0).getMazoPrincipal().get(numeroRandom2);
                 nextPlayer().addCartas(Arrays.asList(ca1,ca2));
-                listaMazos.get(0).removeCartas(Arrays.asList(ca1,ca2));
-                
+                listaMazos.get(0).removeCartas(Arrays.asList(ca1,ca2));                
                 break;
             
             case("+4"):
@@ -245,6 +246,7 @@ public class Juego {
             
             case("spin"):
                 rondaHoraria=!rondaHoraria;
+                //Preguntar al siguiente jugador.
                 break;
             
             case("color"):
