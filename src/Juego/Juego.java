@@ -156,6 +156,7 @@ public class Juego {
     
     /*
     Accion a tomar en el turno
+    (Falta implementar)
     */
     public void preguntarMovida(){
         String msj="1-Tirar carta\n2-Levantar carta del mazo\n3-Pasar turno";
@@ -218,31 +219,36 @@ public class Juego {
             
             case("+2"):                
                 int numeroRandom = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
+                Carta ca1= listaMazos.get(0).getMazoPrincipal().get(numeroRandom);
                 int numeroRandom2 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size()-1);
-                nextPlayer().addCartas(Arrays.asList(listaMazos.get(0).getMazoPrincipal().get(numeroRandom),listaMazos.get(0).getMazoPrincipal().get(numeroRandom2)));
-                listaMazos.get(0).removeCarta(numeroRandom);
-                listaMazos.get(0).removeCarta(numeroRandom2);
+                Carta ca2= listaMazos.get(0).getMazoPrincipal().get(numeroRandom2);
+                nextPlayer().addCartas(Arrays.asList(ca1,ca2));
+                listaMazos.get(0).removeCartas(Arrays.asList(ca1,ca2));
+                
                 break;
             
             case("+4"):
                 int n1 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
+                Carta c1= listaMazos.get(0).getMazoPrincipal().get(n1);
                 int n2 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
+                Carta c2= listaMazos.get(0).getMazoPrincipal().get(n2);
                 int n3 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
+                Carta c3= listaMazos.get(0).getMazoPrincipal().get(n3);
                 int n4 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
-                nextPlayer().addCartas(Arrays.asList(listaMazos.get(0).getMazoPrincipal().get(n3),listaMazos.get(0).getMazoPrincipal().get(n4)
-                ,listaMazos.get(0).getMazoPrincipal().get(n1),listaMazos.get(0).getMazoPrincipal().get(n2)));
-                listaMazos.get(0).removeCarta(n1);
-                listaMazos.get(0).removeCarta(n2);
-                listaMazos.get(0).removeCarta(n3);
-                listaMazos.get(0).removeCarta(n4);
+                Carta c4= listaMazos.get(0).getMazoPrincipal().get(n4);
+                nextPlayer().addCartas(Arrays.asList(c1,c2,c3,c4));
+                listaMazos.get(0).removeCartas(Arrays.asList(c1,c2,c3,c4));
                 break;
             case("skip"):
                 
                 break;
             
-            case("spin"):rondaHoraria=!rondaHoraria;break;
+            case("spin"):
+                rondaHoraria=!rondaHoraria;
+                break;
             
-            case("color"):break;
+            case("color"):
+                break;
             
         }   
     }

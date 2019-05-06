@@ -2,6 +2,7 @@ package Models;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 
 public class Mazo {
@@ -83,5 +84,9 @@ public class Mazo {
     
     public void removeCarta(int posicion){
         mazoPrincipal.remove(posicion);
+    }
+    
+    public void removeCartas(Collection<Carta> lista){
+        mazoPrincipal.removeAll(lista);
     }
 }
