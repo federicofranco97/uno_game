@@ -10,42 +10,60 @@ public class Juego {
     
     private ArrayList<Jugador>listaJugadores=new ArrayList<>();
     private ArrayList<Mazo>listaMazos=new ArrayList<>();
-    private int jugadorFocus;
+    private int jugadorFocus=0;
     private boolean rondaHoraria=true;
     private Carta pozo= new Carta();
 
     public Juego() {}
     
     
-   
+   /*
+    Crea el mazo principal del juego y uno de respaldo. Los dos se añaden a la lista
+    de mazos
+    */
     public void llenarMazos(){
         Mazo mazoPrincipal = new Mazo();
         Mazo mazoSecundario = mazoPrincipal;
         listaMazos.addAll(Arrays.asList(mazoPrincipal,mazoSecundario));
     }
     
+    /*
+    Crea algunos jugadores y les asigna una mano de cartas.
+    */
     public void llenarJugadores(){
         Jugador jugador = new Jugador("Jugador1");
         jugador.setManoCartas(generarMano());
-        Jugador jugador2 = new Jugador("Jugador1");
+        Jugador jugador2 = new Jugador("Jugador2");
         jugador2.setManoCartas(generarMano());
-        Jugador jugador3 = new Jugador("Jugador1");
+        Jugador jugador3 = new Jugador("Jugador3");
         jugador3.setManoCartas(generarMano());
         listaJugadores.addAll(Arrays.asList(jugador,jugador2,jugador3));
     }
 
+    /*
+    Devuelve la lista con los jugadores
+    */
     public ArrayList<Jugador> getListaJugadores() {
         return listaJugadores;
     }
 
+    /*
+    Devuelve la lista con los 2 mazos
+    */
     public ArrayList<Mazo> getListaMazos() {
         return listaMazos;
     }
 
+    /*
+    Devuelve el numero de jugador que esta en juego
+    */
     public int getJugadorFocus() {
         return jugadorFocus;
     }
     
+    /*
+    Devuelve la mano de un jugador (7cartas) aleatorias
+    */
     public ArrayList<Carta> generarMano(){
         ArrayList<Carta>mano=new ArrayList<>();
         Mazo mazo = listaMazos.get(0);
@@ -145,6 +163,28 @@ public class Juego {
     }
     
     /*
+    Metodo que calcula quien es el siguiente jugador
+    (A mejorar el codigo, pero funciona)
+    */
+    public Jugador nextPlayer(){
+        int lastPlayer=jugadorFocus;
+        int nextPlayer=-1;
+        if(rondaHoraria){
+            if(lastPlayer==listaJugadores.size()-1){
+                nextPlayer=0;
+            }else{
+                nextPlayer=lastPlayer+1;
+            }
+        }else{
+            if(lastPlayer==0){
+                nextPlayer=listaJugadores.size()-1;
+            }else{
+                nextPlayer=lastPlayer-1;
+            }
+        }
+        return listaJugadores.get(nextPlayer);
+    }
+    /*
     Falta implementar
     Metodo que toma la carta especial, y lleva a cabo la accion que trae la carta.
     */
@@ -158,7 +198,8 @@ public class Juego {
             
             case("+2"):                
                 int numeroRandom = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
-                int numeroRandom2 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
+                int numeroRandom2 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size()-1);
+                nextPlayer().addCartas(Arrays.asList(listaMazos.get(0).getMazoPrincipal().get(numeroRandom),listaMazos.get(0).getMazoPrincipal().get(numeroRandom2)));
                 break;
             
             case("+4"):break;

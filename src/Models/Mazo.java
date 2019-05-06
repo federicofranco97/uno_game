@@ -11,6 +11,9 @@ public class Mazo {
         llenarMazo();
     }
 
+    /*
+    Llena el mazo con cartas numericas de los 4 colores mas las cartas especiales
+    */
     public void llenarMazo(){
         ArrayList<Carta>numeros=new ArrayList<>();
         ArrayList<Carta>especiales=new ArrayList<>();
