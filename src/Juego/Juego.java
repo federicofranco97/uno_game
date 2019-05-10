@@ -164,7 +164,7 @@ public class Juego {
         switch(opcion){
             case(1):break;
             case(2):
-                levantarCartaMazo(j);
+                levantarCartaMazo(j);   
                 break;
             case(3):break;
             
