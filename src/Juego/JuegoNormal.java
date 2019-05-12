@@ -7,15 +7,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
-public class Juego {
+public class JuegoNormal {
     
     private ArrayList<Jugador>listaJugadores=new ArrayList<>();
     private ArrayList<Mazo>listaMazos=new ArrayList<>();
     private int jugadorFocus=0;
     private boolean rondaHoraria=true;
     private Carta pozo= new Carta();
+    static int acumulador=0;
 
-    public Juego() {}
+    public JuegoNormal() {}
     
     
    /*
@@ -113,11 +114,13 @@ public class Juego {
     public void turnoJugador(Jugador j){
         jugadorFocus=listaJugadores.indexOf(j);
         Carta cartaJugada = generarCarta(j);
+        String msj="";
+        boolean valid=true;
         if(pozo.validarCarta(cartaJugada)){
-            System.out.println("Jugada exitosa!");
-            System.out.print("\n");
-            System.out.println("Pozo:"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor());
-            System.out.println("Carta tirada: "+cartaJugada.getValor()+" "+cartaJugada.getTipo()+" "+cartaJugada.getColor());
+            
+            msj+=("Jugada exitosa!\n");
+            msj+=("Pozo:"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor()+"\n");
+            msj+=("Carta tirada: "+cartaJugada.getValor()+" "+cartaJugada.getTipo()+" "+cartaJugada.getColor()+"\n");
             pozo.setValor(cartaJugada.getValor());
             if(cartaJugada.getTipo().equals("especial")){
                 pozo.setTipo("especial");
@@ -127,13 +130,15 @@ public class Juego {
             }
             j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
         }else{
-            System.out.println("Jugada no valida!");
-            System.out.print("\n");
-            System.out.println("Pozo:"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor());
-            System.out.println("Carta tirada: "+cartaJugada.getValor()+" "+cartaJugada.getTipo()+" "+cartaJugada.getColor());
+            
+            msj+=("Jugada no valida!\n");
+            msj+=("Pozo:"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor()+"\n");
+            msj+=("Carta tirada: "+cartaJugada.getValor()+" "+cartaJugada.getTipo()+" "+cartaJugada.getColor()+"\n");
+            valid=false;
         }
-        
+        JOptionPane.showMessageDialog(null, msj);
         aplicarCartaEspecial(pozo);
+        if(!valid)preguntarMovida(j);
     
     }
     
@@ -159,14 +164,31 @@ public class Juego {
     (Falta implementar)
     */
     public void preguntarMovida(Jugador j){
-        String msj="1-Tirar carta\n2-Levantar carta del mazo\n3-Pasar turno";
+        String msj="1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Pasar turno";
         int opcion=Integer.parseInt(JOptionPane.showInputDialog(msj));
         switch(opcion){
-            case(1):break;
+            case(1):
+                j.imprimirMano();
+                preguntarMovida(j);
+                break;
             case(2):
+                String cartaPozo="La carta del pozo es: \n";
+                cartaPozo+=pozo.getTipo()+"\n"+pozo.getValor()+"\n"+pozo.getColor();
+                JOptionPane.showMessageDialog(null, cartaPozo);
+                preguntarMovida(j);
+                break;
+            case(3):
+                turnoJugador(j);
+                break;    
+            case(4):
                 levantarCartaMazo(j);   
                 break;
-            case(3):break;
+            case(5):
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "¡El numero ingresado no es valido!");
+                preguntarMovida(j);
+                break;
             
         }
     }

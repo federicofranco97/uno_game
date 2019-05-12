@@ -2,6 +2,7 @@ package Models;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.swing.JOptionPane;
 
 public class Jugador {
     
@@ -39,9 +40,11 @@ public class Jugador {
     }
     
     public void imprimirMano(){
+        String mano="Tu mano "+getNombre()+" es:\n\n";
         for (int i = 0; i < getManoCartas().size(); i++) {
-            System.out.println(getManoCartas().get(i).getTipo()+" "+getManoCartas().get(i).getValor()+" "+getManoCartas().get(i).getColor());
+            mano+=(getManoCartas().get(i).getTipo()+" "+getManoCartas().get(i).getValor()+" "+getManoCartas().get(i).getColor())+"\n";
         }
+        JOptionPane.showMessageDialog(null, mano);
     }
 
     public void removeCarta(int posicion){
