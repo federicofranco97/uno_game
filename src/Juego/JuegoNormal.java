@@ -161,7 +161,7 @@ public class JuegoNormal {
     
     /*
     Accion a tomar en el turno
-    (Falta implementar)
+    (Faltan implementar)
     */
     public void preguntarMovida(Jugador j){
         String msj="1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Pasar turno";
@@ -182,6 +182,7 @@ public class JuegoNormal {
                 break;    
             case(4):
                 levantarCartaMazo(j);   
+                preguntarMovida(j);
                 break;
             case(5):
                 break;
@@ -200,7 +201,7 @@ public class JuegoNormal {
         checkMazoVacio();
         int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
         j.getManoCartas().add(listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
-        listaMazos.get(0).removeCarta(listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom));
+//        listaMazos.get(0).removeCarta(listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom-1));
     }
     
     /*
@@ -259,7 +260,7 @@ public class JuegoNormal {
                 Carta c3= listaMazos.get(0).getMazoPrincipal().get(n3);
                 int n4 = (int)(Math.random()*listaMazos.get(0).getMazoPrincipal().size());
                 Carta c4= listaMazos.get(0).getMazoPrincipal().get(n4);
-                nextPlayer().addCartas(Arrays.asList(c1,c2,c3,c4));
+                  nextPlayer().addCartas(Arrays.asList(c1,c2,c3,c4));
                 listaMazos.get(0).removeCartas(Arrays.asList(c1,c2,c3,c4));
                 break;
             case("skip"):

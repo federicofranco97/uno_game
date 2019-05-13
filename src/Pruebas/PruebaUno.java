@@ -20,8 +20,8 @@ public class PruebaUno {
 //        juego.getListaJugadores().get(1).imprimirMano();
 //        System.out.println("\n");
 //        juego.turnoJugador(juego.getListaJugadores().get(0));
-        juego.preguntarMovida(juego.getListaJugadores().get(0));
-
+        //juego.preguntarMovida(juego.getListaJugadores().get(0));
+        System.out.println(juego.getListaJugadores().get(juego.getJugadorFocus()).getNombre());
         
         
     }
