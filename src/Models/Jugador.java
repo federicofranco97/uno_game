@@ -51,4 +51,11 @@ public class Jugador {
         manoCartas.remove(posicion);
     }
     
+    public boolean validarMano(Carta c){
+        for (Carta carta : manoCartas) {
+            if(carta.validarCarta(c))return true;            
+        }
+        return false;
+    }
+    
 }

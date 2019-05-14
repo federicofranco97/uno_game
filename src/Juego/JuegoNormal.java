@@ -179,9 +179,12 @@ public class JuegoNormal {
                 break;
             case(3):
                 turnoJugador(j);
+                JOptionPane.showMessageDialog(null, "Tu turno: "+nextPlayer().getNombre());
+                preguntarMovida(nextPlayer());
                 break;    
             case(4):
                 levantarCartaMazo(j);   
+                JOptionPane.showMessageDialog(null, "Carta Levantada!");
                 preguntarMovida(j);
                 break;
             case(5):
