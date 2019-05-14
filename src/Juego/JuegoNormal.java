@@ -164,7 +164,7 @@ public class JuegoNormal {
     (Faltan implementar)
     */
     public void preguntarMovida(Jugador j){
-        String msj="1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Pasar turno";
+        String msj="1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Validar mano\n6-Pasar turno";
         int opcion=Integer.parseInt(JOptionPane.showInputDialog(msj));
         switch(opcion){
             case(1):
@@ -188,6 +188,18 @@ public class JuegoNormal {
                 preguntarMovida(j);
                 break;
             case(5):
+                String alert="";
+                if(j.validarMano(pozo)){
+                    alert="Tu mano cuenta con una carta valida!";
+                }else{
+                    alert="No posees ninguna carta valida! Toma del pozo";
+                }
+                JOptionPane.showMessageDialog(null, alert);
+                preguntarMovida(j);
+                break;
+            case(6):
+                JOptionPane.showMessageDialog(null, "Turno cedido!");
+                preguntarMovida(nextPlayer());
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "¡El numero ingresado no es valido!");
