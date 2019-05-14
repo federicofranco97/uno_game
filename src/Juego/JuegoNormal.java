@@ -164,8 +164,15 @@ public class JuegoNormal {
     (Faltan implementar)
     */
     public void preguntarMovida(Jugador j){
-        String msj="1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Validar mano\n6-Pasar turno";
-        int opcion=Integer.parseInt(JOptionPane.showInputDialog(msj));
+        String msj="1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Validar mano\n6-Pasar turno\n"
+                + "7-Salir";
+        int opcion=0;
+        try {
+            opcion=Integer.parseInt(JOptionPane.showInputDialog(msj));
+        } catch (Exception e) {
+            opcion=-1;
+        }
+        
         switch(opcion){
             case(1):
                 j.imprimirMano();
@@ -200,6 +207,12 @@ public class JuegoNormal {
             case(6):
                 JOptionPane.showMessageDialog(null, "Turno cedido!");
                 preguntarMovida(nextPlayer());
+                break;
+            case(7):
+                System.exit(0);
+            case(-1):
+                JOptionPane.showMessageDialog(null, "¡El valor ingresado no es valido!");
+                preguntarMovida(j);
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "¡El numero ingresado no es valido!");
