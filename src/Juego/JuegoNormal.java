@@ -169,7 +169,7 @@ public class JuegoNormal {
         int opcion=0;
         try {
             opcion=Integer.parseInt(JOptionPane.showInputDialog(msj));
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             opcion=-1;
         }
         
@@ -179,7 +179,7 @@ public class JuegoNormal {
                 preguntarMovida(j);
                 break;
             case(2):
-                String cartaPozo="La carta del pozo es: \n";
+                String cartaPozo="La carta del pozo es: \n\n";
                 cartaPozo+=pozo.getTipo()+"\n"+pozo.getValor()+"\n"+pozo.getColor();
                 JOptionPane.showMessageDialog(null, cartaPozo);
                 preguntarMovida(j);
@@ -195,7 +195,7 @@ public class JuegoNormal {
                 preguntarMovida(j);
                 break;
             case(5):
-                String alert="";
+                String alert;
                 if(j.validarMano(pozo)){
                     alert="Tu mano cuenta con una carta valida!";
                 }else{
@@ -216,6 +216,7 @@ public class JuegoNormal {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "¡El numero ingresado no es valido!");
+                //Ignorar Warning.
                 preguntarMovida(j);
                 break;
             
