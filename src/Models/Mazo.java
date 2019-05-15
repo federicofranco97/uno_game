@@ -63,6 +63,7 @@ public class Mazo {
         Carta m2= new Carta("joker","especial","+4");
         Carta m3= new Carta("joker","especial","+4");
         Carta m4= new Carta("joker","especial","+4");
+        
         especiales.addAll(Arrays.asList(m1,m2,m3,m4,c1,c2,c3,c4));
         mazoPrincipal.addAll(numeros);
         mazoPrincipal.addAll(especiales);

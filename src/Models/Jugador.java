@@ -58,4 +58,10 @@ public class Jugador {
         return false;
     }
     
+    public Carta traerCartaValida(Carta c){
+        for (Carta carta : manoCartas) {
+            if(carta.validarCarta(c))return carta;            
+        }
+        return null;
+    }
 }

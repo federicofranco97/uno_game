@@ -105,6 +105,34 @@ public class JuegoNormal {
         return cartaJugada;
     }
     
+    /*
+    Tira una carta aleatoria valida
+    */
+    public Carta generarCartaValida(Jugador j){
+        if(j.validarMano(pozo)){
+            j.traerCartaValida(pozo);
+        }
+        
+        return null;
+    }
+    
+    /*
+    Simular tiro carta valida de bot
+    */
+    public void tirarValida(Jugador j){
+        if(j.validarMano(pozo)){
+            Carta cartaJugada = generarCartaValida(j);
+            String msj="";
+            msj+=("Jugada exitosa!\n");
+            msj+=("Pozo:"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor()+"\n");
+            //msj+=("Carta tirada: "+cartaJugada.getValor()+" "+cartaJugada.getTipo()+" "+cartaJugada.getColor()+"\n");
+            JOptionPane.showMessageDialog(null, msj);
+        }else{
+            JOptionPane.showMessageDialog(null, "El jugador no posee cartas validas!");
+        }
+        
+    }
+    
     
     /*
     Asigna como jugador que esta jugando a la posicion de j en el array. Valida la carta que tira el jugador
@@ -165,8 +193,8 @@ public class JuegoNormal {
     */
     public void preguntarMovida(Jugador j){
         String msj="1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Validar mano\n6-Pasar turno\n"
-                + "7-Salir";
-        int opcion=0;
+                +"7-Tirar Valida\n10-Salir";
+        int opcion;
         try {
             opcion=Integer.parseInt(JOptionPane.showInputDialog(msj));
         } catch (NumberFormatException e) {
@@ -209,6 +237,10 @@ public class JuegoNormal {
                 preguntarMovida(nextPlayer());
                 break;
             case(7):
+                tirarValida(j);
+                preguntarMovida(nextPlayer());
+                break;
+            case(10):
                 System.exit(0);
             case(-1):
                 JOptionPane.showMessageDialog(null, "¡El valor ingresado no es valido!");
@@ -234,25 +266,32 @@ public class JuegoNormal {
     }
     
     /*
+    Metodo que va corriendo el focus de los jugadores
+    */
+    public void incrementFocus(){
+        int lastPlayer=jugadorFocus;
+        if(rondaHoraria){
+            if(lastPlayer+1==listaJugadores.size()){
+                jugadorFocus=0;
+            }else{
+                jugadorFocus=lastPlayer+1;
+            }
+        }else{
+            if(lastPlayer-1<0){
+                jugadorFocus=listaJugadores.size()-1;
+            }else{
+                jugadorFocus=lastPlayer-1;
+            }
+        }
+    }
+    
+    /*
     Metodo que calcula quien es el siguiente jugador
     (A mejorar el codigo, pero funciona)
     */
     public Jugador nextPlayer(){
-        int lastPlayer=jugadorFocus;
-        int nextPlayer;
-        if(rondaHoraria){
-            if(lastPlayer==listaJugadores.size()-1){
-                nextPlayer=0;
-            }else{
-                nextPlayer=lastPlayer+1;
-            }
-        }else{
-            if(lastPlayer==0){
-                nextPlayer=listaJugadores.size()-1;
-            }else{
-                nextPlayer=lastPlayer-1;
-            }
-        }
+        incrementFocus();
+        int nextPlayer=jugadorFocus;
         return listaJugadores.get(nextPlayer);
     }
     /*
