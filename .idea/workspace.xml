@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76affdea-bc8f-4cb3-9972-9063f4277b95" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uno_game.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uno_game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uno_game.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Mongo/MongoConection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mongo/MongoConection.java" afterDir="false" />
     </list>
     <ignored path=".idea/" />
@@ -65,8 +63,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Models/Carta.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-727">
-                  <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+                <state relative-caret-position="350">
+                  <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
@@ -114,8 +112,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="461">
-                  <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+                <state relative-caret-position="396">
+                  <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
                 </state>
               </provider>
             </entry>
@@ -161,11 +159,6 @@
             <path>
               <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
               <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-              <item name="TestCases" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
@@ -317,12 +310,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CartaTest_validarCarta - 2019.05.17 at 13h 46m 49s.xml">
-      <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CartaTest_validarCarta - 2019.05.17 at 13h 47m 40s.xml">
-      <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CartaTest_validarCarta - 2019.05.17 at 13h 53m 57s.xml">
       <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
     </history-entry>
@@ -347,24 +334,29 @@
     <history-entry file="CartaTest_validarCarta - 2019.05.17 at 14h 07m 02s.xml">
       <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CartaTest_validarCarta - 2019.05.17 at 14h 12m 41s.xml">
+      <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CartaTest_validarCarta - 2019.05.17 at 14h 12m 53s.xml">
+      <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-231" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Learn" weight="0.32975295" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16380237" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16380237" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" weight="0.24973205" />
+      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.12968917" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.12540193" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23472668" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23472668" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -376,6 +368,32 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Mongo/MongoConection.java">
@@ -441,17 +459,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Models/Carta.java">
+    <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-727">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        <state relative-caret-position="396">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Models/Carta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="350">
+          <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
         </state>
       </provider>
     </entry>
