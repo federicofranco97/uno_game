@@ -52,8 +52,7 @@ public class Carta {
         if(getTipo().equals("especial") && (getValor().equals("+4") || getValor().equals("color"))){
             return true;
         }
-        if(getColor().equals(c.getColor()) || getValor().equals(c.getValor()) || c.getValor().equals("cambioColor")
-                || c.getValor().equals("+4")){
+        if(getColor().equals(c.getColor()) || getValor().equals(c.getValor())){
             return true;
         }
         return false;

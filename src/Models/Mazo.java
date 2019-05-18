@@ -66,7 +66,9 @@ public class Mazo {
         
         especiales.addAll(Arrays.asList(m1,m2,m3,m4,c1,c2,c3,c4));
         mazoPrincipal.addAll(numeros);
+        mazoPrincipal.addAll(numeros);
         mazoPrincipal.addAll(especiales);
+        //cartas totales 112
     }   
     
     public void imprimirMazo(){

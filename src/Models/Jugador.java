@@ -8,23 +8,25 @@ public class Jugador {
     
     private String nombre;
     private ArrayList<Carta> manoCartas= new ArrayList<>();
-    private boolean esTurno;
+    private String clave;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
-        this.esTurno=false;
+       
+    }
+    
+    public Jugador(String nombre,String pass) {
+        this.nombre = nombre;
+        this.clave=pass;
+        
     }
 
+    public String getClave() {
+        return clave;
+    }
+   
     public String getNombre() {
         return nombre;
-    }
-
-    public boolean isEsTurno() {
-        return esTurno;
-    }
-
-    public void setEsTurno(boolean esTurno) {
-        this.esTurno = esTurno;
     }
 
     public ArrayList<Carta> getManoCartas() {
