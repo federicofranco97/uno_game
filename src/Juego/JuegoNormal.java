@@ -18,7 +18,7 @@ public class JuegoNormal {
 
     public JuegoNormal() {}
     
-    
+        
    /*
     Crea el mazo principal del juego y uno de respaldo. Los dos se añaden a la lista
     de mazos
