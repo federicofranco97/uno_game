@@ -110,9 +110,8 @@ public class JuegoNormal {
     */
     public Carta generarCartaValida(Jugador j){
         if(j.validarMano(pozo)){
-            j.traerCartaValida(pozo);
+            return j.traerCartaValida(pozo);
         }
-        
         return null;
     }
     
@@ -125,12 +124,55 @@ public class JuegoNormal {
             String msj="";
             msj+=("Jugada exitosa!\n");
             msj+=("Pozo:"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor()+"\n");
-            //msj+=("Carta tirada: "+cartaJugada.getValor()+" "+cartaJugada.getTipo()+" "+cartaJugada.getColor()+"\n");
+            msj+=("Carta tirada: "+cartaJugada.getValor()+" "+cartaJugada.getTipo()+" "+cartaJugada.getColor()+"\n");
             JOptionPane.showMessageDialog(null, msj);
+            pozo.setValor(cartaJugada.getValor());
+            pozo.setColor(cartaJugada.getColor());
+            if(cartaJugada.getTipo().equals("especial")){
+                pozo.setTipo("especial");
+            }else{
+                pozo.setTipo("numero");                
+            }
+            j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            if(pozo.getTipo().equals("especial"))aplicarCartaEspecial(pozo);
         }else{
             JOptionPane.showMessageDialog(null, "El jugador no posee cartas validas!");
         }
         
+    }
+    
+    public void cambioColor(){
+        String msj="Elija a que color quiere cambiar:\n"
+                + "1-rojo\n2-azul\n3-amarillo\n4-verde";
+        String choice=JOptionPane.showInputDialog(msj);
+        switch(choice){
+            case("1"):
+                pozo.setColor("rojo");
+                preguntarMovida(nextPlayer());
+                break;
+            case("2"):
+                pozo.setColor("azul");
+                preguntarMovida(nextPlayer());
+                break;
+            case("3"):
+                pozo.setColor("amarillo");
+                preguntarMovida(nextPlayer());
+                break;
+            case("4"):
+                pozo.setColor("verde");
+                preguntarMovida(nextPlayer());
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "La opcion ingresada no es valida!\nIntenta de nuevo.");
+                cambioColor();
+                break;
+        }
+    }
+    
+    public void verificarEspecial(Carta c){
+        if(c.getTipo().equals("especial") && (c.getValor().equals("+4")) || c.getValor().equals("color") ){
+            cambioColor();
+        }
     }
     
     
@@ -157,6 +199,7 @@ public class JuegoNormal {
                 pozo.setColor(cartaJugada.getColor());
             }
             j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            if(pozo.getTipo().equals("especial"))aplicarCartaEspecial(pozo);
         }else{
             
             msj+=("Jugada no valida!\n");
@@ -165,7 +208,7 @@ public class JuegoNormal {
             valid=false;
         }
         JOptionPane.showMessageDialog(null, msj);
-        aplicarCartaEspecial(pozo);
+        
         if(!valid)preguntarMovida(j);
     
     }
@@ -214,6 +257,7 @@ public class JuegoNormal {
                 break;
             case(3):
                 turnoJugador(j);
+                verificarEspecial(pozo);
                 JOptionPane.showMessageDialog(null, "Tu turno: "+nextPlayer().getNombre());
                 preguntarMovida(nextPlayer());
                 break;    
@@ -238,7 +282,11 @@ public class JuegoNormal {
                 break;
             case(7):
                 tirarValida(j);
+                verificarEspecial(pozo);
                 preguntarMovida(nextPlayer());
+                break;
+            case(8):
+                cambioColor();
                 break;
             case(10):
                 System.exit(0);
