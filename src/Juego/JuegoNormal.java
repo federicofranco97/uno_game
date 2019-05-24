@@ -217,7 +217,7 @@ public class JuegoNormal {
     
     public Carta elegirCarta(Jugador j){
         String cartaPozo = "La carta del pozo es: \n";
-                cartaPozo += pozo.getTipo() + "-" + pozo.getValor() + "-" + pozo.getColor()+"\n";
+                cartaPozo += pozo.getTipo() + " " + pozo.getValor() + " " + pozo.getColor()+"\n";
                 
         String choice=JOptionPane.showInputDialog(j.devolverStringMano()+
                 "\n"+cartaPozo+"\nIngrese el numero de carta que quiere mostrar\nIngrese -1 para salir");
@@ -355,6 +355,7 @@ public class JuegoNormal {
                 break;
             case (8):
                 tirarEleccion(j);
+                preguntarMovida(nextPlayer());
                 break;
             case (10):
                 System.exit(0);
