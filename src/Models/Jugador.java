@@ -11,7 +11,8 @@ public class Jugador {
     private String clave;
 
     public Jugador(String nombre) {
-        this.nombre = nombre;
+        this(nombre, "");
+        //this.nombre = nombre;
        
     }
     

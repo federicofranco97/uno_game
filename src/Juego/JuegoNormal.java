@@ -71,7 +71,8 @@ public class JuegoNormal {
     public ArrayList<Carta> generarMano() {
         ArrayList<Carta> mano = new ArrayList<>();
         Mazo mazo = listaMazos.get(0);
-        for (int i = 0; i < 7; i++) {
+        final int tamañoMano=7;
+        for (int i = 0; i < tamañoMano; i++) {
             int random = (int) (Math.random() * mazo.getMazoPrincipal().size());
             mano.add(mazo.getMazoPrincipal().get(random));
         }
@@ -235,7 +236,7 @@ public class JuegoNormal {
         if(Integer.parseInt(choice) == -1){
             return null;
         }
-        return j.getManoCartas().get(Integer.parseInt(choice)-1);
+        return j.getManoCartas().get(Integer.parseInt(choice));
     }
     
     
@@ -310,30 +311,41 @@ public class JuegoNormal {
         } catch (NumberFormatException e) {
             opcion = -1;
         }
-
+        //agregar constantes
+        final int verMano=1;
+        final int verCartaPozo=2;
+        final int tirarCartaRandom=3;
+        final int levantarCartaMazo=4;
+        final int validarMano=5;
+        final int pasarTurno=6;
+        final int tirarValida=7;
+        final int elegirCartaJugador=8;
+        final int salir=10;
+        final int casodefault=-1;
+        
         switch (opcion) {
-            case (1):
+            case (verMano):
                 j.imprimirMano();
                 preguntarMovida(j);
                 break;
-            case (2):
+            case (verCartaPozo):
                 String cartaPozo = "La carta del pozo es: \n\n";
                 cartaPozo += pozo.getTipo() + "\n" + pozo.getValor() + "\n" + pozo.getColor();
                 JOptionPane.showMessageDialog(null, cartaPozo);
                 preguntarMovida(j);
                 break;
-            case (3):
+            case (tirarCartaRandom):
                 turnoJugador(j);
                 verificarEspecial(pozo);
                 JOptionPane.showMessageDialog(null, "Tu turno: " + listaJugadores.get(jugadorFocus+1).getNombre());
                 preguntarMovida(nextPlayer());
                 break;
-            case (4):
+            case (levantarCartaMazo):
                 levantarCartaMazo(j);
                 JOptionPane.showMessageDialog(null, "Carta Levantada!");
                 preguntarMovida(j);
                 break;
-            case (5):
+            case (validarMano):
                 String alert;
                 if (j.validarMano(pozo)) {
                     alert = "Tu mano cuenta con una carta valida!";
@@ -343,23 +355,23 @@ public class JuegoNormal {
                 JOptionPane.showMessageDialog(null, alert);
                 preguntarMovida(j);
                 break;
-            case (6):
+            case (pasarTurno):
                 JOptionPane.showMessageDialog(null, "Turno cedido!");
                 JOptionPane.showMessageDialog(null, "Tu turno: " + listaJugadores.get(jugadorFocus+1).getNombre());
                 preguntarMovida(nextPlayer());
                 break;
-            case (7):
+            case (tirarValida):
                 tirarValida(j);
                 verificarEspecial(pozo);
                 preguntarMovida(nextPlayer());
                 break;
-            case (8):
+            case (elegirCartaJugador):
                 tirarEleccion(j);
                 preguntarMovida(nextPlayer());
                 break;
-            case (10):
+            case (salir):
                 System.exit(0);
-            case (-1):
+            case (casodefault):
                 JOptionPane.showMessageDialog(null, "¡El valor ingresado no es valido!");
                 preguntarMovida(j);
                 break;
@@ -466,9 +478,12 @@ public class JuegoNormal {
 
     public void preguntarJugadores() {
         int numero;
+        final int minJugadores=2;
+        final int maxJugadores=6;
+        
         try {
             numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de jugadores\nEntre 2 y 6 Jugadores"));
-            if (numero < 2 || numero > 6) {
+            if (numero < minJugadores || numero > maxJugadores) {
                 JOptionPane.showMessageDialog(null, "El numero ingresado no es valido");
                 preguntarJugadores();
             }

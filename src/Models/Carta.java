@@ -15,11 +15,6 @@ public class Carta {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-    public Carta(String tipo, String valor) {
-        this.valor = valor;
-        this.tipo = tipo;
-    }
     
     public Carta(String color, String tipo,String valor) {
         this.color = color;
