@@ -40,10 +40,20 @@ public class Jugador {
     public void addCartas(Collection<Carta> sumadas){
         manoCartas.addAll(sumadas);
     }
+
+    public String devolverStringMano(){
+        String mano="Tu mano "+getNombre()+" es:\n\n";
+        for (int i = 0; i < getManoCartas().size(); i++) {
+            mano+=i+"-";
+            mano+=(getManoCartas().get(i).getTipo()+" "+getManoCartas().get(i).getValor()+" "+getManoCartas().get(i).getColor())+"\n";
+        }
+        return mano;
+    }
     
     public void imprimirMano(){
         String mano="Tu mano "+getNombre()+" es:\n\n";
         for (int i = 0; i < getManoCartas().size(); i++) {
+            mano+=i+"-";
             mano+=(getManoCartas().get(i).getTipo()+" "+getManoCartas().get(i).getValor()+" "+getManoCartas().get(i).getColor())+"\n";
         }
         JOptionPane.showMessageDialog(null, mano);
