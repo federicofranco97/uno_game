@@ -455,7 +455,7 @@ public class JuegoNormal {
 
             case ("spin"):
                 rondaHoraria = !rondaHoraria;
-                //Preguntar al siguiente jugador.
+                preguntarMovida(nextPlayer());
                 break;
 
             case ("color"):
