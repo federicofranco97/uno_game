@@ -184,8 +184,67 @@ public class JuegoNormal {
     Y saca la carta de la mano del jugador, siempre que la jugada haya sido valida.
     */
     public void turnoJugador(Jugador j) {
-        jugadorFocus = listaJugadores.indexOf(j);
+        
         Carta cartaJugada = generarCarta(j);
+        String msj = "";
+        boolean valid = true;
+        if (pozo.validarCarta(cartaJugada)) {
+
+            msj += ("Jugada exitosa!\n");
+            msj += ("Pozo:" + pozo.getValor() + " " + pozo.getTipo() + " " + pozo.getColor() + "\n");
+            msj += ("Carta tirada: " + cartaJugada.getValor() + " " + cartaJugada.getTipo() + " " + cartaJugada.getColor() + "\n");
+            pozo.setValor(cartaJugada.getValor());
+            if (cartaJugada.getTipo().equals("especial")) {
+                pozo.setTipo("especial");
+            } else {
+                pozo.setTipo("numero");
+                pozo.setColor(cartaJugada.getColor());
+            }
+            j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            if (pozo.getTipo().equals("especial")) aplicarCartaEspecial(pozo);
+        } else {
+
+            msj += ("Jugada no valida!\n");
+            msj += ("Pozo:" + pozo.getValor() + " " + pozo.getTipo() + " " + pozo.getColor() + "\n");
+            msj += ("Carta tirada: " + cartaJugada.getValor() + " " + cartaJugada.getTipo() + " " + cartaJugada.getColor() + "\n");
+            valid = false;
+        }
+        JOptionPane.showMessageDialog(null, msj);
+
+        if (!valid) preguntarMovida(j);
+
+    }
+    
+    public Carta elegirCarta(Jugador j){
+        String cartaPozo = "La carta del pozo es: \n";
+                cartaPozo += pozo.getTipo() + "-" + pozo.getValor() + "-" + pozo.getColor()+"\n";
+                
+        String choice=JOptionPane.showInputDialog(j.devolverStringMano()+
+                "\n"+cartaPozo+"\nIngrese el numero de carta que quiere mostrar\nIngrese -1 para salir");
+        try {
+            Integer.parseInt(choice);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "El valor ingresado no es valido");
+            elegirCarta(j);
+        }
+        
+        if(Integer.parseInt(choice) < -1 || Integer.parseInt(choice) >= j.getManoCartas().size()){
+            JOptionPane.showMessageDialog(null, "El numero ingresado esta fuera de rango");
+            elegirCarta(j);
+        }
+        if(Integer.parseInt(choice) == -1){
+            return null;
+        }
+        return j.getManoCartas().get(Integer.parseInt(choice));
+    }
+    
+    
+    public void tirarEleccion(Jugador j){
+        
+        Carta cartaJugada = elegirCarta(j);
+        if(cartaJugada==null){
+            preguntarMovida(j);
+        }
         String msj = "";
         boolean valid = true;
         if (pozo.validarCarta(cartaJugada)) {
@@ -266,7 +325,7 @@ public class JuegoNormal {
             case (3):
                 turnoJugador(j);
                 verificarEspecial(pozo);
-                JOptionPane.showMessageDialog(null, "Tu turno: " + nextPlayer().getNombre());
+                JOptionPane.showMessageDialog(null, "Tu turno: " + listaJugadores.get(jugadorFocus+1).getNombre());
                 preguntarMovida(nextPlayer());
                 break;
             case (4):
@@ -286,6 +345,7 @@ public class JuegoNormal {
                 break;
             case (6):
                 JOptionPane.showMessageDialog(null, "Turno cedido!");
+                JOptionPane.showMessageDialog(null, "Tu turno: " + listaJugadores.get(jugadorFocus+1).getNombre());
                 preguntarMovida(nextPlayer());
                 break;
             case (7):
@@ -294,7 +354,7 @@ public class JuegoNormal {
                 preguntarMovida(nextPlayer());
                 break;
             case (8):
-                cambioColor();
+                tirarEleccion(j);
                 break;
             case (10):
                 System.exit(0);
