@@ -1,4 +1,4 @@
-package Mongo;
+/*package Mongo;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -27,3 +27,4 @@ public class MongoConection {
         
     }
 }
+*/

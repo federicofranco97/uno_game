@@ -235,7 +235,7 @@ public class JuegoNormal {
         if(Integer.parseInt(choice) == -1){
             return null;
         }
-        return j.getManoCartas().get(Integer.parseInt(choice));
+        return j.getManoCartas().get(Integer.parseInt(choice)-1);
     }
     
     
