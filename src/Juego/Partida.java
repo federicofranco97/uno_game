@@ -14,7 +14,6 @@ public class Partida {
         juego.llenarMazos();
         juego.llenarJugadores();
         juego.primerCartaPozo();
-        System.out.println(juego.getListaMazos().get(0).getMazoPrincipal().size());
         //juego.preguntarJugadores();
         juego.preguntarMovida(juego.getListaJugadores().get(juego.getJugadorFocus()));
     }

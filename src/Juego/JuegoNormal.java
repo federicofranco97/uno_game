@@ -214,7 +214,7 @@ public class JuegoNormal {
         if (!valid) preguntarMovida(j);
 
     }
-
+    
     /*
     Checkea si el mazo principal esta vacio, si lo esta lo rellena usando el refil
     */
@@ -244,7 +244,7 @@ public class JuegoNormal {
             System.exit(0);
         }
         String msj = "1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Validar mano\n6-Pasar turno\n"
-                + "7-Tirar Valida\n10-Salir";
+                + "7-Tirar Valida\n8-Elegir Carta para Tirar\n10-Salir";
         int opcion;
         try {
             opcion = Integer.parseInt(JOptionPane.showInputDialog(msj));
