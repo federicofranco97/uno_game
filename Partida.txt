@@ -1,8 +1,12 @@
+POZO
+4 numero verde
 JUGADOR
 pepe
 pepito
-{2 numero rojo,4 numero verde}
+-2 numero rojo,4 numero verde,+2 especial rojo,+2 especial azul-
 JUGADOR
 martin
 tincho
-{2 numero azul,9 numero verde}
+-2 numero azul,9 numero verde-
+MAZO
+-2 numero rojo,4 numero verde,+2 especial rojo,+2 especial azul-
