@@ -173,9 +173,10 @@ public class JuegoNormal {
     }
 
     public void verificarEspecial(Carta c) {
-        if (c.getTipo().equals("especial") && (c.getValor().equals("+4")) || c.getValor().equals("color")) {
-            cambioColor();
+        if (c.getTipo().equals("especial")) {
+            aplicarCartaEspecial(c);
         }
+        
     }
 
 
@@ -207,7 +208,8 @@ public class JuegoNormal {
 
             msj += ("Jugada no valida!\n");
             msj += ("Pozo:" + pozo.getValor() + " " + pozo.getTipo() + " " + pozo.getColor() + "\n");
-            msj += ("Carta tirada: " + cartaJugada.getValor() + " " + cartaJugada.getTipo() + " " + cartaJugada.getColor() + "\n");
+            msj += ("Carta tirada: " + cartaJugada.getValor() + " " + cartaJugada
+                    .getTipo() + " " + cartaJugada.getColor() + "\n");
             valid = false;
         }
         JOptionPane.showMessageDialog(null, msj);
@@ -365,12 +367,10 @@ public class JuegoNormal {
                 break;
             case (pasarTurno):
                 JOptionPane.showMessageDialog(null, "Turno cedido!");
-                JOptionPane.showMessageDialog(null, "Tu turno: " + listaJugadores.get(jugadorFocus+1).getNombre());
                 preguntarMovida(nextPlayer());
                 break;
             case (tirarValida):
                 tirarValida(j);
-                verificarEspecial(pozo);
                 preguntarMovida(nextPlayer());
                 break;
             case (elegirCartaJugador):
@@ -453,10 +453,11 @@ public class JuegoNormal {
                 Carta ca1 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom);
                 int numeroRandom2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size() - 1);
                 Carta ca2 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom2);
-                nextPlayer().addCartas(Arrays.asList(ca1, ca2));
+                listaJugadores.get(jugadorFocus+1).addCartas(Arrays.asList(ca1, ca2));
                 listaMazos.get(0).removeCartas(Arrays.asList(ca1, ca2));
                 break;
 
+                
             case ("+4"):
                 int n1 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
                 Carta c1 = listaMazos.get(0).getMazoPrincipal().get(n1);
@@ -466,11 +467,12 @@ public class JuegoNormal {
                 Carta c3 = listaMazos.get(0).getMazoPrincipal().get(n3);
                 int n4 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
                 Carta c4 = listaMazos.get(0).getMazoPrincipal().get(n4);
-                nextPlayer().addCartas(Arrays.asList(c1, c2, c3, c4));
+                listaJugadores.get(jugadorFocus+1).addCartas(Arrays.asList(c1, c2, c3, c4));
                 listaMazos.get(0).removeCartas(Arrays.asList(c1, c2, c3, c4));
+                cambioColor();
                 break;
             case ("skip"):
-
+                //falta implementar
                 break;
 
             case ("spin"):
@@ -479,6 +481,7 @@ public class JuegoNormal {
                 break;
 
             case ("color"):
+                cambioColor();
                 break;
 
         }

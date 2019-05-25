@@ -1,0 +1,8 @@
+JUGADOR
+pepe
+pepito
+{2 numero rojo,4 numero verde}
+JUGADOR
+martin
+tincho
+{2 numero azul,9 numero verde}
