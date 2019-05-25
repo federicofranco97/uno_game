@@ -216,23 +216,31 @@ public class JuegoNormal {
 
     }
     
-    public Carta elegirCarta(Jugador j){
-        String cartaPozo = "La carta del pozo es: \n";
-                cartaPozo += pozo.getTipo() + " " + pozo.getValor() + " " + pozo.getColor()+"\n";
-                
-        String choice=JOptionPane.showInputDialog(j.devolverStringMano()+
-                "\n"+cartaPozo+"\nIngrese el numero de carta que quiere mostrar\nIngrese -1 para salir");
+    public boolean validarChoice(String choice,int tamañoMano){
         try {
             Integer.parseInt(choice);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "El valor ingresado no es valido");
-            elegirCarta(j);
+            return false;
         }
+        if(Integer.parseInt(choice) < -1 || Integer.parseInt(choice) >= tamañoMano){
+            return false;
+        }
+        return true;
+    }
+    
+    public Carta elegirCarta(Jugador j){
+        int tamañoMano=j.getManoCartas().size();
+        String choice="";
+
+        String cartaPozo = "La carta del pozo es: \n";
+        cartaPozo += pozo.getTipo() + " " + pozo.getValor() + " " + pozo.getColor()+"\n";
         
-        if(Integer.parseInt(choice) < -1 || Integer.parseInt(choice) >= j.getManoCartas().size()){
-            JOptionPane.showMessageDialog(null, "El numero ingresado esta fuera de rango");
-            elegirCarta(j);
-        }
+        while (!validarChoice(choice=JOptionPane.showInputDialog(j.devolverStringMano()+
+                "\n"+cartaPozo+"\nIngrese el numero de carta que quiere mostrar\nIngrese -1 para salir"),tamañoMano)) {
+                JOptionPane.showMessageDialog(null, "Numero ingresado no es valido");
+        }        
+                
+        
         if(Integer.parseInt(choice) == -1){
             return null;
         }
