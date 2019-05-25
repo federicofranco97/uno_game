@@ -4,18 +4,23 @@ package Persistencia;
 import Models.Carta;
 import Models.Jugador;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Persistencia {
-    File archivo=new File("Partida.txt");
-    ArrayList<String> kdena = new ArrayList<>();
-    ArrayList<Jugador> listaJugadores = new ArrayList<>();
-    Carta pozo = new Carta();
-    ArrayList<Carta> mazo = new ArrayList<>();
-
+    private File archivo=new File("Partida.txt");
+    private ArrayList<String> kdena = new ArrayList<>();
+    private ArrayList<Jugador> listaJugadores = new ArrayList<>();
+    private Carta pozo = new Carta();
+    private ArrayList<Carta> mazo = new ArrayList<>();
+    private int jugadorFocus=1;
+    
     public ArrayList<Jugador> getListaJugadores() {
         return listaJugadores;
     }
@@ -54,7 +59,61 @@ public class Persistencia {
         }        
     }
     
-    public void agregarJugadores(){
+    public String jString(){
+        String data="";
+        for (Jugador jug : listaJugadores) {
+            data+="JUGADOR\n";
+            data+=jug.getNombre()+"\n"+jug.getClave()+"\n-";
+            for (Carta carta : jug.getManoCartas()) {
+                data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+                if (jug.getManoCartas().indexOf(carta)!=jug.getManoCartas().size()-1){
+                    data+=",";
+                }
+            }
+            data+="-\n";            
+        }   
+        data+="FOCUS\n"+jugadorFocus;
+        return data;
+    }
+    
+    public void escribirArchivo(){
+        //limpiar el fichero
+        try {
+            
+            PrintWriter writer = new PrintWriter(archivo);
+            writer.print("");
+            writer.close();
+        } catch (IOException ex) {}
+        
+        //reescribir fichero
+        try{
+            FileWriter escribir = new FileWriter(archivo,true);
+            BufferedWriter f = new BufferedWriter(escribir);
+            //agrega los jugadores y sus cartas como string
+            f.write(jString());
+            f.newLine();
+            f.write(mString());
+            f.newLine();
+                
+            
+            f.close();
+        }catch(IOException e){}
+    }
+    
+    public String mString(){
+        String data="MAZO\n-";
+        for (Carta carta : mazo) {
+            data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+            if (mazo.indexOf(carta)!=mazo.size()-1){
+                data+=",";
+            }
+        }
+        data+="-";
+        data+="\nPOZO\n"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor();
+        return data;
+    }
+    
+    public void agregarData(){
         for (int i = 0; i < kdena.size(); i++) {
             if (kdena.get(i).equals("JUGADOR")) {
                 Jugador jugador = new Jugador(kdena.get(i+1), kdena.get(i+2));
@@ -77,17 +136,15 @@ public class Persistencia {
                 String [] aux = (kdena.get(i+1).replaceAll("-", "")).split(",");
                 for (String string : aux) {
                     String [] aux2=string.split(" ");
-                    Carta carta = new Carta(aux2[0], aux2[1], aux2[2]);
-                    mazo.add(carta);
-                    
+                    Carta carta = new Carta(aux2[2], aux2[1], aux2[0]);
+                    mazo.add(carta);                    
                 }
             }
             
+            if(kdena.get(i).equals("FOCUS")){
+                jugadorFocus=Integer.parseInt(kdena.get(i+1));
+            }            
         }
-    }
-    
-    public void guardarJugador(){
-        
     }
     
     public void imprimirMazo(){
@@ -103,8 +160,8 @@ public class Persistencia {
     public static void main(String[] args) {
         Persistencia persistencia = new Persistencia();
         persistencia.leerArchivo();
-        persistencia.agregarJugadores();
-        persistencia.getListaJugadores().get(0).imprimirMano();
+        persistencia.agregarData();
+        persistencia.escribirArchivo();
         
         
     }//fin main
