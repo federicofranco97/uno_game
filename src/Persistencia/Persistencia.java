@@ -19,9 +19,15 @@ public class Persistencia {
     private ArrayList<Jugador> listaJugadores = new ArrayList<>();
     private Carta pozo = new Carta();
     private ArrayList<Carta> mazo = new ArrayList<>();
-    private int jugadorFocus=1;
+    private int jugadorFocus=-1;
 
-    public Persistencia() {}
+    public Persistencia() {
+        
+    }
+
+    public int getJugadorFocus() {
+        return jugadorFocus;
+    }
     
     public ArrayList<Jugador> getListaJugadores() {
         return listaJugadores;
@@ -137,6 +143,7 @@ public class Persistencia {
         Persistencia persistencia = new Persistencia();
         persistencia.leerArchivo();
         persistencia.agregarData();
+        
         
         
         

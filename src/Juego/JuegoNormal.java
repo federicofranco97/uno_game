@@ -28,6 +28,7 @@ public class JuegoNormal {
      */
     public void llenarMazos() {
         Mazo mazoPrincipal = new Mazo();
+        mazoPrincipal.llenarMazo();
         Mazo mazoSecundario = mazoPrincipal;
         listaMazos.addAll(Arrays.asList(mazoPrincipal, mazoSecundario));
     }
@@ -401,6 +402,7 @@ public class JuegoNormal {
                 preguntarMovida(nextPlayer());
                 break;
             case (salir):
+                guardarData();
                 System.exit(0);
             case (casodefault):
                 JOptionPane.showMessageDialog(null, "¡El valor ingresado no es valido!");
@@ -629,38 +631,18 @@ public class JuegoNormal {
     public void guardarData(){
         persistencia.escribirArchivo(jString(), mString());
     }
-    
-    public void agregarData(){
-        for (int i = 0; i < kdena.size(); i++) {
-            if (kdena.get(i).equals("JUGADOR")) {
-                Jugador jugador = new Jugador(kdena.get(i+1), kdena.get(i+2));
-                String aux1= kdena.get(i+3).replaceAll("-", "");
-                String [] cartaLista = aux1.split(",");
-                for (String carta : cartaLista) {
-                    String [] aux2=carta.split(" ");
-                    jugador.addCartas(Arrays.asList(new Carta(aux2[2], aux2[1], aux2[0])));
-                }
-                listaJugadores.add(jugador);
-            }
-            if (kdena.get(i).equals("POZO")) {
-                String [] aux=kdena.get(i+1).split(" ");
-                pozo.setValor(aux[0]);
-                pozo.setTipo(aux[1]);
-                pozo.setColor(aux[2]);
-            }
-            
-            if(kdena.get(i).equals("MAZO")){
-                String [] aux = (kdena.get(i+1).replaceAll("-", "")).split(",");
-                for (String string : aux) {
-                    String [] aux2=string.split(" ");
-                    Carta carta = new Carta(aux2[2], aux2[1], aux2[0]);
-                    getMazo().add(carta);                    
-                }
-            }
-            
-            if(kdena.get(i).equals("FOCUS")){
-                jugadorFocus=Integer.parseInt(kdena.get(i+1));
-            }            
-        }
+   
+    public void cargarData(){
+        persistencia.leerArchivo();
+        persistencia.agregarData();
+        setPozo(persistencia.getPozo());
+        listaJugadores=persistencia.getListaJugadores();
+        Mazo mazo = new Mazo();        
+        mazo.agregarCartas(persistencia.getMazo());
+        Mazo aux = new Mazo();
+        aux.llenarMazo();
+        listaMazos.add(mazo);
+        listaMazos.add(aux);
+        jugadorFocus=persistencia.getJugadorFocus();
     }
 }

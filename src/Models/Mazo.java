@@ -9,9 +9,9 @@ public class Mazo {
     private ArrayList<Carta> mazoPrincipal= new ArrayList<>();
 
     public Mazo() {
-        llenarMazo();
+     
     }
-
+    
     /*
     Llena el mazo con cartas numericas de los 4 colores mas las cartas especiales
     */
@@ -91,5 +91,9 @@ public class Mazo {
     
     public void removeCartas(Collection<Carta> lista){
         mazoPrincipal.removeAll(lista);
+    }
+    
+    public void agregarCartas(Collection<Carta> lista){
+        mazoPrincipal.addAll(lista);
     }
 }
