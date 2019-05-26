@@ -20,6 +20,8 @@ public class Persistencia {
     private Carta pozo = new Carta();
     private ArrayList<Carta> mazo = new ArrayList<>();
     private int jugadorFocus=1;
+
+    public Persistencia() {}
     
     public ArrayList<Jugador> getListaJugadores() {
         return listaJugadores;
@@ -58,25 +60,12 @@ public class Persistencia {
             System.out.println(e);
         }        
     }
-    
-    public String jString(){
-        String data="";
-        for (Jugador jug : listaJugadores) {
-            data+="JUGADOR\n";
-            data+=jug.getNombre()+"\n"+jug.getClave()+"\n-";
-            for (Carta carta : jug.getManoCartas()) {
-                data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
-                if (jug.getManoCartas().indexOf(carta)!=jug.getManoCartas().size()-1){
-                    data+=",";
-                }
-            }
-            data+="-\n";            
-        }   
-        data+="FOCUS\n"+jugadorFocus;
-        return data;
+
+    public ArrayList<String> getKdena() {
+        return kdena;
     }
     
-    public void escribirArchivo(){
+    public void escribirArchivo(String j,String m){
         //limpiar el fichero
         try {
             
@@ -90,27 +79,14 @@ public class Persistencia {
             FileWriter escribir = new FileWriter(archivo,true);
             BufferedWriter f = new BufferedWriter(escribir);
             //agrega los jugadores y sus cartas como string
-            f.write(jString());
+            f.write(j);
             f.newLine();
-            f.write(mString());
+            f.write(m);
             f.newLine();
                 
             
             f.close();
         }catch(IOException e){}
-    }
-    
-    public String mString(){
-        String data="MAZO\n-";
-        for (Carta carta : mazo) {
-            data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
-            if (mazo.indexOf(carta)!=mazo.size()-1){
-                data+=",";
-            }
-        }
-        data+="-";
-        data+="\nPOZO\n"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor();
-        return data;
     }
     
     public void agregarData(){
@@ -161,7 +137,7 @@ public class Persistencia {
         Persistencia persistencia = new Persistencia();
         persistencia.leerArchivo();
         persistencia.agregarData();
-        persistencia.escribirArchivo();
+        
         
         
     }//fin main

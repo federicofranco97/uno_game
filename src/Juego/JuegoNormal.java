@@ -3,6 +3,7 @@ package Juego;
 import Models.Carta;
 import Models.Jugador;
 import Models.Mazo;
+import Persistencia.Persistencia;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -16,11 +17,11 @@ public class JuegoNormal {
     private boolean rondaHoraria = true;
     private Carta pozo = new Carta();
     static int acumulador = 0;
+    private Persistencia persistencia = new Persistencia();
+    private ArrayList<String> kdena= persistencia.getKdena();
 
-    public JuegoNormal() {
-    }
-
-
+    public JuegoNormal() {}
+    
     /*
      Crea el mazo principal del juego y uno de respaldo. Los dos se añaden a la lista
      de mazos
@@ -570,5 +571,96 @@ public class JuegoNormal {
         return false;
     }
 
+    public boolean isRondaHoraria() {
+        return rondaHoraria;
+    }
 
+    public void setRondaHoraria(boolean rondaHoraria) {
+        this.rondaHoraria = rondaHoraria;
+    }
+
+    public Carta getPozo() {
+        return pozo;
+    }
+
+    public void setPozo(Carta pozo) {
+        this.pozo = pozo;
+    }
+    
+    public ArrayList<Jugador> getListaJug(){
+        return listaJugadores;
+    }
+
+    public ArrayList<Carta> getMazo(){
+        return listaMazos.get(0).getMazoPrincipal();
+    }
+    
+    public String mString(){
+        String data="MAZO\n-";
+        for (Carta carta : getMazo()) {
+            data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+            if (getMazo().indexOf(carta)!=getMazo().size()-1){
+                data+=",";
+            }
+        }
+        data+="-";
+        data+="\nPOZO\n"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor();
+        return data;
+    }
+    
+    public String jString(){
+        String data="";
+        for (Jugador jug : listaJugadores) {
+            data+="JUGADOR\n";
+            data+=jug.getNombre()+"\n"+jug.getClave()+"\n-";
+            for (Carta carta : jug.getManoCartas()) {
+                data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+                if (jug.getManoCartas().indexOf(carta)!=jug.getManoCartas().size()-1){
+                    data+=",";
+                }
+            }
+            data+="-\n";            
+        }   
+        data+="FOCUS\n"+jugadorFocus;
+        return data;
+    }
+    
+    
+    public void guardarData(){
+        persistencia.escribirArchivo(jString(), mString());
+    }
+    
+    public void agregarData(){
+        for (int i = 0; i < kdena.size(); i++) {
+            if (kdena.get(i).equals("JUGADOR")) {
+                Jugador jugador = new Jugador(kdena.get(i+1), kdena.get(i+2));
+                String aux1= kdena.get(i+3).replaceAll("-", "");
+                String [] cartaLista = aux1.split(",");
+                for (String carta : cartaLista) {
+                    String [] aux2=carta.split(" ");
+                    jugador.addCartas(Arrays.asList(new Carta(aux2[2], aux2[1], aux2[0])));
+                }
+                listaJugadores.add(jugador);
+            }
+            if (kdena.get(i).equals("POZO")) {
+                String [] aux=kdena.get(i+1).split(" ");
+                pozo.setValor(aux[0]);
+                pozo.setTipo(aux[1]);
+                pozo.setColor(aux[2]);
+            }
+            
+            if(kdena.get(i).equals("MAZO")){
+                String [] aux = (kdena.get(i+1).replaceAll("-", "")).split(",");
+                for (String string : aux) {
+                    String [] aux2=string.split(" ");
+                    Carta carta = new Carta(aux2[2], aux2[1], aux2[0]);
+                    getMazo().add(carta);                    
+                }
+            }
+            
+            if(kdena.get(i).equals("FOCUS")){
+                jugadorFocus=Integer.parseInt(kdena.get(i+1));
+            }            
+        }
+    }
 }
