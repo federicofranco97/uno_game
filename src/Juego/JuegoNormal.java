@@ -42,6 +42,9 @@ public class JuegoNormal {
         Jugador jugador3 = new Jugador("Jugador3");
         jugador3.setManoCartas(generarMano());
         listaJugadores.addAll(Arrays.asList(jugador, jugador2, jugador3));
+        for (Jugador jug : listaJugadores) {
+            jug.setClave("test");
+        }
     }
 
     /*
@@ -76,10 +79,12 @@ public class JuegoNormal {
             int random = (int) (Math.random() * mazo.getMazoPrincipal().size());
             mano.add(mazo.getMazoPrincipal().get(random));
         }
-
         return mano;
     }
-
+    
+    public boolean validarClave(String claveInput,Jugador j){
+        return j.getClave().equals(claveInput);
+    }
 
     /*
     Elige una carta aleatoria del mazo, que no sea una carta especial, y la saca del
@@ -307,12 +312,18 @@ public class JuegoNormal {
     (Faltan implementar)
     */
     public void preguntarMovida(Jugador j) {
+        j.setVecesEnMenu(j.getVecesEnMenu()+1);
         if(checkPerder()){
             JOptionPane.showMessageDialog(null, "Queda solo un jugador, la partida termino!");
             //mostar resultados de la partida
             //volver menu principal
             System.exit(0);
         }
+        if(j.getVecesEnMenu()==1){
+            while (!validarClave(JOptionPane.showInputDialog("Ingrese la clave de "+j.getNombre()),j)) {
+                JOptionPane.showMessageDialog(null, "La clave ingresada no es valida");
+            }
+        }        
         String msj = "1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Validar mano\n6-Pasar turno\n"
                 + "7-Tirar Valida\n8-Elegir Carta para Tirar\n10-Salir";
         int opcion;
@@ -427,6 +438,9 @@ public class JuegoNormal {
     (A mejorar el codigo, pero funciona)
     */
     public Jugador nextPlayer() {
+        for (Jugador jug : listaJugadores) {
+            jug.setVecesEnMenu(0);
+        }
         incrementFocus();
         int nextPlayer = jugadorFocus;
         return listaJugadores.get(nextPlayer);
