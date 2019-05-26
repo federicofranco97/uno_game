@@ -290,6 +290,17 @@ public class JuegoNormal {
 
     }
     
+    public void mensajeEntrada(){
+        JOptionPane.showMessageDialog(null, "¡Bienvenido al UNO!");
+    }
+    
+    public void checkCantidadCartas(Carta c){
+        int tamañoActual=listaMazos.get(0).getMazoPrincipal().size();
+        if(c.getTipo().equals("especial") && c.getValor().equals("+4") || c.getValor().equals("+2") && tamañoActual<4 ){
+            refillMazo();
+        }
+    }
+    
     /*
     Checkea si el mazo principal esta vacio, si lo esta lo rellena usando el refil
     */
@@ -456,6 +467,7 @@ public class JuegoNormal {
     */
     public void aplicarCartaEspecial(Carta c) {
         checkMazoVacio();
+        checkCantidadCartas(c);
         String tipoCarta = c.getTipo();
         String valorCarta = c.getValor();
         if (tipoCarta.equals("numero")) return;
@@ -486,7 +498,8 @@ public class JuegoNormal {
                 cambioColor();
                 break;
             case ("skip"):
-                //falta implementar
+                nextPlayer();
+                preguntarMovida(nextPlayer());
                 break;
 
             case ("spin"):
