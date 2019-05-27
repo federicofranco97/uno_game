@@ -1,5 +1,7 @@
 package Juego;
 
+import GUI.MenuPrincipal;
+import GUI.ingresoClave;
 import Models.Carta;
 import Models.Jugador;
 import Models.Mazo;
@@ -320,6 +322,18 @@ public class JuegoNormal {
         listaMazos.get(0).getMazoPrincipal().addAll(listaMazos.get(1).getMazoPrincipal());
     }
 
+    public boolean otraValidacion(Jugador j){
+        JPasswordField pwd = new JPasswordField();
+        JOptionPane.showConfirmDialog(null, pwd, "Ingrese su clave "+j.getNombre(),JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if(pwd.getText().equals(j.getClave())){
+            return true;
+        }else{
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+            otraValidacion(j);
+        }
+        return false;            
+    }
+    
     /*
     Accion a tomar en el turno
     (Faltan implementar)
@@ -333,12 +347,13 @@ public class JuegoNormal {
             System.exit(0);
         }
         if(j.getVecesEnMenu()==1){
-            while (!validarClave(JOptionPane.showInputDialog("Ingrese la clave de "+j.getNombre()),j)) {
-                JOptionPane.showMessageDialog(null, "La clave ingresada no es valida");
-            }
+            otraValidacion(j);            
+//            while (!validarClave(JOptionPane.showInputDialog("Ingrese la clave de "+j.getNombre()),j)) {
+//                JOptionPane.showMessageDialog(null, "La clave ingresada no es valida");
+//            }
         }        
         String msj = "1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Validar mano\n6-Pasar turno\n"
-                + "7-Tirar Valida\n8-Elegir Carta para Tirar\n10-Salir";
+                + "7-Tirar Valida\n8-Elegir Carta para Tirar\n10-Guardar y Salir";
         int opcion;
         try {
             opcion = Integer.parseInt(JOptionPane.showInputDialog(msj));
