@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 public class Persistencia {
     private File archivo=new File("Partida.txt");
     private ArrayList<String> kdena = new ArrayList<>();
@@ -20,6 +19,7 @@ public class Persistencia {
     private Carta pozo = new Carta();
     private ArrayList<Carta> mazo = new ArrayList<>();
     private int jugadorFocus=-1;
+    private int valid=0;
 
     public Persistencia() {
         
@@ -70,6 +70,11 @@ public class Persistencia {
     public ArrayList<String> getKdena() {
         return kdena;
     }
+ 
+    public String generarValidKdena(String algo){
+        int tamaño=algo.length();
+        return "V\n"+String.valueOf(tamaño);
+    }
     
     public void escribirArchivo(String j,String m){
         //limpiar el fichero
@@ -85,9 +90,10 @@ public class Persistencia {
             FileWriter escribir = new FileWriter(archivo,true);
             BufferedWriter f = new BufferedWriter(escribir);
             //agrega los jugadores y sus cartas como string
-            f.write(j);
+            String conjunto=j+"\n"+m;
+            f.write(conjunto);
             f.newLine();
-            f.write(m);
+            f.write(generarValidKdena(conjunto));
             f.newLine();
                 
             
@@ -126,7 +132,51 @@ public class Persistencia {
             if(kdena.get(i).equals("FOCUS")){
                 jugadorFocus=Integer.parseInt(kdena.get(i+1));
             }            
+            
+            if(kdena.get(i).equals("V")) valid=Integer.parseInt(kdena.get(i+1));
         }
+        if (validarData()) {
+            System.out.println("Es valido el fichero");
+        }else{
+            System.out.println("Fichero corrupto");
+            //falta implementar que haga algo como no cargar la partida
+        }
+    }
+    
+    public boolean validarData(){
+        String conjunto=jString()+"\n"+mString();
+        int validNumber=conjunto.length()*31;
+        return validNumber==valid;
+    }
+    
+    public String mString(){
+        String data="MAZO\n-";
+        for (Carta carta : getMazo()) {
+            data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+            if (getMazo().indexOf(carta)!=getMazo().size()-1){
+                data+=",";
+            }
+        }
+        data+="-";
+        data+="\nPOZO\n"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor();
+        return data;
+    }
+    
+    public String jString(){
+        String data="";
+        for (Jugador jug : listaJugadores) {
+            data+="JUGADOR\n";
+            data+=jug.getNombre()+"\n"+jug.getClave()+"\n-";
+            for (Carta carta : jug.getManoCartas()) {
+                data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+                if (jug.getManoCartas().indexOf(carta)!=jug.getManoCartas().size()-1){
+                    data+=",";
+                }
+            }
+            data+="-\n";            
+        }   
+        data+="FOCUS\n"+jugadorFocus;
+        return data;
     }
     
     public void imprimirMazo(){
@@ -148,5 +198,5 @@ public class Persistencia {
         
         
     }//fin main
-    
+
 }
