@@ -1,20 +1,16 @@
 JUGADOR
 Marcos
 test
--7 numero azul,+2 especial verde,6 numero azul,spin especial amarillo,+4 especial joker,9 numero azul,skip especial azul-
+-4 numero rojo,0 numero amarillo,3 numero verde,1 numero verde,1 numero rojo,4 numero rojo,color especial joker-
 JUGADOR
 Juan
 test
--5 numero azul,color especial joker,6 numero verde,2 numero verde,2 numero amarillo,+2 especial rojo,skip especial verde-
-JUGADOR
-Matias
-test
--5 numero azul,2 numero amarillo,2 numero azul,0 numero rojo,skip especial azul,6 numero rojo,5 numero rojo-
+-1 numero rojo,color especial joker,0 numero verde,2 numero rojo,3 numero amarillo,1 numero verde,0 numero amarillo-
 FOCUS
 0
 MAZO
--skip especial azul,spin especial amarillo,+4 especial joker,+4 especial joker,skip especial verde,spin especial rojo,spin especial azul,skip especial verde,+2 especial azul,+2 especial amarillo,skip especial rojo,color especial joker,spin especial amarillo,+2 especial amarillo,+2 especial verde,spin especial azul,+2 especial verde,+2 especial rojo,+2 especial azul,spin especial verde,+4 especial joker,+4 especial joker,skip especial rojo,+2 especial rojo,color especial joker,color especial joker,skip especial azul,color especial joker,spin especial verde,skip especial amarillo,spin especial rojo,skip especial amarillo-
+-+2 especial azul,skip especial amarillo,color especial joker,7 numero rojo,spin especial rojo,+4 especial joker,+2 especial azul,7 numero verde,7 numero amarillo,spin especial azul,color especial joker,+2 especial amarillo,skip especial verde,+2 especial verde,spin especial verde,+2 especial amarillo,7 numero amarillo,+2 especial rojo,4 numero rojo,+4 especial joker,+4 especial joker,0 numero verde,spin especial rojo,4 numero rojo,1 numero rojo,8 numero verde,skip especial rojo,color especial joker,+2 especial verde,8 numero azul,+2 especial rojo,spin especial azul,0 numero azul,1 numero verde,skip especial azul,7 numero azul,skip especial amarillo,skip especial verde,skip especial azul,1 numero azul,spin especial verde,color especial joker,skip especial rojo,+4 especial joker,spin especial amarillo,spin especial amarillo-
 POZO
-4 numero azul
+1 numero amarillo
 V
-1070
+35309

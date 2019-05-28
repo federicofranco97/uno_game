@@ -73,7 +73,7 @@ public class Persistencia {
  
     public String generarValidKdena(String algo){
         int tamaño=algo.length();
-        return "V\n"+String.valueOf(tamaño);
+        return "V\n"+String.valueOf(tamaño*31);
     }
     
     public void escribirArchivo(String j,String m){
