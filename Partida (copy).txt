@@ -1,12 +1,20 @@
-POZO
-4 numero verde
 JUGADOR
-pepe
-pepito
--2 numero rojo,4 numero verde,+2 especial rojo,+2 especial azul-
+Marcos
+test
+-7 numero azul,+2 especial verde,6 numero azul,spin especial amarillo,+4 especial joker,9 numero azul,skip especial azul-
 JUGADOR
-martin
-tincho
--2 numero azul,9 numero verde-
+Juan
+test
+-5 numero azul,color especial joker,6 numero verde,2 numero verde,2 numero amarillo,+2 especial rojo,skip especial verde-
+JUGADOR
+Matias
+test
+-5 numero azul,2 numero amarillo,2 numero azul,0 numero rojo,skip especial azul,6 numero rojo,5 numero rojo-
+FOCUS
+0
 MAZO
--2 numero rojo,4 numero verde,+2 especial rojo,+2 especial azul-
+-skip especial azul,spin especial amarillo,+4 especial joker,+4 especial joker,skip especial verde,spin especial rojo,spin especial azul,skip especial verde,+2 especial azul,+2 especial amarillo,skip especial rojo,color especial joker,spin especial amarillo,+2 especial amarillo,+2 especial verde,spin especial azul,+2 especial verde,+2 especial rojo,+2 especial azul,spin especial verde,+4 especial joker,+4 especial joker,skip especial rojo,+2 especial rojo,color especial joker,color especial joker,skip especial azul,color especial joker,spin especial verde,skip especial amarillo,spin especial rojo,skip especial amarillo-
+POZO
+4 numero azul
+V
+1070
