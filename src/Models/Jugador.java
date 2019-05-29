@@ -9,9 +9,11 @@ public class Jugador {
     private String nombre;
     private ArrayList<Carta> manoCartas= new ArrayList<>();
     private String clave;
-
+    private int vecesEnMenu;
+    
     public Jugador(String nombre) {
-        this.nombre = nombre;
+        this(nombre, "");
+        //this.nombre = nombre;
        
     }
     
@@ -21,6 +23,18 @@ public class Jugador {
         
     }
 
+    public int getVecesEnMenu() {
+        return vecesEnMenu;
+    }
+
+    public void setVecesEnMenu(int vecesEnMenu) {
+        this.vecesEnMenu = vecesEnMenu;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+    
     public String getClave() {
         return clave;
     }

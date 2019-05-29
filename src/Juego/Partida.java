@@ -1,5 +1,7 @@
 package Juego;
 
+import javax.swing.JOptionPane;
+
 public class Partida {
     /*
     pasos:
@@ -11,9 +13,11 @@ public class Partida {
     
     public Partida(){
         JuegoNormal juego = new JuegoNormal();
-        juego.llenarMazos();
-        juego.llenarJugadores();
+        //juego.llenarMazos();
+        //juego.llenarJugadores();
+        juego.cargarData();
         juego.primerCartaPozo();
+        juego.mensajeEntrada();           
         //juego.preguntarJugadores();
         juego.preguntarMovida(juego.getListaJugadores().get(juego.getJugadorFocus()));
     }

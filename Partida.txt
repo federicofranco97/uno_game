@@ -1,0 +1,16 @@
+JUGADOR
+Marcos
+test
+-4 numero rojo,0 numero amarillo,3 numero verde,1 numero verde,1 numero rojo,4 numero rojo,color especial joker-
+JUGADOR
+Juan
+test
+-1 numero rojo,color especial joker,0 numero verde,2 numero rojo,3 numero amarillo,1 numero verde,0 numero amarillo-
+FOCUS
+0
+MAZO
+-+2 especial azul,skip especial amarillo,color especial joker,7 numero rojo,spin especial rojo,+4 especial joker,+2 especial azul,7 numero verde,7 numero amarillo,spin especial azul,color especial joker,+2 especial amarillo,skip especial verde,+2 especial verde,spin especial verde,+2 especial amarillo,7 numero amarillo,+2 especial rojo,4 numero rojo,+4 especial joker,+4 especial joker,0 numero verde,spin especial rojo,4 numero rojo,1 numero rojo,8 numero verde,skip especial rojo,color especial joker,+2 especial verde,8 numero azul,+2 especial rojo,spin especial azul,0 numero azul,1 numero verde,skip especial azul,7 numero azul,skip especial amarillo,skip especial verde,skip especial azul,1 numero azul,spin especial verde,color especial joker,skip especial rojo,+4 especial joker,spin especial amarillo,spin especial amarillo-
+POZO
+1 numero amarillo
+V
+35309

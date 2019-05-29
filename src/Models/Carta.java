@@ -15,11 +15,6 @@ public class Carta {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-    public Carta(String tipo, String valor) {
-        this.valor = valor;
-        this.tipo = tipo;
-    }
     
     public Carta(String color, String tipo,String valor) {
         this.color = color;
@@ -49,7 +44,7 @@ public class Carta {
     siguiente carta que se tira.
     */
     public boolean validarCarta(Carta c){
-        if(getTipo().equals("especial") && (getValor().equals("+4") || getValor().equals("color"))){
+        if(c.getTipo().equals("especial") && (c.getValor().equals("+4") || c.getValor().equals("color"))){
             return true;
         }
         if(getColor().equals(c.getColor()) || getValor().equals(c.getValor())){
