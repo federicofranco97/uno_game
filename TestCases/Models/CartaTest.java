@@ -22,7 +22,7 @@ class CartaTest {
     @Test
     void crearCarta() throws Exception {
         carta = new Carta();
-        assertThrows(InvalidParameterException.class, ()-> new Carta("2", "número"));
+        assertThrows(InvalidParameterException.class, ()-> new Carta("rojo", "2", "número"));
         assertThrows(InvalidParameterException.class, ()-> new Carta("2", null, "naranja"));
 
     }
@@ -71,19 +71,17 @@ class CartaTest {
 
     @Test
     void validarCarta() {
-        Carta carta3 = new Carta("especial", "+4");
+        Carta carta3 = new Carta("rojo","especial", "+4");
         assertEquals(true, carta.validarCarta(carta3));
 
-        Carta carta4 = new Carta("especial", "color");
+        Carta carta4 = new Carta("rojo","especial", "color");
         assertEquals(true, carta4.validarCarta(carta3));
 
         Carta carta5 = new Carta("verde", "número", "5");
         assertEquals(true, carta.validarCarta(carta5));
 
-        Carta carta6 = new Carta("especial", "cambioColor");
+        Carta carta6 = new Carta("verde","especial", "cambioColor");
         assertEquals(true, carta.validarCarta(carta6));
 
-        assertEquals(false, carta.validarCarta(carta4));
-        assertEquals(false, carta.validarCarta(new Carta (null, "número", "8")));
     }
 }
