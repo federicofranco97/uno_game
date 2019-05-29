@@ -78,7 +78,7 @@ public class JuegoNormal {
     public ArrayList<Carta> generarMano() {
         ArrayList<Carta> mano = new ArrayList<>();
         Mazo mazo = listaMazos.get(0);
-        final int tamañoMano=7;
+        final int tamañoMano=2;
         for (int i = 0; i < tamañoMano; i++) {
             int random = (int) (Math.random() * mazo.getMazoPrincipal().size());
             mano.add(mazo.getMazoPrincipal().get(random));
@@ -298,6 +298,19 @@ public class JuegoNormal {
         JOptionPane.showMessageDialog(null, "¡Bienvenido al UNO!");
     }
     
+    public void checkManoJug(Jugador j){
+        int tamañoMano= j.getManoCartas().size();
+        if(tamañoMano == 1){
+            System.out.println("UNO");
+            JOptionPane.showMessageDialog(null, "UNO!");
+            
+        }
+        if(tamañoMano==0){
+            JOptionPane.showMessageDialog(null, "El jugador "+j.getNombre()+" se ha quedado sin cartas!");
+            listaJugadores.remove(j);
+        }
+    }
+    
     public void checkCantidadCartas(Carta c){
         int tamañoActual=listaMazos.get(0).getMazoPrincipal().size();
         if(c.getTipo().equals("especial") && c.getValor().equals("+4") || c.getValor().equals("+2") && tamañoActual<4 ){
@@ -386,6 +399,7 @@ public class JuegoNormal {
             case (tirarCartaRandom):
                 turnoJugador(j);
                 verificarEspecial(pozo);
+                checkManoJug(j);
                 JOptionPane.showMessageDialog(null, "Tu turno: " + listaJugadores.get(jugadorFocus+1).getNombre());
                 preguntarMovida(nextPlayer());
                 break;
@@ -410,10 +424,14 @@ public class JuegoNormal {
                 break;
             case (tirarValida):
                 tirarValida(j);
+                checkManoJug(j);
+                checkPerder();
                 preguntarMovida(nextPlayer());
                 break;
             case (elegirCartaJugador):
                 tirarEleccion(j);
+                checkManoJug(j);
+                checkPerder();
                 preguntarMovida(nextPlayer());
                 break;
             case (salir):
@@ -474,7 +492,26 @@ public class JuegoNormal {
         int nextPlayer = jugadorFocus;
         return listaJugadores.get(nextPlayer);
     }
-
+    
+    public int numeroSiguiente(){
+        int lastPlayer = jugadorFocus;
+        int siguiente;
+        if (rondaHoraria) {
+            if (lastPlayer + 1 == listaJugadores.size()) {
+                siguiente = 0;
+            } else {
+                siguiente = lastPlayer + 1;
+            }
+        } else {
+            if (lastPlayer - 1 < 0) {
+                siguiente = listaJugadores.size() - 1;
+            } else {
+                siguiente = lastPlayer - 1;
+            }
+        }
+        return siguiente;
+    }
+    
     /*
     Falta implementar
     Metodo que toma la carta especial, y lleva a cabo la accion que trae la carta.
@@ -493,25 +530,25 @@ public class JuegoNormal {
         switch (valorCarta) {
 
             case ("+2"):
-                int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
+                int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta ca1 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom);
-                int numeroRandom2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size() - 1);
+                int numeroRandom2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size() - 2);
                 Carta ca2 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom2);
-                listaJugadores.get(jugadorFocus+1).addCartas(Arrays.asList(ca1, ca2));
+                listaJugadores.get(numeroSiguiente()).addCartas(Arrays.asList(ca1, ca2));
                 listaMazos.get(0).removeCartas(Arrays.asList(ca1, ca2));
                 break;
 
                 
             case ("+4"):
-                int n1 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
+                int n1 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta c1 = listaMazos.get(0).getMazoPrincipal().get(n1);
-                int n2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
+                int n2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta c2 = listaMazos.get(0).getMazoPrincipal().get(n2);
-                int n3 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
+                int n3 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta c3 = listaMazos.get(0).getMazoPrincipal().get(n3);
-                int n4 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
+                int n4 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta c4 = listaMazos.get(0).getMazoPrincipal().get(n4);
-                listaJugadores.get(jugadorFocus+1).addCartas(Arrays.asList(c1, c2, c3, c4));
+                listaJugadores.get(numeroSiguiente()).addCartas(Arrays.asList(c1, c2, c3, c4));
                 listaMazos.get(0).removeCartas(Arrays.asList(c1, c2, c3, c4));
                 cambioColor();
                 break;
