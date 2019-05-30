@@ -1,7 +1,5 @@
 package Juego;
 
-import GUI.MenuPrincipal;
-import GUI.ingresoClave;
 import Models.Carta;
 import Models.Jugador;
 import Models.Mazo;
@@ -52,6 +50,16 @@ public class JuegoNormal {
         }
     }
 
+    /*
+    Crea un jugador con 2 +4 para testear le funcionamiento de la partida
+    */
+    public void jugTrucado(){
+        Jugador jugadorr = new Jugador("Cheater");
+        Carta cartaa = new Carta("joker", "especial", "+4");
+        Carta cartaa2 = new Carta("joker", "especial", "+4");
+        jugadorr.addCartas(Arrays.asList(cartaa,cartaa2));
+        listaJugadores.add(jugadorr);
+    }
     /*
     Devuelve la lista con los jugadores
     */
