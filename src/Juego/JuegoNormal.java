@@ -20,6 +20,7 @@ public class JuegoNormal {
     static int acumulador = 0;
     private Persistencia persistencia = new Persistencia();
     private ArrayList<String> kdena= persistencia.getKdena();
+     final int tamañoMano=2;
 
     public JuegoNormal() {}
     
@@ -51,13 +52,14 @@ public class JuegoNormal {
     }
 
     /*
-    Crea un jugador con 2 +4 para testear le funcionamiento de la partida
+    Crea un jugador con todas cartas +4 para probar la partida
     */
     public void jugTrucado(){
         Jugador jugadorr = new Jugador("Cheater");
-        Carta cartaa = new Carta("joker", "especial", "+4");
-        Carta cartaa2 = new Carta("joker", "especial", "+4");
-        jugadorr.addCartas(Arrays.asList(cartaa,cartaa2));
+        for (int i = 0; i < tamañoMano; i++) {
+            Carta cartaa = new Carta("joker", "especial", "+4");
+            jugadorr.addCartas(Arrays.asList(cartaa));
+        }       
         listaJugadores.add(jugadorr);
     }
     /*
@@ -87,7 +89,6 @@ public class JuegoNormal {
     public ArrayList<Carta> generarMano() {
         ArrayList<Carta> mano = new ArrayList<>();
         Mazo mazo = listaMazos.get(0);
-        final int tamañoMano=2;
         for (int i = 0; i < tamañoMano; i++) {
             int random = (int) (Math.random() * mazo.getMazoPrincipal().size());
             mano.add(mazo.getMazoPrincipal().get(random));
