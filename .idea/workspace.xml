@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76affdea-bc8f-4cb3-9972-9063f4277b95" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Mazo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Mazo.java" afterDir="false" />
     </list>
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,17 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Juego/JuegoNormal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            <state relative-caret-position="418">
+              <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -57,15 +48,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Models/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
@@ -77,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Juego/NuevaPartida.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="228">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
@@ -86,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Models/Mazo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+            <state relative-caret-position="536">
+              <caret line="99" column="71" selection-start-line="99" selection-start-column="71" selection-end-line="99" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -97,6 +79,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
               <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1056">
+              <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -133,6 +133,7 @@
         <option value="$PROJECT_DIR$/src/Models/Carta.java" />
         <option value="$PROJECT_DIR$/src/Juego/JuegoNormal.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/Models/Mazo.java" />
         <option value="$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java" />
       </list>
     </option>
@@ -151,50 +152,6 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
-            <path>
-              <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Juego" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Persistencia" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Pruebas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-              <item name="TestCases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uno_game" type="462c0819:PsiDirectoryNode" />
-              <item name="TestCases" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
             <path>
               <item name="uno_game" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
@@ -242,7 +199,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Partida">
+  <component name="RunManager" selected="JUnit.JuegoNormalTest.llenarMazosTest">
     <configuration name="MenuPrincipal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Juego.MenuPrincipal" />
       <module name="uno_game" />
@@ -265,22 +222,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CartaTest.getColor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="uno_game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Models" />
-      <option name="MAIN_CLASS_NAME" value="Models.CartaTest" />
-      <option name="METHOD_NAME" value="getColor" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -317,13 +258,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JuegoNormalTest.llenarMazosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="uno_game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Juego.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Juego" />
+      <option name="MAIN_CLASS_NAME" value="Juego.JuegoNormalTest" />
+      <option name="METHOD_NAME" value="llenarMazosTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JuegoNormalTest.llenarMazosTest" />
         <item itemvalue="Application.Partida" />
         <item itemvalue="JUnit.CartaTest.validarCarta" />
         <item itemvalue="Application.MenuPrincipal" />
         <item itemvalue="JUnit.CartaTest.getValor" />
-        <item itemvalue="JUnit.CartaTest.getColor" />
       </list>
     </recent_temporary>
   </component>
@@ -341,21 +298,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CartaTest_validarCarta - 2019.05.17 at 14h 04m 25s.xml">
-      <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CartaTest_validarCarta - 2019.05.17 at 14h 05m 48s.xml">
-      <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CartaTest_validarCarta - 2019.05.17 at 14h 07m 02s.xml">
-      <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CartaTest_validarCarta - 2019.05.17 at 14h 12m 41s.xml">
-      <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CartaTest_validarCarta - 2019.05.17 at 14h 12m 53s.xml">
-      <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CartaTest_validarCarta - 2019.05.29 at 16h 37m 58s.xml">
       <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
     </history-entry>
@@ -371,11 +313,27 @@
     <history-entry file="CartaTest_validarCarta - 2019.05.29 at 16h 40m 17s.xml">
       <configuration name="CartaTest.validarCarta" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="JuegoNormalTest_llenarMazosTest - 2019.05.30 at 16h 19m 42s.xml">
+      <configuration name="JuegoNormalTest.llenarMazosTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JuegoNormalTest_llenarMazosTest - 2019.05.30 at 16h 20m 09s.xml">
+      <configuration name="JuegoNormalTest.llenarMazosTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JuegoNormalTest_llenarMazosTest - 2019.05.30 at 16h 27m 11s.xml">
+      <configuration name="JuegoNormalTest.llenarMazosTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JuegoNormalTest_llenarMazosTest - 2019.05.30 at 16h 31m 02s.xml">
+      <configuration name="JuegoNormalTest.llenarMazosTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JuegoNormalTest_llenarMazosTest - 2019.05.30 at 16h 31m 24s.xml">
+      <configuration name="JuegoNormalTest.llenarMazosTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-231" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.33082706" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.12137487" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" weight="0.32975295" />
@@ -383,12 +341,12 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33333334" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4051447" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.39121115" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.23901394" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.16747183" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.11272141" />
@@ -399,6 +357,31 @@
       <window_info anchor="right" id="Maven" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.12137487" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Learn" order="3" weight="0.32975295" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22079314" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.23901394" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.16747183" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.11272141" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -472,34 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Juego/NuevaPartida.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Models/Mazo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Persistencia/Persistencia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Models/Jugador.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -514,17 +469,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Persistencia/Persistencia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Juego/NuevaPartida.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Juego/JuegoNormal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        <state relative-caret-position="418">
+          <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Mazo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="99" column="71" selection-start-line="99" selection-start-column="71" selection-end-line="99" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state relative-caret-position="319">
+          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
         </state>
       </provider>
     </entry>
