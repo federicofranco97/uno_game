@@ -14,6 +14,7 @@ import java.util.Arrays;
 public class JuegoNormal {
 
     private ArrayList<Jugador> listaJugadores = new ArrayList<>();
+    private ArrayList<Jugador> listaGanadores = new ArrayList<>();
     private ArrayList<Mazo> listaMazos = new ArrayList<>();
     private int jugadorFocus = 0;
     private boolean rondaHoraria = true;
@@ -212,6 +213,7 @@ public class JuegoNormal {
                 pozo.setColor(cartaJugada.getColor());
             }
             j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            checkManoJug(j);
             if (pozo.getTipo().equals("especial")) aplicarCartaEspecial(pozo);
         } else {
 
@@ -280,6 +282,7 @@ public class JuegoNormal {
                 pozo.setColor(cartaJugada.getColor());
             }
             j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            checkManoJug(j);
             if (pozo.getTipo().equals("especial")) aplicarCartaEspecial(pozo);
         } else {
 
@@ -301,12 +304,12 @@ public class JuegoNormal {
     public void checkManoJug(Jugador j){
         int tamañoMano= j.getManoCartas().size();
         if(tamañoMano == 1){
-            System.out.println("UNO");
-            JOptionPane.showMessageDialog(null, "UNO!");
+            JOptionPane.showMessageDialog(null, "UNO! "+j.getNombre());
             
         }
         if(tamañoMano==0){
             JOptionPane.showMessageDialog(null, "El jugador "+j.getNombre()+" se ha quedado sin cartas!");
+            listaGanadores.add(j);
             listaJugadores.remove(j);
         }
     }
@@ -354,9 +357,13 @@ public class JuegoNormal {
     public void preguntarMovida(Jugador j) {
         j.setVecesEnMenu(j.getVecesEnMenu()+1);
         if(checkPerder()){
-            JOptionPane.showMessageDialog(null, "Queda solo un jugador, la partida termino!");
-            //mostar resultados de la partida
-            //volver menu principal
+            String ganadores="";
+            for (Jugador jug : listaGanadores) {
+                ganadores+=jug.getNombre()+"\n";
+            }
+            JOptionPane.showMessageDialog(null, "Queda solo un jugador, la partida termino!"
+                    + "\nLos ganadores fueron:\n"+ganadores);
+            
             System.exit(0);
         }
         if(j.getVecesEnMenu()==1){
@@ -399,7 +406,7 @@ public class JuegoNormal {
             case (tirarCartaRandom):
                 turnoJugador(j);
                 verificarEspecial(pozo);
-                checkManoJug(j);
+                
                 JOptionPane.showMessageDialog(null, "Tu turno: " + listaJugadores.get(jugadorFocus+1).getNombre());
                 preguntarMovida(nextPlayer());
                 break;
@@ -429,8 +436,7 @@ public class JuegoNormal {
                 preguntarMovida(nextPlayer());
                 break;
             case (elegirCartaJugador):
-                tirarEleccion(j);
-                checkManoJug(j);
+                tirarEleccion(j);                
                 checkPerder();
                 preguntarMovida(nextPlayer());
                 break;

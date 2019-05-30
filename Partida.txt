@@ -1,16 +1,16 @@
 JUGADOR
-Juan
-test
--5 numero verde,1 numero verde,6 numero rojo,6 numero rojo,+2 especial amarillo,5 numero amarillo,6 numero verde-
+Jugador1
+q
+-spin especial azul,1 numero azul,skip especial azul,4 numero azul,5 numero verde,1 numero verde-
 JUGADOR
-Marcos
-test
--skip especial amarillo,4 numero verde,+2 especial verde,3 numero verde,+2 especial amarillo,3 numero amarillo,+2 especial rojo-
+Jugador2
+q
+-+4 especial joker,6 numero amarillo,+4 especial joker,+4 especial joker,+2 especial azul,8 numero rojo-
 FOCUS
-1
+0
 MAZO
--spin especial azul,+2 especial rojo,+4 especial joker,skip especial azul,spin especial amarillo,spin especial verde,skip especial verde,skip especial rojo,skip especial amarillo,color especial joker,+2 especial amarillo,0 numero rojo,spin especial amarillo,color especial joker,7 numero rojo,+4 especial joker,+4 especial joker,8 numero amarillo,spin especial rojo,3 numero amarillo,9 numero verde,3 numero rojo,+4 especial joker,8 numero rojo,spin especial azul,skip especial verde,+2 especial verde,5 numero amarillo,skip especial azul,skip especial amarillo,+2 especial verde,5 numero rojo,color especial joker,color especial joker,+2 especial azul,skip especial rojo,+2 especial amarillo,spin especial rojo,6 numero verde,+2 especial azul,spin especial verde,+2 especial rojo-
+-+2 especial amarillo,skip especial azul,+4 especial joker,+4 especial joker,color especial joker,+2 especial azul,+4 especial joker,spin especial amarillo,spin especial verde,skip especial rojo,+2 especial rojo,skip especial amarillo,skip especial verde,+2 especial verde,spin especial azul,+2 especial azul,spin especial rojo,skip especial rojo,spin especial rojo,color especial joker,color especial joker,+4 especial joker,color especial joker,spin especial azul,skip especial verde,+2 especial rojo,+2 especial amarillo,skip especial amarillo,spin especial amarillo,skip especial azul,+2 especial verde,spin especial verde-
 POZO
-spin especial azul
+0 numero verde
 V
-34069
+27931
