@@ -50,5 +50,21 @@ class JuegoNormalTest {
 
     }
 
+    @Test
+    void validarClaveTest (){
+        String clave = "1234";
+        String claveIn = " ";
+        String claveIn2 = "  ";
+
+        Assertions.assertEquals(true, juego.validarNombre(clave));
+        Assertions.assertEquals(false, juego.validarNombre(claveIn));
+        Assertions.assertEquals(false, juego.validarNombre(claveIn2));
+
+    }
+
+
+
+
+
 
 }

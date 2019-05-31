@@ -23,7 +23,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Juego/JuegoNormal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-665">
+            <state relative-caret-position="-797">
               <caret line="571" column="27" selection-start-line="571" selection-start-column="16" selection-end-line="571" selection-end-column="27" />
             </state>
           </provider>
@@ -68,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
+            <state relative-caret-position="249">
               <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
             </state>
           </provider>
@@ -77,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+            <state relative-caret-position="371">
+              <caret line="60" column="67" selection-start-line="60" selection-start-column="67" selection-end-line="60" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -183,7 +183,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.JuegoNormalTest.validarNombreTest">
+  <component name="RunManager" selected="JUnit.JuegoNormalTest.validarClaveTest">
     <configuration name="Partida" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Juego.Partida" />
       <module name="uno_game" />
@@ -193,22 +193,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CartaTest.validarCarta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="uno_game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Models" />
-      <option name="MAIN_CLASS_NAME" value="Models.CartaTest" />
-      <option name="METHOD_NAME" value="validarCarta" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -245,6 +229,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JuegoNormalTest.validarClaveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="uno_game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Juego.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Juego" />
+      <option name="MAIN_CLASS_NAME" value="Juego.JuegoNormalTest" />
+      <option name="METHOD_NAME" value="validarClaveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JuegoNormalTest.validarNombreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="uno_game" />
       <extension name="coverage">
@@ -263,11 +263,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JuegoNormalTest.validarClaveTest" />
         <item itemvalue="JUnit.JuegoNormalTest.validarNombreTest" />
         <item itemvalue="JUnit.JuegoNormalTest.getListaJugadoresTest" />
         <item itemvalue="JUnit.JuegoNormalTest.llenarMazosTest" />
         <item itemvalue="Application.Partida" />
-        <item itemvalue="JUnit.CartaTest.validarCarta" />
       </list>
     </recent_temporary>
   </component>
@@ -285,15 +285,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JuegoNormalTest_llenarMazosTest - 2019.05.30 at 16h 20m 09s.xml">
-      <configuration name="JuegoNormalTest.llenarMazosTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JuegoNormalTest_llenarMazosTest - 2019.05.30 at 16h 27m 11s.xml">
-      <configuration name="JuegoNormalTest.llenarMazosTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JuegoNormalTest_llenarMazosTest - 2019.05.30 at 16h 31m 02s.xml">
-      <configuration name="JuegoNormalTest.llenarMazosTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="JuegoNormalTest_llenarMazosTest - 2019.05.30 at 16h 31m 24s.xml">
       <configuration name="JuegoNormalTest.llenarMazosTest" configurationId="JUnit" />
     </history-entry>
@@ -314,6 +305,15 @@
     </history-entry>
     <history-entry file="JuegoNormalTest_getListaJugadoresTest - 2019.05.31 at 17h 51m 24s.xml">
       <configuration name="JuegoNormalTest.getListaJugadoresTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JuegoNormalTest_validarNombreTest - 2019.05.31 at 17h 58m 48s.xml">
+      <configuration name="JuegoNormalTest.validarNombreTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JuegoNormalTest_validarNombreTest - 2019.05.31 at 17h 59m 18s.xml">
+      <configuration name="JuegoNormalTest.validarNombreTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JuegoNormalTest_validarNombreTest - 2019.05.31 at 18h 00m 15s.xml">
+      <configuration name="JuegoNormalTest.validarNombreTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -337,12 +337,12 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18196458" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28019324" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32850242" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.23832528" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.16586152" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.16747183" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.11272141" />
@@ -451,13 +451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Models/Carta.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-154">
@@ -493,17 +486,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Juego/JuegoNormal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-665">
+        <state relative-caret-position="-797">
           <caret line="571" column="27" selection-start-line="571" selection-start-column="16" selection-end-line="571" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        <state relative-caret-position="371">
+          <caret line="60" column="67" selection-start-line="60" selection-start-column="67" selection-end-line="60" selection-end-column="67" />
         </state>
       </provider>
     </entry>
