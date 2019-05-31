@@ -79,7 +79,7 @@ public class Mazo {
 
         mazoPrincipal.addAll(Arrays.asList(carta, carta2, carta3, carta4));
 
-        //cartas totales 112
+        //cartas totales 108
 
         System.out.println(mazoPrincipal.size());
     }   

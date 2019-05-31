@@ -34,7 +34,7 @@ class JuegoNormalTest {
         listaMazos.addAll(Arrays.asList(mazoPrincipal, mazoSecundario));
 
         Assertions.assertEquals(2, listaMazos.size());
-        Assertions.assertEquals(112, mazoPrincipal.tamañoMazo());
+        Assertions.assertEquals(108, mazoPrincipal.tamañoMazo());
 
     }
 

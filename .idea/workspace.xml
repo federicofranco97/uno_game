@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76affdea-bc8f-4cb3-9972-9063f4277b95" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TestCases/Models/CartaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Models/CartaTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Juego/JuegoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Juego/JuegoNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/Mazo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Mazo.java" afterDir="false" />
     </list>
     <ignored path=".idea/" />
@@ -57,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Models/Mazo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="73" column="74" selection-start-line="73" selection-start-column="74" selection-end-line="73" selection-end-column="74" />
+            <state relative-caret-position="179">
+              <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -78,17 +77,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
+            <state relative-caret-position="687">
               <caret line="87" selection-start-line="87" selection-end-line="87" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1408">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="264">
+              <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -125,10 +124,10 @@
         <option value="$PROJECT_DIR$/src/Juego/Partida.java" />
         <option value="$PROJECT_DIR$/src/Models/Carta.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java" />
         <option value="$PROJECT_DIR$/src/Juego/JuegoNormal.java" />
         <option value="$PROJECT_DIR$/TestCases/Models/CartaTest.java" />
         <option value="$PROJECT_DIR$/src/Models/Mazo.java" />
+        <option value="$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java" />
       </list>
     </option>
   </component>
@@ -365,12 +364,12 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19645733" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19645733" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32850242" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.24959743" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.1884058" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.16747183" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.11272141" />
@@ -486,13 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1408">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Juego/Partida.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -514,13 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Juego/JuegoNormal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9988">
@@ -537,8 +522,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Models/Mazo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="73" column="74" selection-start-line="73" selection-start-column="74" selection-end-line="73" selection-end-column="74" />
+        <state relative-caret-position="179">
+          <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/Models/CartaTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/Juego/JuegoNormalTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
         </state>
       </provider>
     </entry>
