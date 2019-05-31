@@ -52,7 +52,9 @@ public class Carta {
         }
         return false;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return getTipo() + " " + getValor() + " " + getColor();
+    }
 }

@@ -387,8 +387,20 @@ public class JuegoNormal {
 //                JOptionPane.showMessageDialog(null, "La clave ingresada no es valida");
 //            }
         }        
-        String msj = "1-Ver mano\n2-Ver Pozo\n3-Tirar carta\n4-Levantar carta del mazo\n5-Validar mano\n6-Pasar turno\n"
-                + "7-Tirar Valida\n8-Elegir Carta para Tirar\n10-Guardar y Salir";
+        String msj = "1-Ver mano" +
+                "\n2-Ver Pozo" +
+                "\n3-Tirar carta" +
+                "\n4-Levantar carta del mazo" +
+                "\n5-Validar mano" +
+                "\n6-Pasar turno" +
+                "\n7-Tirar Valida"+
+                "\n8-Elegir Carta para Tirar"
+                + "\n10-Guardar y Salir" +
+
+                "\n    -------------------------------"+
+                "\n                   POZO              "+
+                 "\n         " + getPozo().toString() +
+                "\n    -------------------------------";
         int opcion;
         try {
             opcion = Integer.parseInt(JOptionPane.showInputDialog(msj));
@@ -474,12 +486,39 @@ public class JuegoNormal {
     /*
     Toma una carta aleatoria del mazo y la agrega a la mano del jugador
     */
+
+    /*
+    Se modificó el método para que no deje levantar cartas si el jugador tiene alguna carta válida.
+     */
     public void levantarCartaMazo(Jugador j) {
         checkMazoVacio();
-        int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
-        j.getManoCartas().add(listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
+        if (!tieneCartaParaJugar(j)){
+            int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
+            j.getManoCartas().add(listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Tienes al menos una carta válidad para jugar");
+            preguntarMovida(j);
+        }
+
+
 //        listaMazos.get(0).removeCarta(listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom-1));
     }
+    /*
+    Método para verificar si el jugador tiene alguna carta válida antes de levantar una carta del mazo.
+     */
+    public boolean tieneCartaParaJugar (Jugador j){
+        checkMazoVacio();
+
+        for (int i = 0; i <j.getManoCartas().size() ; i++) {
+            if (getPozo().validarCarta(j.getManoCartas().get(i)))
+                return true;
+
+        }
+        return false;
+    }
+
+
 
     /*
     Metodo que va corriendo el focus de los jugadores

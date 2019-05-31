@@ -96,4 +96,9 @@ public class Mazo {
     public void agregarCartas(Collection<Carta> lista){
         mazoPrincipal.addAll(lista);
     }
+
+    //Se agrega este método para verificar que el mazo se haya llenado.
+    public int tamañoMazo (){
+        return mazoPrincipal.size();
+    }
 }
