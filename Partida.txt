@@ -9,8 +9,8 @@ q
 FOCUS
 0
 MAZO
--+2 especial verde,skip especial rojo,skip especial verde,color especial joker,+4 especial joker,spin especial azul,skip especial amarillo,+2 especial rojo,+2 especial azul,skip especial verde,+4 especial joker,spin especial azul,skip especial azul,color especial joker,+2 especial verde,+4 especial joker,spin especial rojo,color especial joker,spin especial verde,skip especial rojo,spin especial rojo,spin especial amarillo,+2 especial amarillo,+4 especial joker,color especial joker,spin especial verde,+2 especial rojo,+2 especial amarillo,spin especial amarillo,+2 especial azul,skip especial amarillo,skip especial azul-
+-3 numero amarillo,spin especial verde,0 numero rojo,skip especial verde,+2 especial amarillo,9 numero rojo,6 numero amarillo,2 numero azul,2 numero amarillo,+4 especial joker,color especial joker,3 numero amarillo,4 numero azul,4 numero rojo,spin especial rojo,+2 especial verde,skip especial verde,8 numero verde,skip especial azul,color especial joker,9 numero amarillo,8 numero azul,3 numero azul,7 numero verde,+2 especial verde,5 numero azul,skip especial azul,+2 especial azul,1 numero amarillo,0 numero amarillo,spin especial azul,+2 especial azul,3 numero rojo,spin especial amarillo,spin especial rojo,+2 especial amarillo,+2 especial rojo,0 numero verde,1 numero amarillo,7 numero rojo,spin especial azul,2 numero verde,+2 especial rojo,8 numero rojo,6 numero amarillo,+4 especial joker,color especial joker,skip especial rojo,color especial joker,skip especial rojo,+4 especial joker,skip especial amarillo,spin especial verde,0 numero azul,2 numero rojo,spin especial amarillo,4 numero verde,skip especial amarillo,2 numero azul,+4 especial joker,0 numero rojo,0 numero verde,6 numero rojo,5 numero verde-
 POZO
-0 numero verde
+8 numero azul
 V
-27931
+43121

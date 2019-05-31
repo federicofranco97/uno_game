@@ -55,6 +55,6 @@ public class Carta {
 
     @Override
     public String toString() {
-        return getTipo() + " " + getValor() + " " + getColor();
+        return this.tipo + " " + this.valor + " " + this.color;
     }
 }
