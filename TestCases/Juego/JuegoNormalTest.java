@@ -13,11 +13,13 @@ class JuegoNormalTest {
     Mazo mazo;
     JuegoNormal juego;
     ArrayList<Mazo> listaMazos;
+
     @BeforeEach
     void setUp() {
         mazo = new Mazo();
         juego = new JuegoNormal();
         listaMazos = new ArrayList<>();
+
     }
 
     @AfterEach
@@ -34,6 +36,19 @@ class JuegoNormalTest {
         Assertions.assertEquals(2, listaMazos.size());
         Assertions.assertEquals(112, mazoPrincipal.tamañoMazo());
 
+    }
+
+    @Test
+    void validarNombreTest (){
+       String nombreV = "nombre";
+       String nombreIn = " ";
+       String nombreIn2 = "  ";
+
+       Assertions.assertEquals(true, juego.validarNombre(nombreV));
+       Assertions.assertEquals(false, juego.validarNombre(nombreIn));
+       Assertions.assertEquals(false, juego.validarNombre(nombreIn2));
 
     }
+
+
 }
