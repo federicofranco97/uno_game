@@ -19,6 +19,7 @@ public class NuevaPartida {
         juego.primerCartaPozo();
         juego.mensajeEntrada();           
         juego.preguntarJugadores();
+//        juego.jugTrucado();
         juego.preguntarMovida(juego.getListaJugadores().get(juego.getJugadorFocus()));   
     }
     
