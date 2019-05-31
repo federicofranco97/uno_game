@@ -28,11 +28,13 @@ public class Mazo {
             if(i==1)temp=("azul");
             if(i==2)temp=("verde");
             if(i==3)temp=("amarillo");
-            for (int j = 0; j < 10; j++) {
+            for (int j = 1; j < 10; j++) {
+
                 Carta c = new Carta(temp, "numero", String.valueOf(j));
                 numeros.add(c);
             }            
         }
+
         
         /*
         Add cartas +2, spin, skip
@@ -68,7 +70,18 @@ public class Mazo {
         mazoPrincipal.addAll(numeros);
         mazoPrincipal.addAll(numeros);
         mazoPrincipal.addAll(especiales);
+
+        //Modificación para que el mazo principal contengo solo 108 cartas
+        Carta carta = new Carta("rojo", "numero", "0");
+        Carta carta2 = new Carta("azul", "numero", "0");
+        Carta carta3 = new Carta("verde", "numero", "0");
+        Carta carta4 = new Carta("amarillo", "numero", "0");
+
+        mazoPrincipal.addAll(Arrays.asList(carta, carta2, carta3, carta4));
+
         //cartas totales 112
+
+        System.out.println(mazoPrincipal.size());
     }   
     
     public void imprimirMazo(){

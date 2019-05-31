@@ -84,4 +84,6 @@ class CartaTest {
         assertEquals(true, carta.validarCarta(carta6));
 
     }
+
+
 }

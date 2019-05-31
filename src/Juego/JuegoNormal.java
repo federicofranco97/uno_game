@@ -20,7 +20,7 @@ public class JuegoNormal {
     static int acumulador = 0;
     private Persistencia persistencia = new Persistencia();
     private ArrayList<String> kdena= persistencia.getKdena();
-     final int tamañoMano=2;
+     final int tamañoMano=7;
 
     public JuegoNormal() {}
     
