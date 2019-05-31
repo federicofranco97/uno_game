@@ -5,6 +5,7 @@ public class Carta {
     private String color;
     private String valor;
     private String tipo;
+    private int codigo;
 
     public Carta() {}
 
@@ -20,6 +21,14 @@ public class Carta {
         this.color = color;
         this.tipo = tipo;
         this.valor=valor;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getColor() {

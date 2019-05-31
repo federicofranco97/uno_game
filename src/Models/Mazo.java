@@ -71,6 +71,54 @@ public class Mazo {
         //cartas totales 112
     }   
     
+    public void asignarValores(){
+        for (Carta carta : mazoPrincipal) {
+           int aux=0;
+           aux+= verTipo(carta)+verColor(carta)+verValor(carta);
+           carta.setCodigo(aux*31);
+        }
+        System.out.println(mazoPrincipal.get(3).getValor()+mazoPrincipal.get(3).getTipo()+mazoPrincipal.get(3).getColor());
+        System.out.println(mazoPrincipal.get(3).getCodigo());
+    }
+    
+    public int verValor(Carta c){
+        int valor=0;
+        if(c.getTipo().equals("especial")){
+            switch(c.getValor()){
+                case("spin"):valor=7;break;
+                case("skip"):valor=4;break;
+                case("color"):valor=10;break;
+                case("+2"):valor=8;break;
+                case("+4"):valor=6;break;
+            }
+        }else{
+            valor=Integer.parseInt(c.getValor());
+        }
+        return valor;
+    }
+    
+    public int verTipo(Carta c){
+        if(c.getTipo().equals("especial")){
+            return 10;
+        }else{
+            return 5;
+        }        
+    }
+    
+    public int verColor(Carta c){
+        int valor=0;
+        String colorCarta=c.getColor();
+        switch(colorCarta){
+            case("rojo"):valor=15;break;            
+            case("amarillo"):valor=25;break;
+            case("azul"):valor=20;break;
+            case("verde"):valor=10;break;
+            case("joker"):valor=5;break;
+            default:valor=0;break;
+        }
+        return valor;
+    }
+    
     public void imprimirMazo(){
         for (Carta carta : mazoPrincipal) {
             System.out.println(carta.getTipo()+" "+carta.getValor());
@@ -100,5 +148,11 @@ public class Mazo {
     //Se agrega este método para verificar que el mazo se haya llenado.
     public int tamañoMazo (){
         return mazoPrincipal.size();
+    }
+    
+    public static void main(String[] args) {
+        Mazo mazo = new Mazo();
+        mazo.llenarMazo();
+        mazo.asignarValores();
     }
 }
