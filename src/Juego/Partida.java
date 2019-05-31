@@ -11,8 +11,6 @@ public class Partida {
     
     public Partida(){
         JuegoNormal juego = new JuegoNormal();
-        juego.llenarMazos();
-        //juego.llenarJugadores();
         juego.cargarData();
         juego.primerCartaPozo();
         juego.mensajeEntrada();           

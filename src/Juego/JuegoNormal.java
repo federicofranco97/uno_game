@@ -20,7 +20,7 @@ public class JuegoNormal {
     static int acumulador = 0;
     private Persistencia persistencia = new Persistencia();
     private ArrayList<String> kdena= persistencia.getKdena();
-     final int tamañoMano=2;
+     final int tamañoMano=7;
 
     public JuegoNormal() {}
     
@@ -124,6 +124,52 @@ public class JuegoNormal {
 
     }
 
+    public void asignarValores(ArrayList<Carta> listaCartas){
+        for (Carta carta : listaCartas) {
+           int aux=0;
+           aux+= verTipo(carta)+verColor(carta)+verValor(carta);
+           carta.setCodigo(aux*31);
+        }
+    }
+    
+    public int verValor(Carta c){
+        int valor=0;
+        if(c.getTipo().equals("especial")){
+            switch(c.getValor()){
+                case("spin"):valor=7;break;
+                case("skip"):valor=4;break;
+                case("color"):valor=10;break;
+                case("+2"):valor=8;break;
+                case("+4"):valor=6;break;
+            }
+        }else{
+            valor=Integer.parseInt(c.getValor());
+        }
+        return valor;
+    }
+    
+    public int verTipo(Carta c){
+        if(c.getTipo().equals("especial")){
+            return 10;
+        }else{
+            return 5;
+        }        
+    }
+    
+    public int verColor(Carta c){
+        int valor;
+        String colorCarta=c.getColor();
+        switch(colorCarta){
+            case("rojo"):valor=15;break;            
+            case("amarillo"):valor=25;break;
+            case("azul"):valor=20;break;
+            case("verde"):valor=10;break;
+            case("joker"):valor=5;break;
+            default:valor=0;break;
+        }
+        return valor;
+    }
+    
     /*
     Trae una carta aleatoria de la mano del jugador.
     */
@@ -726,15 +772,18 @@ public class JuegoNormal {
     public String jString(){
         String data="";
         for (Jugador jug : listaJugadores) {
+            int codigoJug=0;
             data+="JUGADOR\n";
             data+=jug.getNombre()+"\n"+jug.getClave()+"\n-";
             for (Carta carta : jug.getManoCartas()) {
+                codigoJug+=carta.getCodigo();
                 data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
                 if (jug.getManoCartas().indexOf(carta)!=jug.getManoCartas().size()-1){
                     data+=",";
                 }
             }
             data+="-\n";            
+            data+=codigoJug+"\n";            
         }   
         data+="FOCUS\n"+jugadorFocus;
         return data;

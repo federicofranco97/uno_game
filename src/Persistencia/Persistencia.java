@@ -100,18 +100,27 @@ public class Persistencia {
             f.close();
         }catch(IOException e){}
     }
-    
+       
     public void agregarData(){
+        boolean archivoValido=true;
         for (int i = 0; i < kdena.size(); i++) {
             if (kdena.get(i).equals("JUGADOR")) {
                 Jugador jugador = new Jugador(kdena.get(i+1), kdena.get(i+2));
                 String aux1= kdena.get(i+3).replaceAll("-", "");
                 String [] cartaLista = aux1.split(",");
+                int codigoAuxiliar=Integer.parseInt(kdena.get(i+4));
+                System.out.println(codigoAuxiliar);
                 for (String carta : cartaLista) {
                     String [] aux2=carta.split(" ");
                     jugador.addCartas(Arrays.asList(new Carta(aux2[2], aux2[1], aux2[0])));
                 }
-                listaJugadores.add(jugador);
+                if(calcularValores(jugador.getManoCartas())==codigoAuxiliar){
+                    listaJugadores.add(jugador);
+                }else{
+                    System.out.println("Mano alterada "+jugador.getNombre());
+                    archivoValido=false;
+                }
+                
             }
             if (kdena.get(i).equals("POZO")) {
                 String [] aux=kdena.get(i+1).split(" ");
@@ -135,12 +144,60 @@ public class Persistencia {
             
             if(kdena.get(i).equals("V")) valid=Integer.parseInt(kdena.get(i+1));
         }
-        if (validarData()) {
+        if (validarData() || archivoValido) {
             System.out.println("Es valido el fichero");
         }else{
             System.out.println("Fichero corrupto");
             //falta implementar que haga algo como no cargar la partida
         }
+    }
+    
+    public int calcularValores(ArrayList<Carta> listaCartas){
+        int codigoAux=0;
+        for (Carta carta : listaCartas) {
+           int aux=0;
+           aux+= verTipo(carta)+verColor(carta)+verValor(carta);
+           codigoAux+=aux;
+        }
+        return codigoAux*31;
+    }
+    
+    public int verValor(Carta c){
+        int valor=0;
+        if(c.getTipo().equals("especial")){
+            switch(c.getValor()){
+                case("spin"):valor=7;break;
+                case("skip"):valor=4;break;
+                case("color"):valor=10;break;
+                case("+2"):valor=8;break;
+                case("+4"):valor=6;break;
+            }
+        }else{
+            valor=Integer.parseInt(c.getValor());
+        }
+        return valor;
+    }
+    
+    public int verTipo(Carta c){
+        if(c.getTipo().equals("especial")){
+            return 10;
+        }else{
+            return 5;
+        }        
+    }
+    
+    public int verColor(Carta c){
+        int valor;
+        String colorCarta=c.getColor();
+        switch(colorCarta){
+            case("rojo"):valor=15;break;            
+            case("amarillo"):valor=25;break;
+            case("azul"):valor=20;break;
+            case("verde"):valor=10;break;
+            case("joker"):valor=5;break;
+            default:valor=0;break;
+        }
+        return valor;
     }
     
     public boolean validarData(){
