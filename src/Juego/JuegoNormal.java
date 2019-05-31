@@ -60,6 +60,12 @@ public class JuegoNormal {
             Carta cartaa = new Carta("joker", "especial", "+4");
             jugadorr.addCartas(Arrays.asList(cartaa));
         }       
+//        Carta cartaa2 = new Carta("verde", "especial", "spin");
+//        Carta cartaa3 = new Carta("rojo", "especial", "spin");
+//        Carta cartaa4 = new Carta("azul", "especial", "spin");
+//        Carta cartaa5 = new Carta("amarillo", "especial", "spin");
+//        jugadorr.addCartas(Arrays.asList(cartaa2,cartaa3,cartaa4,cartaa5));
+        jugadorr.setClave("q");
         listaJugadores.add(jugadorr);
     }
     /*
@@ -615,7 +621,8 @@ public class JuegoNormal {
             listaJugadores.add(jugador);
             JOptionPane.showMessageDialog(null, "Jugador " + jugador.getNombre() + " agregado con exito!");
         }
-
+        //Descomentar jugador trucado para usar cartas especificas (Clave = q)
+        //jugTrucado();
         preguntarMovida(listaJugadores.get(jugadorFocus));
     }
 
