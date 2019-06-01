@@ -58,7 +58,7 @@ public class JuegoNormal {
         Jugador jugadorr = new Jugador("Cheater");
         for (int i = 0; i < tamañoMano; i++) {
             Carta cartaa = new Carta("joker", "especial", "+4");
-            jugadorr.addCartas(Arrays.asList(cartaa));
+            jugadorr.agregarCartas(Arrays.asList(cartaa));
         }       
 //        Carta cartaa2 = new Carta("verde", "especial", "spin");
 //        Carta cartaa3 = new Carta("rojo", "especial", "spin");
@@ -640,7 +640,7 @@ public class JuegoNormal {
                 Carta ca1 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom);
                 int numeroRandom2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size() - 2);
                 Carta ca2 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom2);
-                listaJugadores.get(numeroSiguiente()).addCartas(Arrays.asList(ca1, ca2));
+                listaJugadores.get(numeroSiguiente()).agregarCartas(Arrays.asList(ca1, ca2));
                 listaMazos.get(0).removeCartas(Arrays.asList(ca1, ca2));
                 break;
 
@@ -654,7 +654,7 @@ public class JuegoNormal {
                 Carta c3 = listaMazos.get(0).getMazoPrincipal().get(n3);
                 int n4 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta c4 = listaMazos.get(0).getMazoPrincipal().get(n4);
-                listaJugadores.get(numeroSiguiente()).addCartas(Arrays.asList(c1, c2, c3, c4));
+                listaJugadores.get(numeroSiguiente()).agregarCartas(Arrays.asList(c1, c2, c3, c4));
                 listaMazos.get(0).removeCartas(Arrays.asList(c1, c2, c3, c4));
                 cambioColor();
                 break;
@@ -702,7 +702,7 @@ public class JuegoNormal {
                 JOptionPane.showMessageDialog(null, "Clave ingresada no es valido");
             }
             Jugador jugador = new Jugador(name, pass);
-            jugador.addCartas(generarMano());
+            jugador.agregarCartas(generarMano());
             listaJugadores.add(jugador);
             JOptionPane.showMessageDialog(null, "Jugador " + jugador.getNombre() + " agregado con exito!");
         }
