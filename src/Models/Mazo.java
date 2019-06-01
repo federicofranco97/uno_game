@@ -85,11 +85,11 @@ public class Mazo {
         return mazoPrincipal;
     }
     
-    public void removeCarta(int posicion){
+    public void removerCarta(int posicion){
         mazoPrincipal.remove(posicion);
     }
     
-    public void removeCartas(Collection<Carta> lista){
+    public void removerCartas(Collection<Carta> lista){
         mazoPrincipal.removeAll(lista);
     }
     

@@ -118,7 +118,7 @@ public class JuegoNormal {
                 pozo.setColor(c.getColor());
                 pozo.setTipo(c.getTipo());
                 pozo.setValor(c.getValor());
-                listaMazos.get(0).removeCarta(i);
+                listaMazos.get(0).removerCarta(i);
             }
         }
 
@@ -641,7 +641,7 @@ public class JuegoNormal {
                 int numeroRandom2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size() - 2);
                 Carta ca2 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom2);
                 listaJugadores.get(numeroSiguiente()).agregarCartas(Arrays.asList(ca1, ca2));
-                listaMazos.get(0).removeCartas(Arrays.asList(ca1, ca2));
+                listaMazos.get(0).removerCartas(Arrays.asList(ca1, ca2));
                 break;
 
                 
@@ -655,7 +655,7 @@ public class JuegoNormal {
                 int n4 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta c4 = listaMazos.get(0).getMazoPrincipal().get(n4);
                 listaJugadores.get(numeroSiguiente()).agregarCartas(Arrays.asList(c1, c2, c3, c4));
-                listaMazos.get(0).removeCartas(Arrays.asList(c1, c2, c3, c4));
+                listaMazos.get(0).removerCartas(Arrays.asList(c1, c2, c3, c4));
                 cambioColor();
                 break;
             case ("skip"):
