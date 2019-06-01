@@ -51,7 +51,7 @@ public class Jugador {
         this.manoCartas = manoCartas;
     }
     
-    public void addCartas(Collection<Carta> sumadas){
+    public void agregarCartas(Collection<Carta> sumadas){
         manoCartas.addAll(sumadas);
     }
 
@@ -73,7 +73,7 @@ public class Jugador {
         JOptionPane.showMessageDialog(null, mano);
     }
 
-    public void removeCarta(int posicion){
+    public void removerCarta(int posicion){
         manoCartas.remove(posicion);
     }
     

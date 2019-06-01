@@ -113,7 +113,7 @@ public class Persistencia {
                 System.out.println(codigoAuxiliar);
                 for (String carta : cartaLista) {
                     String [] aux2=carta.split(" ");
-                    jugador.addCartas(Arrays.asList(new Carta(aux2[2], aux2[1], aux2[0])));
+                    jugador.agregarCartas(Arrays.asList(new Carta(aux2[2], aux2[1], aux2[0])));
                 }
                 if(calcularValores(jugador.getManoCartas())==codigoAuxiliar){
                     listaJugadores.add(jugador);
