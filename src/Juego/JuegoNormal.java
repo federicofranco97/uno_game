@@ -378,7 +378,7 @@ public class JuegoNormal {
     public void checkCantidadCartas(Carta c){
         int tamañoActual=listaMazos.get(0).getMazoPrincipal().size();
         if(c.getTipo().equals("especial") && c.getValor().equals("+4") || c.getValor().equals("+2") && tamañoActual<4 ){
-            refillMazo();
+            rellenarMazo();
         }
     }
     
@@ -387,14 +387,14 @@ public class JuegoNormal {
     */
     public void checkMazoVacio() {
         if (listaMazos.get(0).getMazoPrincipal().isEmpty()) {
-            refillMazo();
+        	rellenarMazo();
         }
     }
 
     /*l
     Toma el mazo secundario, lo mezcla y agrega al mazo principal todas las cartas ya mezcladas
     */
-    public void refillMazo() {
+    public void rellenarMazo() {
         listaMazos.get(1).mezclarMazo();
         listaMazos.get(0).getMazoPrincipal().addAll(listaMazos.get(1).getMazoPrincipal());
     }
