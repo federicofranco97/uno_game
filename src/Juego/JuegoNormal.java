@@ -708,6 +708,9 @@ public class JuegoNormal {
         }
         //Descomentar jugador trucado para usar cartas especificas (Clave = q)
         //jugTrucado();
+        for (Jugador jugador : listaJugadores) {
+            asignarValores(jugador.getManoCartas());
+        }
         preguntarMovida(listaJugadores.get(jugadorFocus));
     }
 

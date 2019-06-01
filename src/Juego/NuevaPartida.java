@@ -20,12 +20,8 @@ public class NuevaPartida {
         //juego.cargarData();
         juego.primerCartaPozo();
         juego.mensajeEntrada();           
-        juego.preguntarJugadores();
-        for (Jugador jugador : juego.getListaJugadores()) {
-            juego.asignarValores(jugador.getManoCartas());
-        }
-        
-        juego.preguntarMovida(juego.getListaJugadores().get(juego.getJugadorFocus()));   
+        juego.preguntarJugadores();        
+          
     }
     
 }

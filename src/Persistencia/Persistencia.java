@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 public class Persistencia {
     private File archivo=new File("Partida.txt");
     private ArrayList<String> kdena = new ArrayList<>();
@@ -117,7 +118,7 @@ public class Persistencia {
                 if(calcularValores(jugador.getManoCartas())==codigoAuxiliar){
                     listaJugadores.add(jugador);
                 }else{
-                    System.out.println("Mano alterada "+jugador.getNombre());
+                    JOptionPane.showMessageDialog(null,"Mano alterada, fuiste eliminado: "+jugador.getNombre());
                     archivoValido=false;
                 }
                 
