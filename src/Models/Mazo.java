@@ -114,4 +114,11 @@ public class Mazo {
     public int tamañoMazo (){
         return mazoPrincipal.size();
     }
+
+    public void agregarCartaIndividual (Carta carta){
+        mazoPrincipal.add(carta);
+    }
+    public void sacarCartaIndividual (Carta carta){
+        mazoPrincipal.remove(carta);
+    }
 }

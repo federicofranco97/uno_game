@@ -13,10 +13,10 @@ public class NuevaPartida {
   
     public NuevaPartida(){
         JuegoNormal juego = new JuegoNormal();
-        juego.llenarMazos();
+        juego.llenarMazo2();
         //juego.llenarJugadores();
         //juego.cargarData();
-        juego.primerCartaPozo();
+        juego.setCartaPozo();
         juego.mensajeEntrada();           
         juego.preguntarJugadores();
         

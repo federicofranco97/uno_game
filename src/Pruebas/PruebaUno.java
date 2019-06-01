@@ -9,9 +9,9 @@ public class PruebaUno {
     public static void main(String[] args) {
    
         JuegoNormal juego = new JuegoNormal();
-        juego.llenarMazos();
-        juego.llenarJugadores();
-        juego.primerCartaPozo();
+        juego.llenarMazo2();
+        //juego.llenarJugadores();
+        juego.setCartaPozo();
 //        Carta carta = new Carta("especial", "+2");
 //        juego.getListaJugadores().get(1).imprimirMano();
 //        System.out.println("\n");

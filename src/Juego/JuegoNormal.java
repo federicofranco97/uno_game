@@ -13,14 +13,14 @@ public class JuegoNormal {
 
     private ArrayList<Jugador> listaJugadores = new ArrayList<>();
     private ArrayList<Jugador> listaGanadores = new ArrayList<>();
-    private ArrayList<Mazo> listaMazos = new ArrayList<>();
     private int jugadorFocus = 0;
     private boolean rondaHoraria = true;
-    private Carta pozo = new Carta();
+    private Carta mostrarPozo2 = new Carta();
     static int acumulador = 0;
     private Persistencia persistencia = new Persistencia();
     private ArrayList<String> kdena= persistencia.getKdena();
      final int tamañoMano=7;
+
 
     public JuegoNormal() {}
     
@@ -28,23 +28,23 @@ public class JuegoNormal {
      Crea el mazo principal del juego y uno de respaldo. Los dos se añaden a la lista
      de mazos
      */
-    public void llenarMazos() {
+    /*public void llenarMazos() {
         Mazo mazoPrincipal = new Mazo();
         mazoPrincipal.llenarMazo();
         Mazo mazoSecundario = mazoPrincipal;
         listaMazos.addAll(Arrays.asList(mazoPrincipal, mazoSecundario));
-    }
+    }*/
 
     /*
     Crea algunos jugadores y les asigna una mano de cartas.
     */
     public void llenarJugadores() {
         Jugador jugador = new Jugador("Jugador1");
-        jugador.setManoCartas(generarMano());
+        jugador.setManoCartas(generarMano2());
         Jugador jugador2 = new Jugador("Jugador2");
-        jugador2.setManoCartas(generarMano());
+        jugador2.setManoCartas(generarMano2());
         Jugador jugador3 = new Jugador("Jugador3");
-        jugador3.setManoCartas(generarMano());
+        jugador3.setManoCartas(generarMano2());
         listaJugadores.addAll(Arrays.asList(jugador, jugador2, jugador3));
         for (Jugador jug : listaJugadores) {
             jug.setClave("test");
@@ -78,9 +78,11 @@ public class JuegoNormal {
     /*
     Devuelve la lista con los 2 mazos
     */
+
+    /*
     public ArrayList<Mazo> getListaMazos() {
-        return listaMazos;
-    }
+        return getMazoP;
+    }*/
 
     /*
     Devuelve el numero de jugador que esta en juego
@@ -92,7 +94,7 @@ public class JuegoNormal {
     /*
     Devuelve la mano de un jugador (7cartas) aleatorias
     */
-    public ArrayList<Carta> generarMano() {
+    /*public ArrayList<Carta> generarMano() {
         ArrayList<Carta> mano = new ArrayList<>();
         Mazo mazo = listaMazos.get(0);
         for (int i = 0; i < tamañoMano; i++) {
@@ -100,7 +102,7 @@ public class JuegoNormal {
             mano.add(mazo.getMazoPrincipal().get(random));
         }
         return mano;
-    }
+    }*/
     
     public boolean validarClave(String claveInput,Jugador j){
         return j.getClave().equals(claveInput);
@@ -110,6 +112,8 @@ public class JuegoNormal {
     Elige una carta aleatoria del mazo, que no sea una carta especial, y la saca del
     mazo una vez que se tira.
     */
+
+    /*
     public void primerCartaPozo() {
         listaMazos.get(0).mezclarMazo();
         for (int i = 0; i < listaMazos.get(0).getMazoPrincipal().size(); i++) {
@@ -122,7 +126,7 @@ public class JuegoNormal {
             }
         }
 
-    }
+    }*/
 
     /*
     Trae una carta aleatoria de la mano del jugador.
@@ -137,8 +141,8 @@ public class JuegoNormal {
     Tira una carta aleatoria valida
     */
     public Carta generarCartaValida(Jugador j) {
-        if (j.validarMano(pozo)) {
-            return j.traerCartaValida(pozo);
+        if (j.validarMano(mostrarPozo2())) {
+            return j.traerCartaValida(mostrarPozo2());
         }
         return null;
     }
@@ -147,22 +151,26 @@ public class JuegoNormal {
     Simular tiro carta valida de bot
     */
     public void tirarValida(Jugador j) {
-        if (j.validarMano(pozo)) {
+        if (j.validarMano(mostrarPozo2())) {
             Carta cartaJugada = generarCartaValida(j);
             String msj = "";
             msj += ("Jugada exitosa!\n");
-            msj += ("Pozo:" + pozo.getValor() + " " + pozo.getTipo() + " " + pozo.getColor() + "\n");
+            msj += ("Pozo:" + mostrarPozo2().getValor() + " " + mostrarPozo2().getTipo() + " " + mostrarPozo2().getColor() + "\n");
             msj += ("Carta tirada: " + cartaJugada.getValor() + " " + cartaJugada.getTipo() + " " + cartaJugada.getColor() + "\n");
             JOptionPane.showMessageDialog(null, msj);
-            pozo.setValor(cartaJugada.getValor());
-            pozo.setColor(cartaJugada.getColor());
+            mostrarPozo2().setValor(cartaJugada.getValor());
+            mostrarPozo2().setColor(cartaJugada.getColor());
             if (cartaJugada.getTipo().equals("especial")) {
-                pozo.setTipo("especial");
+                mostrarPozo2().setTipo("especial");
             } else {
-                pozo.setTipo("numero");
+                mostrarPozo2().setTipo("numero");
             }
             j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
-            if (pozo.getTipo().equals("especial")) aplicarCartaEspecial(pozo);
+
+            getPilaJugadas().getMazoPrincipal().add(cartaJugada);
+
+
+            if (mostrarPozo2().getTipo().equals("especial")) aplicarCartaEspecial(mostrarPozo2());
         } else {
             JOptionPane.showMessageDialog(null, "El jugador no posee cartas validas!");
         }
@@ -175,19 +183,19 @@ public class JuegoNormal {
         String choice = JOptionPane.showInputDialog(msj);
         switch (choice) {
             case ("1"):
-                pozo.setColor("rojo");
+                mostrarPozo2().setColor("rojo");
                 preguntarMovida(nextPlayer());
                 break;
             case ("2"):
-                pozo.setColor("azul");
+                mostrarPozo2().setColor("azul");
                 preguntarMovida(nextPlayer());
                 break;
             case ("3"):
-                pozo.setColor("amarillo");
+                mostrarPozo2().setColor("amarillo");
                 preguntarMovida(nextPlayer());
                 break;
             case ("4"):
-                pozo.setColor("verde");
+                mostrarPozo2().setColor("verde");
                 preguntarMovida(nextPlayer());
                 break;
             default:
@@ -215,25 +223,26 @@ public class JuegoNormal {
         Carta cartaJugada = generarCarta(j);
         String msj = "";
         boolean valid = true;
-        if (pozo.validarCarta(cartaJugada)) {
+        if (mostrarPozo2().validarCarta(cartaJugada)) {
 
             msj += ("Jugada exitosa!\n");
-            msj += ("Pozo:" + pozo.getValor() + " " + pozo.getTipo() + " " + pozo.getColor() + "\n");
+            msj += ("Pozo:" + mostrarPozo2().getValor() + " " + mostrarPozo2().getTipo() + " " + mostrarPozo2().getColor() + "\n");
             msj += ("Carta tirada: " + cartaJugada.getValor() + " " + cartaJugada.getTipo() + " " + cartaJugada.getColor() + "\n");
-            pozo.setValor(cartaJugada.getValor());
+            mostrarPozo2().setValor(cartaJugada.getValor());
             if (cartaJugada.getTipo().equals("especial")) {
-                pozo.setTipo("especial");
+                mostrarPozo2().setTipo("especial");
             } else {
-                pozo.setTipo("numero");
-                pozo.setColor(cartaJugada.getColor());
+                mostrarPozo2().setTipo("numero");
+                mostrarPozo2().setColor(cartaJugada.getColor());
             }
             j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            getPilaJugadas().getMazoPrincipal().add(cartaJugada);
             checkManoJug(j);
-            if (pozo.getTipo().equals("especial")) aplicarCartaEspecial(pozo);
+            if (mostrarPozo2().getTipo().equals("especial")) aplicarCartaEspecial(mostrarPozo2());
         } else {
 
             msj += ("Jugada no valida!\n");
-            msj += ("Pozo:" + pozo.getValor() + " " + pozo.getTipo() + " " + pozo.getColor() + "\n");
+            msj += ("Pozo:" + mostrarPozo2().getValor() + " " + mostrarPozo2().getTipo() + " " + mostrarPozo2().getColor() + "\n");
             msj += ("Carta tirada: " + cartaJugada.getValor() + " " + cartaJugada
                     .getTipo() + " " + cartaJugada.getColor() + "\n");
             valid = false;
@@ -261,7 +270,7 @@ public class JuegoNormal {
         String choice="";
 
         String cartaPozo = "La carta del pozo es: \n";
-        cartaPozo += pozo.getTipo() + " " + pozo.getValor() + " " + pozo.getColor()+"\n";
+        cartaPozo += mostrarPozo2().getTipo() + " " + mostrarPozo2().getValor() + " " + mostrarPozo2().getColor()+"\n";
         
         while (!validarChoice(choice=JOptionPane.showInputDialog(j.devolverStringMano()+
                 "\n"+cartaPozo+"\nIngrese el numero de carta que quiere mostrar\nIngrese -1 para salir"),tamañoMano)) {
@@ -284,25 +293,34 @@ public class JuegoNormal {
         }
         String msj = "";
         boolean valid = true;
-        if (pozo.validarCarta(cartaJugada)) {
+        if (mostrarPozo2().validarCarta(cartaJugada)) {
 
             msj += ("Jugada exitosa!\n");
-            msj += ("Pozo:" + pozo.getValor() + " " + pozo.getTipo() + " " + pozo.getColor() + "\n");
+            msj += ("Pozo:" + mostrarPozo2().getValor() + " " + mostrarPozo2().getTipo() + " " + mostrarPozo2().getColor() + "\n");
             msj += ("Carta tirada: " + cartaJugada.getValor() + " " + cartaJugada.getTipo() + " " + cartaJugada.getColor() + "\n");
-            pozo.setValor(cartaJugada.getValor());
+            mostrarPozo2().setValor(cartaJugada.getValor());
             if (cartaJugada.getTipo().equals("especial")) {
-                pozo.setTipo("especial");
+                mostrarPozo2().setTipo("especial");
             } else {
-                pozo.setTipo("numero");
-                pozo.setColor(cartaJugada.getColor());
+                mostrarPozo2().setTipo("numero");
+                mostrarPozo2().setColor(cartaJugada.getColor());
             }
             j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            getPilaJugadas().getMazoPrincipal().add(cartaJugada);
             checkManoJug(j);
-            if (pozo.getTipo().equals("especial")) aplicarCartaEspecial(pozo);
+
+            //*****************************////
+            System.out.println(getMazoP().getMazoPrincipal().size());
+            System.out.println(getPilaJugadas().getMazoPrincipal().size());
+
+            //****************************////
+
+
+            if (mostrarPozo2().getTipo().equals("especial")) aplicarCartaEspecial(mostrarPozo2());
         } else {
 
             msj += ("Jugada no valida!\n");
-            msj += ("Pozo:" + pozo.getValor() + " " + pozo.getTipo() + " " + pozo.getColor() + "\n");
+            msj += ("Pozo:" + mostrarPozo2().getValor() + " " + mostrarPozo2().getTipo() + " " + mostrarPozo2().getColor() + "\n");
             msj += ("Carta tirada: " + cartaJugada.getValor() + " " + cartaJugada.getTipo() + " " + cartaJugada.getColor() + "\n");
             valid = false;
         }
@@ -330,7 +348,7 @@ public class JuegoNormal {
     }
     
     public void checkCantidadCartas(Carta c){
-        int tamañoActual=listaMazos.get(0).getMazoPrincipal().size();
+        int tamañoActual=getMazoP().getMazoPrincipal().size();
         if(c.getTipo().equals("especial") && c.getValor().equals("+4") || c.getValor().equals("+2") && tamañoActual<4 ){
             refillMazo();
         }
@@ -340,7 +358,7 @@ public class JuegoNormal {
     Checkea si el mazo principal esta vacio, si lo esta lo rellena usando el refil
     */
     public void checkMazoVacio() {
-        if (listaMazos.get(0).getMazoPrincipal().isEmpty()) {
+        if (getMazoP().getMazoPrincipal().isEmpty()) {
             refillMazo();
         }
     }
@@ -348,9 +366,11 @@ public class JuegoNormal {
     /*l
     Toma el mazo secundario, lo mezcla y agrega al mazo principal todas las cartas ya mezcladas
     */
+
+
     public void refillMazo() {
-        listaMazos.get(1).mezclarMazo();
-        listaMazos.get(0).getMazoPrincipal().addAll(listaMazos.get(1).getMazoPrincipal());
+        getPilaJugadas().mezclarMazo();
+        getMazoP().agregarCartas(getPilaJugadas().getMazoPrincipal());
     }
 
     public boolean otraValidacion(Jugador j){
@@ -399,7 +419,7 @@ public class JuegoNormal {
 
                 "\n    -------------------------------"+
                 "\n                   POZO              "+
-                 "\n         " + getPozo().toString() +
+                 "\n         " + mostrarPozo2().toString() +
                 "\n    -------------------------------";
         int opcion;
         try {
@@ -426,13 +446,13 @@ public class JuegoNormal {
                 break;
             case (verCartaPozo):
                 String cartaPozo = "La carta del pozo es: \n\n";
-                cartaPozo += pozo.getTipo() + "\n" + pozo.getValor() + "\n" + pozo.getColor();
+                cartaPozo += mostrarPozo2().getTipo() + "\n" + mostrarPozo2().getValor() + "\n" + mostrarPozo2().getColor();
                 JOptionPane.showMessageDialog(null, cartaPozo);
                 preguntarMovida(j);
                 break;
             case (tirarCartaRandom):
                 turnoJugador(j);
-                verificarEspecial(pozo);
+                verificarEspecial(mostrarPozo2());
                 
                 JOptionPane.showMessageDialog(null, "Tu turno: " + listaJugadores.get(jugadorFocus+1).getNombre());
                 preguntarMovida(nextPlayer());
@@ -444,7 +464,7 @@ public class JuegoNormal {
                 break;
             case (validarMano):
                 String alert;
-                if (j.validarMano(pozo)) {
+                if (j.validarMano(mostrarPozo2())) {
                     alert = "Tu mano cuenta con una carta valida!";
                 } else {
                     alert = "No posees ninguna carta valida! Toma del pozo";
@@ -493,8 +513,9 @@ public class JuegoNormal {
     public void levantarCartaMazo(Jugador j) {
         checkMazoVacio();
         if (!tieneCartaParaJugar(j)){
-            int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
-            j.getManoCartas().add(listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
+            int numeroRandom = (int) (Math.random() * getMazoP().getMazoPrincipal().size());
+            j.getManoCartas().add(getMazoP().getMazoPrincipal().get(numeroRandom));
+            getMazoP().getMazoPrincipal().remove(numeroRandom);
 
         } else {
             JOptionPane.showMessageDialog(null, "Tienes al menos una carta válidad para jugar");
@@ -511,7 +532,7 @@ public class JuegoNormal {
         checkMazoVacio();
 
         for (int i = 0; i <j.getManoCartas().size() ; i++) {
-            if (getPozo().validarCarta(j.getManoCartas().get(i)))
+            if (mostrarPozo2().validarCarta(j.getManoCartas().get(i)))
                 return true;
 
         }
@@ -590,26 +611,28 @@ public class JuegoNormal {
         switch (valorCarta) {
 
             case ("+2"):
-                int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
-                Carta ca1 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom);
-                int numeroRandom2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size() - 2);
-                Carta ca2 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom2);
+                int numeroRandom = (int) (Math.random() * getMazoP().getMazoPrincipal().size()-1);
+                Carta ca1 = getMazoP().getMazoPrincipal().get(numeroRandom);
+                int numeroRandom2 = (int) (Math.random() * getMazoP().getMazoPrincipal().size() - 2);
+                Carta ca2 = getMazoP().getMazoPrincipal().get(numeroRandom2);
                 listaJugadores.get(numeroSiguiente()).addCartas(Arrays.asList(ca1, ca2));
-                listaMazos.get(0).removeCartas(Arrays.asList(ca1, ca2));
+                getMazoP().removeCartas(Arrays.asList(ca1, ca2));
+                System.out.println("Se eliminaron 2");
                 break;
 
                 
             case ("+4"):
-                int n1 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
-                Carta c1 = listaMazos.get(0).getMazoPrincipal().get(n1);
-                int n2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
-                Carta c2 = listaMazos.get(0).getMazoPrincipal().get(n2);
-                int n3 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
-                Carta c3 = listaMazos.get(0).getMazoPrincipal().get(n3);
-                int n4 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
-                Carta c4 = listaMazos.get(0).getMazoPrincipal().get(n4);
+                int n1 = (int) (Math.random() * getMazoP().getMazoPrincipal().size()-1);
+                Carta c1 = getMazoP().getMazoPrincipal().get(n1);
+                int n2 = (int) (Math.random() * getMazoP().getMazoPrincipal().size()-1);
+                Carta c2 = getMazoP().getMazoPrincipal().get(n2);
+                int n3 = (int) (Math.random() * getMazoP().getMazoPrincipal().size()-1);
+                Carta c3 = getMazoP().getMazoPrincipal().get(n3);
+                int n4 = (int) (Math.random() * getMazoP().getMazoPrincipal().size()-1);
+                Carta c4 = getMazoP().getMazoPrincipal().get(n4);
                 listaJugadores.get(numeroSiguiente()).addCartas(Arrays.asList(c1, c2, c3, c4));
-                listaMazos.get(0).removeCartas(Arrays.asList(c1, c2, c3, c4));
+                getMazoP().removeCartas(Arrays.asList(c1, c2, c3, c4));
+                System.out.println("Se eliminaron 4");
                 cambioColor();
                 break;
             case ("skip"):
@@ -656,7 +679,7 @@ public class JuegoNormal {
                 JOptionPane.showMessageDialog(null, "Clave ingresada no es valido");
             }
             Jugador jugador = new Jugador(name, pass);
-            jugador.addCartas(generarMano());
+            jugador.addCartas(generarMano2());
             listaJugadores.add(jugador);
             JOptionPane.showMessageDialog(null, "Jugador " + jugador.getNombre() + " agregado con exito!");
         }
@@ -694,20 +717,20 @@ public class JuegoNormal {
         this.rondaHoraria = rondaHoraria;
     }
 
-    public Carta getPozo() {
-        return pozo;
-    }
-
-    public void setPozo(Carta pozo) {
-        this.pozo = pozo;
-    }
+//    public Carta getPozo() {
+//        return mostrarPozo2;
+//    }
+//
+//    public void setPozo(Carta pozo) {
+//        this.mostrarPozo2 = pozo;
+//    }
     
     public ArrayList<Jugador> getListaJug(){
         return listaJugadores;
     }
 
     public ArrayList<Carta> getMazo(){
-        return listaMazos.get(0).getMazoPrincipal();
+        return getMazoP().getMazoPrincipal();
     }
     
     public String mString(){
@@ -719,7 +742,7 @@ public class JuegoNormal {
             }
         }
         data+="-";
-        data+="\nPOZO\n"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor();
+        data+="\nPOZO\n"+mostrarPozo2().getValor()+" "+mostrarPozo2().getTipo()+" "+mostrarPozo2().getColor();
         return data;
     }
     
@@ -748,14 +771,68 @@ public class JuegoNormal {
     public void cargarData(){
         persistencia.leerArchivo();
         persistencia.agregarData();
-        setPozo(persistencia.getPozo());
+        //setPozo(persistencia.getPozo());
         listaJugadores=persistencia.getListaJugadores();
         Mazo mazo = new Mazo();        
         mazo.agregarCartas(persistencia.getMazo());
-        Mazo aux = new Mazo();
-        aux.llenarMazo();
-        listaMazos.add(mazo);
-        listaMazos.add(aux);
+//        Mazo aux = new Mazo();
+//        aux.llenarMazo();
+//        getMazoP.add(mazo);
+//        getMazoP.add(aux);
         jugadorFocus=persistencia.getJugadorFocus();
     }
+
+    //////////Pozo como lista
+    private Mazo mazoP = new Mazo();
+    private Mazo pilaJugadas = new Mazo();
+    private Carta cartaPozo = new Carta();
+
+    public void llenarMazo2(){
+        mazoP.llenarMazo();
+        mazoP.mezclarMazo();
+        System.out.println("tamaño mazo al llenarlo: " + getMazoP().getMazoPrincipal().size());
+    }
+
+    public Carta mostrarPozo2 (){
+
+          return cartaPozo;
+    }
+
+    public void setCartaPozo (){
+
+        for (int i = 0; i <getMazoP().getMazoPrincipal().size() ; i++) {
+            if (!"especial".equalsIgnoreCase(getMazoP().getMazoPrincipal().get(i).getTipo())){
+            this.cartaPozo = getMazoP().getMazoPrincipal().get(getMazoP().getMazoPrincipal().size()-1);
+            getMazoP().removeCarta(getMazoP().getMazoPrincipal().size()-1);
+            getPilaJugadas().agregarCartaIndividual(cartaPozo);
+            break;
+            }
+        }
+
+    }
+
+
+    public Mazo getMazoP(){
+        return mazoP;
+    }
+
+    public Mazo getPilaJugadas (){
+
+        return pilaJugadas;
+    }
+
+    public ArrayList<Carta> generarMano2() {
+        ArrayList<Carta> mano = new ArrayList<>();
+        System.out.println("tamaño mazo antes de asignar cartas: " + getMazoP().getMazoPrincipal().size());
+
+        for (int i = 0; i < tamañoMano; i++) {
+            mano.add(getMazoP().getMazoPrincipal().get(i));
+            getMazoP().removeCarta(i);
+        }
+
+        System.out.println("tamaño mazo después del for: " + getMazoP().getMazoPrincipal().size());
+        System.out.println("tamaño mano: " + mano.size());
+        return mano;
+    }
+
 }
