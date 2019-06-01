@@ -110,7 +110,7 @@ public class Persistencia {
                 String aux1= kdena.get(i+3).replaceAll("-", "");
                 String [] cartaLista = aux1.split(",");
                 int codigoAuxiliar=Integer.parseInt(kdena.get(i+4));
-                System.out.println(codigoAuxiliar);
+                
                 for (String carta : cartaLista) {
                     String [] aux2=carta.split(" ");
                     jugador.agregarCartas(Arrays.asList(new Carta(aux2[2], aux2[1], aux2[0])));

@@ -778,6 +778,7 @@ public class JuegoNormal {
             int codigoJug=0;
             data+="JUGADOR\n";
             data+=jug.getNombre()+"\n"+jug.getClave()+"\n-";
+            asignarValores(jug.getManoCartas());
             for (Carta carta : jug.getManoCartas()) {
                 codigoJug+=carta.getCodigo();
                 data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
