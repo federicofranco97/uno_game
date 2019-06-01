@@ -207,7 +207,7 @@ public class JuegoNormal {
             } else {
                 pozo.setTipo("numero");
             }
-            j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            j.removerCarta(j.getManoCartas().indexOf(cartaJugada));
             if (pozo.getTipo().equals("especial")) aplicarCartaEspecial(pozo);
         } else {
             JOptionPane.showMessageDialog(null, "El jugador no posee cartas validas!");
@@ -273,7 +273,7 @@ public class JuegoNormal {
                 pozo.setTipo("numero");
                 pozo.setColor(cartaJugada.getColor());
             }
-            j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            j.removerCarta(j.getManoCartas().indexOf(cartaJugada));
             checkManoJug(j);
             if (pozo.getTipo().equals("especial")) aplicarCartaEspecial(pozo);
         } else {
@@ -342,7 +342,7 @@ public class JuegoNormal {
                 pozo.setTipo("numero");
                 pozo.setColor(cartaJugada.getColor());
             }
-            j.removeCarta(j.getManoCartas().indexOf(cartaJugada));
+            j.removerCarta(j.getManoCartas().indexOf(cartaJugada));
             checkManoJug(j);
             if (pozo.getTipo().equals("especial")) aplicarCartaEspecial(pozo);
         } else {

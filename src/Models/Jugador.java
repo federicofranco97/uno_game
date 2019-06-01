@@ -73,7 +73,7 @@ public class Jugador {
         JOptionPane.showMessageDialog(null, mano);
     }
 
-    public void removeCarta(int posicion){
+    public void removerCarta(int posicion){
         manoCartas.remove(posicion);
     }
     
