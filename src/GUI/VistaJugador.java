@@ -3,8 +3,7 @@ package GUI;
 import Models.Carta;
 import Models.Jugador;
 import java.util.ArrayList;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.util.Arrays;
 import javax.swing.JLabel;
 
 public class VistaJugador extends javax.swing.JFrame {
@@ -19,23 +18,36 @@ public class VistaJugador extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
     
-    public VistaJugador(Jugador j) {
+    public VistaJugador(Jugador j,Carta c) {
         initComponents();
         juntarCartas();
-        cambiarImagen();
+        cambiarImagen(j);
+        asignarPozo(c);
         setLocationRelativeTo(null);
     }
 
     public ArrayList<JLabel>listaCartas=new ArrayList<>();
     
-    public void convertirCarta(Carta c){
-        
+    public void asignarPozo(Carta c){
+        String carta=c.getValor()+c.getColor();
+        cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta+".png")));
     }
     
     public void cambiarImagen(){
         String carta="+2azul";
         for (JLabel label : listaCartas) {
             label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta+".png")));
+        }
+    }
+    
+     public void cambiarImagen(Jugador j){
+        for (int i = 0; i < j.getManoCartas().size(); i++) {
+            String card=j.getManoCartas().get(i).getValor()+j.getManoCartas().get(i).getColor();
+            listaCartas.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+card+".png")));
+        }    
+         
+        for (int i = j.getManoCartas().size(); i < listaCartas.size(); i++) {            
+            listaCartas.get(i).setIcon(null);
         }
     }
 
@@ -92,7 +104,7 @@ public class VistaJugador extends javax.swing.JFrame {
         carta16 = new javax.swing.JLabel();
         carta17 = new javax.swing.JLabel();
         carta18 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        cartaPozo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnPasar = new javax.swing.JButton();
         btnLevantar = new javax.swing.JButton();
@@ -104,44 +116,44 @@ public class VistaJugador extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 1024));
 
-        carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
         carta1.setName("Pepe");
 
-        carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        carta18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4.png"))); // NOI18N
+        carta18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/color.png"))); // NOI18N
+        cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/color.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("Carta del Pozo");
@@ -221,7 +233,7 @@ public class VistaJugador extends javax.swing.JFrame {
                                 .addComponent(btnPasar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(0, 0, Short.MAX_VALUE)
-                                    .addComponent(jLabel1)))
+                                    .addComponent(cartaPozo)))
                             .addGap(70, 70, 70))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,7 +272,7 @@ public class VistaJugador extends javax.swing.JFrame {
                             .addComponent(carta10, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(carta11, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(carta12, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cartaPozo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -326,7 +338,15 @@ public class VistaJugador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaJugador().setVisible(true);
+                Jugador jugador = new Jugador("Marcos");
+                Carta carta = new Carta("rojo", "numero", "3");
+                Carta carta2 = new Carta("azul", "numero", "9");
+                Carta carta3 = new Carta("verde", "numero", "2");
+                Carta carta4 = new Carta("verde", "especial", "+2");
+                Carta carta5 = new Carta("joker", "especial", "+4");
+                Carta carta6 = new Carta("amarillo", "numero", "7");
+                jugador.agregarCartas(Arrays.asList(carta,carta2,carta3,carta4,carta5));
+                new VistaJugador(jugador,carta6).setVisible(true);
             }
         });
     }
@@ -352,8 +372,8 @@ public class VistaJugador extends javax.swing.JFrame {
     private javax.swing.JLabel carta7;
     private javax.swing.JLabel carta8;
     private javax.swing.JLabel carta9;
+    private javax.swing.JLabel cartaPozo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables

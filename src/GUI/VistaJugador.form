@@ -81,7 +81,7 @@
                               <Component id="btnPasar" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cartaPozo" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
@@ -135,7 +135,7 @@
                           <Component id="carta12" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jLabel1" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="cartaPozo" min="-2" pref="190" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -167,14 +167,14 @@
     <Component class="javax.swing.JLabel" name="carta2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -184,116 +184,116 @@
     <Component class="javax.swing.JLabel" name="carta3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta8">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta9">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta10">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta11">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta12">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta13">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta14">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta15">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta16">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta17">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta18">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="cartaPozo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/GUI/Resources/recartas/color.png"/>
