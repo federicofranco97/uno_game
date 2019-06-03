@@ -1,18 +1,23 @@
 JUGADOR
-Jugador1
-q
--+2 especial amarillo,7 numero verde,2 numero amarillo,skip especial amarillo,9 numero azul,5 numero azul,4 numero rojo-
-6944
+Fede
+Andres
+-1 numero azul,5 numero azul,spin especial rojo,spin especial rojo,6 numero amarillo,skip especial rojo,color especial joker,8 numero verde,8 numero verde-
+7936
 JUGADOR
-Jugador2
-q
--skip especial amarillo,spin especial rojo,skip especial rojo,+2 especial azul,+2 especial amarillo,+2 especial amarillo,color especial joker-
-7719
+Andres
+Fede
+-spin especial rojo,spin especial verde,7 numero amarillo,skip especial rojo,7 numero amarillo,spin especial rojo,+2 especial amarillo,skip especial azul-
+8401
+JUGADOR
+Alex
+Alex
+-2 numero rojo,spin especial amarillo,spin especial azul,color especial joker,color especial joker,9 numero amarillo,spin especial azul-
+7037
 FOCUS
 0
 MAZO
--color especial joker,+2 especial rojo,spin especial verde,spin especial rojo,+4 especial joker,skip especial azul,skip especial amarillo,color especial joker,+2 especial rojo,7 numero azul,2 numero azul,skip especial rojo,skip especial verde,+2 especial verde,2 numero amarillo,+2 especial azul,spin especial azul,spin especial amarillo,+4 especial joker,0 numero verde,skip especial rojo,spin especial azul,+4 especial joker,color especial joker,+2 especial verde,spin especial rojo,+4 especial joker,+2 especial azul,skip especial azul,7 numero verde,8 numero azul,spin especial verde,skip especial amarillo,6 numero verde,color especial joker,skip especial verde,+2 especial amarillo,4 numero rojo,+2 especial amarillo,spin especial amarillo,4 numero amarillo,6 numero rojo-
+-+2 especial verde,spin especial azul,7 numero amarillo,+2 especial verde,skip especial azul,+4 especial joker,color especial joker,color especial joker,skip especial rojo,+2 especial azul,skip especial verde,spin especial amarillo,+2 especial rojo,skip especial amarillo,skip especial verde,skip especial amarillo,+4 especial joker,+4 especial joker,+2 especial rojo,+2 especial verde,skip especial verde,skip especial azul,spin especial rojo,spin especial amarillo,+4 especial joker,spin especial verde,+2 especial azul,color especial joker,+2 especial rojo,spin especial amarillo,color especial joker,+2 especial azul,color especial joker,spin especial verde,+4 especial joker,skip especial rojo,spin especial verde,+4 especial joker,skip especial amarillo,spin especial amarillo,+2 especial amarillo,spin especial rojo,spin especial azul,color especial joker,+4 especial joker,+2 especial rojo,spin especial rojo,spin especial rojo,+2 especial amarillo,+4 especial joker,+2 especial verde,skip especial amarillo,spin especial verde,skip especial verde,+2 especial azul-
 POZO
-1 numero verde
+4 numero amarillo
 V
-34813
+50530

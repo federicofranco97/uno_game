@@ -5,12 +5,15 @@
             <url>src/Juego/JuegoNormal.java</url>
             <bookmark id="1">
                 <name/>
-                <line>370</line>
+                <line>422</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/fede/NetBeansProjects/uno/src/Persistencia/Persistencia.java</file>
+            <file>file:/home/fede/NetBeansProjects/uno/src/Juego/JuegoNormal.java</file>
+        </group>
     </open-files>
 </project-private>
