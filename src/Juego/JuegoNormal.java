@@ -636,6 +636,7 @@ public class JuegoNormal {
         switch (valorCarta) {
 
             case ("+2"):
+                nextPlayer();
                 int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta ca1 = listaMazos.get(0).getMazoPrincipal().get(numeroRandom);
                 int numeroRandom2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size() - 2);
@@ -646,6 +647,7 @@ public class JuegoNormal {
 
                 
             case ("+4"):
+                nextPlayer();
                 int n1 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta c1 = listaMazos.get(0).getMazoPrincipal().get(n1);
                 int n2 = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size()-1);

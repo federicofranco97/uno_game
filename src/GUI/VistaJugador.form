@@ -3,11 +3,8 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1280, 1024]"/>
-    </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1280, 1024]"/>
+      <Dimension value="[1340, 1024]"/>
     </Property>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -76,41 +73,92 @@
                       <Component id="carta6" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="477" max="32767" attributes="0"/>
+              <EmptySpace pref="241" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="btnPasar" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel2" min="-2" pref="210" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnLevantar" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel3" min="-2" pref="147" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="carta1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta2" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta3" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta4" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta5" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta6" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="carta1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta2" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta3" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta4" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta5" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta6" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel3" min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" pref="69" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="carta7" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta8" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta9" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta10" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta11" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta12" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="jLabel1" min="-2" pref="190" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="carta7" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta8" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta9" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta10" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta11" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta12" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="carta13" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta14" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta15" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta16" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta17" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="carta18" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnPasar" min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnLevantar" min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="carta13" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta14" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta15" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta16" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta17" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="carta18" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="289" max="32767" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,127 +167,177 @@
     <Component class="javax.swing.JLabel" name="carta2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="carta1.setName(&quot;Pepe&quot;);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="carta3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta8">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta9">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta10">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta11">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta12">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta13">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta14">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta15">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta16">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta17">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="carta18">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/GUI/Resources/recartas/cambioColor.png"/>
+          <Image iconType="3" name="/GUI/Resources/recartas/+4.png"/>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/GUI/Resources/recartas/color.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Carta del Pozo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPasar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pasar Turno"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPasarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLevantar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Levantar Carta"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLevantarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guardar y Salir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Jugador X"/>
       </Properties>
     </Component>
   </SubComponents>
