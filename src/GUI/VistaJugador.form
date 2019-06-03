@@ -170,6 +170,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta2MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta1">
       <Properties>
@@ -177,6 +180,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta1MouseClicked"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="carta1.setName(&quot;Pepe&quot;);"/>
       </AuxValues>
@@ -187,6 +193,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta3MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta4">
       <Properties>
@@ -194,6 +203,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta4MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta5">
       <Properties>
@@ -201,6 +213,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta5MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta6">
       <Properties>
@@ -208,6 +223,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta7">
       <Properties>
@@ -215,6 +233,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta7MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta8">
       <Properties>
@@ -222,6 +243,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta9">
       <Properties>
@@ -229,6 +253,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta9MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta10">
       <Properties>
@@ -236,6 +263,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta10MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta11">
       <Properties>
@@ -243,6 +273,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta11MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta12">
       <Properties>
@@ -250,6 +283,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta12MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta13">
       <Properties>
@@ -257,6 +293,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta13MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta14">
       <Properties>
@@ -264,6 +303,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta14MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta15">
       <Properties>
@@ -271,6 +313,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta15MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta16">
       <Properties>
@@ -278,6 +323,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta16MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta17">
       <Properties>
@@ -285,6 +333,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta17MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="carta18">
       <Properties>
@@ -292,6 +343,9 @@
           <Image iconType="3" name="/GUI/Resources/recartas/+4joker.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carta18MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="cartaPozo">
       <Properties>

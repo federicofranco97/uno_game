@@ -29,6 +29,7 @@ public class VistaJugador extends javax.swing.JFrame {
 
     public ArrayList<JLabel>listaCartas=new ArrayList<>();
     public ArrayList<JLabel>cartasLibres=new ArrayList<>();
+    public Carta pozo = new Carta("amarillo","numero","7");
     
     public void asignarPozo(Carta c){
         String carta=c.getValor()+c.getColor();
@@ -42,10 +43,21 @@ public class VistaJugador extends javax.swing.JFrame {
         }
     }
     
-     public void cambiarImagen(Jugador j){
+    public void validarTiro(String carta){
+        String [] cartaPartida=carta.split(" ");
+        Carta cartaTirada = new Carta(cartaPartida[1],cartaPartida[2],cartaPartida[0]);
+        if(pozo.validarCarta(cartaTirada)){
+            JOptionPane.showMessageDialog(null, "Carta Valida!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Carta No Valida!");
+        }
+    }
+    
+    public void cambiarImagen(Jugador j){
         for (int i = 0; i < j.getManoCartas().size(); i++) {
             String card=j.getManoCartas().get(i).getValor()+j.getManoCartas().get(i).getColor();
             listaCartas.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+card+".png")));
+            listaCartas.get(i).setName(j.getManoCartas().get(i).getValor()+" "+j.getManoCartas().get(i).getColor()+" "+j.getManoCartas().get(i).getTipo());
         }    
          
         for (int i = j.getManoCartas().size(); i < listaCartas.size(); i++) {            
@@ -120,41 +132,131 @@ public class VistaJugador extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1280, 1024));
 
         carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta2MouseClicked(evt);
+            }
+        });
 
         carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
         carta1.setName("Pepe");
+        carta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta1MouseClicked(evt);
+            }
+        });
 
         carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta3MouseClicked(evt);
+            }
+        });
 
         carta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta4MouseClicked(evt);
+            }
+        });
 
         carta5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta5MouseClicked(evt);
+            }
+        });
 
         carta6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta6MouseClicked(evt);
+            }
+        });
 
         carta7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta7MouseClicked(evt);
+            }
+        });
 
         carta8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta8MouseClicked(evt);
+            }
+        });
 
         carta9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta9MouseClicked(evt);
+            }
+        });
 
         carta10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta10MouseClicked(evt);
+            }
+        });
 
         carta11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta11MouseClicked(evt);
+            }
+        });
 
         carta12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta12MouseClicked(evt);
+            }
+        });
 
         carta13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta13MouseClicked(evt);
+            }
+        });
 
         carta14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta14MouseClicked(evt);
+            }
+        });
 
         carta15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta15MouseClicked(evt);
+            }
+        });
 
         carta16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta16MouseClicked(evt);
+            }
+        });
 
         carta17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta17MouseClicked(evt);
+            }
+        });
 
         carta18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png"))); // NOI18N
+        carta18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carta18MouseClicked(evt);
+            }
+        });
 
         cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/color.png"))); // NOI18N
 
@@ -308,14 +410,88 @@ public class VistaJugador extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Cupo Maximo de cartas en mano!");
             return;
         }
-        //Asigna una carta al primer slot libre que haya
-        cartasLibres.get(0).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+2rojo.png")));
+        //Asigna una carta al, primer slot libre que haya
+        String carta="+2rojo";
+        cartasLibres.get(0).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta+".png")));
+        cartasLibres.get(0).setName("+2 rojo especial");
         cartasLibres.remove(0);
     }//GEN-LAST:event_btnLevantarActionPerformed
 
     private void btnPasarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarActionPerformed
         JOptionPane.showMessageDialog(null, "Turno Cedido!");
     }//GEN-LAST:event_btnPasarActionPerformed
+
+    private void carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseClicked
+        validarTiro(carta1.getName());
+    }//GEN-LAST:event_carta1MouseClicked
+
+    private void carta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2MouseClicked
+        validarTiro(carta2.getName());
+    }//GEN-LAST:event_carta2MouseClicked
+
+    private void carta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3MouseClicked
+        validarTiro(carta3.getName());
+    }//GEN-LAST:event_carta3MouseClicked
+
+    private void carta4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta4MouseClicked
+        validarTiro(carta4.getName());
+    }//GEN-LAST:event_carta4MouseClicked
+
+    private void carta5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta5MouseClicked
+        validarTiro(carta5.getName());
+    }//GEN-LAST:event_carta5MouseClicked
+
+    private void carta6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MouseClicked
+        validarTiro(carta6.getName());
+    }//GEN-LAST:event_carta6MouseClicked
+
+    private void carta7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta7MouseClicked
+        validarTiro(carta7.getName());
+    }//GEN-LAST:event_carta7MouseClicked
+
+    private void carta8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta8MouseClicked
+        validarTiro(carta8.getName());
+    }//GEN-LAST:event_carta8MouseClicked
+
+    private void carta9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta9MouseClicked
+        validarTiro(carta9.getName());
+    }//GEN-LAST:event_carta9MouseClicked
+
+    private void carta10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta10MouseClicked
+        validarTiro(carta10.getName());
+    }//GEN-LAST:event_carta10MouseClicked
+
+    private void carta11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta11MouseClicked
+        validarTiro(carta11.getName());
+    }//GEN-LAST:event_carta11MouseClicked
+
+    private void carta12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta12MouseClicked
+        validarTiro(carta12.getName());
+    }//GEN-LAST:event_carta12MouseClicked
+
+    private void carta13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta13MouseClicked
+        validarTiro(carta1.getName());
+    }//GEN-LAST:event_carta13MouseClicked
+
+    private void carta14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta14MouseClicked
+        validarTiro(carta14.getName());
+    }//GEN-LAST:event_carta14MouseClicked
+
+    private void carta15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta15MouseClicked
+        validarTiro(carta15.getName());
+    }//GEN-LAST:event_carta15MouseClicked
+
+    private void carta16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta16MouseClicked
+        validarTiro(carta16.getName());
+    }//GEN-LAST:event_carta16MouseClicked
+
+    private void carta17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta17MouseClicked
+        validarTiro(carta17.getName());
+    }//GEN-LAST:event_carta17MouseClicked
+
+    private void carta18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta18MouseClicked
+        validarTiro(carta18.getName());
+    }//GEN-LAST:event_carta18MouseClicked
 
     /**
      * @param args the command line arguments
