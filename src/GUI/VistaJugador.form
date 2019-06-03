@@ -73,34 +73,33 @@
                       <Component id="carta6" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="241" max="32767" attributes="0"/>
+              <EmptySpace pref="268" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btnPasar" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="cartaPozo" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel2" min="-2" pref="210" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnLevantar" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel3" min="-2" pref="147" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="109" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblNombre" min="-2" pref="147" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel2" min="-2" pref="210" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Component id="cartaPozo" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnPasar" min="-2" pref="166" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnLevantar" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
           </Group>
@@ -111,31 +110,30 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="carta1" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta2" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta3" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta4" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta5" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta6" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" pref="42" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="69" max="-2" attributes="0"/>
-                          </Group>
+                  <Component id="carta1" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta2" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta3" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta4" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta5" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta6" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNombre" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="carta7" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta8" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta9" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta10" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta11" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="carta12" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="69" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="cartaPozo" min="-2" pref="190" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cartaPozo" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta7" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta8" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta9" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta10" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta11" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="carta12" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -158,7 +156,7 @@
                       <Component id="jButton1" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <EmptySpace pref="86" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -386,12 +384,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="24" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Jugador X"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Jugador"/>
       </Properties>
     </Component>
   </SubComponents>
