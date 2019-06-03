@@ -309,12 +309,12 @@ public class VistaJugador extends javax.swing.JFrame {
             return;
         }
         //Asigna una carta al primer slot libre que haya
-        cartasLibres.get(0).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png")));
+        cartasLibres.get(0).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+2rojo.png")));
         cartasLibres.remove(0);
     }//GEN-LAST:event_btnLevantarActionPerformed
 
     private void btnPasarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Turno Cedido!");
     }//GEN-LAST:event_btnPasarActionPerformed
 
     /**
