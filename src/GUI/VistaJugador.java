@@ -5,6 +5,7 @@ import Models.Jugador;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class VistaJugador extends javax.swing.JFrame {
 
@@ -27,6 +28,7 @@ public class VistaJugador extends javax.swing.JFrame {
     }
 
     public ArrayList<JLabel>listaCartas=new ArrayList<>();
+    public ArrayList<JLabel>cartasLibres=new ArrayList<>();
     
     public void asignarPozo(Carta c){
         String carta=c.getValor()+c.getColor();
@@ -48,6 +50,7 @@ public class VistaJugador extends javax.swing.JFrame {
          
         for (int i = j.getManoCartas().size(); i < listaCartas.size(); i++) {            
             listaCartas.get(i).setIcon(null);
+            cartasLibres.add(listaCartas.get(i));
         }
     }
 
@@ -297,11 +300,17 @@ public class VistaJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnLevantarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLevantarActionPerformed
-        // TODO add your handling code here:
+        if(cartasLibres.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Cupo Maximo de cartas en mano!");
+            return;
+        }
+        //Asigna una carta al primer slot libre que haya
+        cartasLibres.get(0).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+4joker.png")));
+        cartasLibres.remove(0);
     }//GEN-LAST:event_btnLevantarActionPerformed
 
     private void btnPasarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarActionPerformed
