@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class JuegoNormal {
 
     public static ArrayList<Jugador> listaJugadores = new ArrayList<>();
-    public ArrayList<Jugador> listaGanadores = new ArrayList<>();
+    public static ArrayList<Jugador> listaGanadores = new ArrayList<>();
     public static ArrayList<Mazo> listaMazos = new ArrayList<>();
     public static int jugadorFocus = 0;
     public static boolean rondaHoraria = true;
@@ -476,8 +476,7 @@ public class JuegoNormal {
                 break;
             case (tirarCartaRandom):
                 turnoJugador(j);
-                verificarEspecial(pozo);
-                
+                verificarEspecial(pozo);                
                 JOptionPane.showMessageDialog(null, "Tu turno: " + listaJugadores.get(jugadorFocus+1).getNombre());
                 preguntarMovida(nextPlayer());
                 break;

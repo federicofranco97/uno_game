@@ -185,13 +185,46 @@ public class VistaJugador extends javax.swing.JFrame {
         preguntarMov();
     }
     
-        public Jugador nextPlayer() {
+    public Jugador nextPlayer() {
         for (Jugador jug : JuegoNormal.listaJugadores) {
             jug.setVecesEnMenu(0);
         }
         incrementFocus();
         int nextPlayer = JuegoNormal.jugadorFocus;
         return JuegoNormal.listaJugadores.get(nextPlayer);
+    }
+    
+    public void checkManoJug(Jugador j){
+        int tamañoMano= j.getManoCartas().size();
+        if(tamañoMano == 1){
+            JOptionPane.showMessageDialog(null, "UNO! "+j.getNombre());            
+        }
+        if(tamañoMano==0){
+            JOptionPane.showMessageDialog(null, "El jugador "+j.getNombre()+" se ha quedado sin cartas!");
+            JuegoNormal.listaGanadores.add(j);
+            JuegoNormal.listaJugadores.remove(j);
+        }
+    }    
+        
+    public boolean checkPerder(){
+        if(JuegoNormal.listaJugadores.size()==1){
+            return true;
+        }
+        return false;
+    }
+    
+    public void finPartida(){
+        if(checkPerder()){
+            String ganadores="";
+            for (Jugador jug : JuegoNormal.listaGanadores) {
+                ganadores+=JuegoNormal.listaGanadores.indexOf(jug)+1+" Puesto-";
+                ganadores+=jug.getNombre()+"\n";
+            }
+            JOptionPane.showMessageDialog(null, "Queda solo un jugador, la partida termino!"
+                    + "\nLos ganadores fueron:\n"+ganadores);
+            
+            System.exit(0);
+        }
     }
     
     public boolean validarTiro(String carta){
@@ -207,6 +240,8 @@ public class VistaJugador extends javax.swing.JFrame {
             int lugarJugador=JuegoNormal.jugadorFocus;
             JuegoNormal.listaJugadores.get(lugarJugador).removerCarta(cartaTirada);
             verificarEspecial(JuegoNormal.pozo);
+            checkManoJug(JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus));
+            finPartida();
             if(JuegoNormal.pozo.getTipo().equals("especial")){
                 preguntarMov();
             }else{
