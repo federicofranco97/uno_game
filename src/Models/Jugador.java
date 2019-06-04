@@ -78,12 +78,9 @@ public class Jugador {
     }
     
     public void removerCarta(Carta c){
-        System.out.println("Entro remover Carta");
-        System.out.println(getNombre());
         int posicion=-1;
         for (int i = 0; i < manoCartas.size(); i++) {
             if(manoCartas.get(i).equals(c) ){
-                System.out.println("Encontro la posicion");
                 posicion=i;
                 break;
             }

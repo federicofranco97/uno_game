@@ -214,7 +214,8 @@ public class VistaJugador extends javax.swing.JFrame {
 //            }else{
 //                siguienteTurno();
 //            }
-            siguienteTurno();
+            incrementFocus();
+            preguntarMov();
             return true;
         }else{
             JOptionPane.showMessageDialog(null, "Jugada No Valida!");
