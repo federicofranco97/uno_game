@@ -106,6 +106,7 @@ public class VistaJugador extends javax.swing.JFrame {
                 Carta ca2 = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(numeroRandom2);
                 JuegoNormal.listaJugadores.get(numeroSiguiente()).agregarCartas(Arrays.asList(ca1, ca2));
                 JuegoNormal.listaMazos.get(0).removerCartas(Arrays.asList(ca1, ca2));
+                incrementFocus();
                 break;
 
                 
@@ -124,14 +125,12 @@ public class VistaJugador extends javax.swing.JFrame {
                 break;
             case ("skip"):
                 incrementFocus();
-                incrementFocus();
-                preguntarMov();
+                incrementFocus();                
                 break;
 
             case ("spin"):
                 JuegoNormal.rondaHoraria = !JuegoNormal.rondaHoraria;
-                incrementFocus();
-                preguntarMov();
+                incrementFocus();                
                 break;
 
             case ("color"):
@@ -142,9 +141,10 @@ public class VistaJugador extends javax.swing.JFrame {
     }
     
     public void preguntarMov(){
+        this.setVisible(false);
         VistaJugador vistaJugador = new VistaJugador(JuegoNormal.pozo,JuegoNormal.jugadorFocus);
         vistaJugador.setVisible(true);
-        this.setVisible(false);
+        
     }
     
     public void checkCantidadCartas(Carta c){
@@ -182,7 +182,7 @@ public class VistaJugador extends javax.swing.JFrame {
                 break;
         }
         incrementFocus();
-        preguntarMov();
+        
     }
     
     public Jugador nextPlayer() {
@@ -656,10 +656,9 @@ public class VistaJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);      
-        JuegoNormal.jugadorFocus++;
-        VistaJugador vistaJugador = new VistaJugador(JuegoNormal.pozo, JuegoNormal.jugadorFocus);
-        vistaJugador.setVisible(true);
+        JOptionPane.showMessageDialog(null, "No implementado");
+        System.exit(0);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnLevantarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLevantarActionPerformed
