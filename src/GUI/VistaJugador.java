@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 
 public class VistaJugador extends javax.swing.JFrame {
 
@@ -26,12 +27,14 @@ public class VistaJugador extends javax.swing.JFrame {
         cambiarImagen();
         asignarPozo(c);
         asignarNombre();
+        checkearEntradaMenu();
+        vecesEnMenu=0;
         setLocationRelativeTo(null);
     }
 
     public ArrayList<JLabel>listaCartas=new ArrayList<>();
     public ArrayList<JLabel>cartasLibres=new ArrayList<>();
-    
+    public static int vecesEnMenu=0;
     
     public void incrementFocus() {
         int lastPlayer = JuegoNormal.jugadorFocus;
@@ -211,6 +214,28 @@ public class VistaJugador extends javax.swing.JFrame {
             return true;
         }
         return false;
+    }
+    
+    public void checkearEntradaMenu(){
+        vecesEnMenu++;
+        if(vecesEnMenu==1){
+            if(otraValidacion()){
+                JOptionPane.showMessageDialog(null, "Bienvenido!");
+            }
+        }
+    }
+    
+    public boolean otraValidacion(){
+        Jugador j = JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus);
+        JPasswordField pwd = new JPasswordField();
+        JOptionPane.showConfirmDialog(null, pwd, "Ingrese su clave "+j.getNombre(),JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if(pwd.getText().equals(j.getClave())){
+            return true;
+        }else{
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+            otraValidacion();
+        }
+        return false;            
     }
     
     public void finPartida(){

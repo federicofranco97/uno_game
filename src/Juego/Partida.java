@@ -15,7 +15,8 @@ public class Partida {
         juego.primerCartaPozo();
         juego.mensajeEntrada();           
         //juego.preguntarJugadores();
-        juego.preguntarMovida(juego.getListaJugadores().get(juego.getJugadorFocus()));
+        //juego.preguntarMovida(juego.getListaJugadores().get(juego.getJugadorFocus()));
+        juego.preguntarMovida();
     }
     
     public static void main(String[] args) {
