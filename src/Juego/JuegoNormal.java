@@ -740,7 +740,18 @@ public class JuegoNormal {
             if (getMazoP().getMazoPrincipal().indexOf(carta)!=getMazoP().getMazoPrincipal().size()-1){
                 data+=",";
             }
+        }/////////////////////////////////////////////////////////////////////////
+        data+="-";
+        data+="PILA\n-";
+        for (Carta carta : getPilaJugadas().getMazoPrincipal()) {
+            data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+            if (getPilaJugadas().getMazoPrincipal().indexOf(carta)!=getMazoP().getMazoPrincipal().size()-1){
+                data+=",";
+            }
         }
+
+
+        ////////////////////////////////////////////////////////////////////////
         data+="-";
         data+="\nPOZO\n"+mostrarPozo2().getValor()+" "+mostrarPozo2().getTipo()+" "+mostrarPozo2().getColor();
         return data;
@@ -775,15 +786,24 @@ public class JuegoNormal {
         cartaPozo = persistencia.getPozo();
         listaJugadores=persistencia.getListaJugadores();
         //Mazo mazo = new Mazo();
-        getMazoP().agregarCartas(persistencia.getMazo());
-        getPilaJugadas().llenarMazo();
-        getPilaJugadas().removeCartas(getMazoP().getMazoPrincipal());
-        for (int i = 0; i <listaJugadores.size() ; i++) {
-            getPilaJugadas().removeCartas(listaJugadores.get(i).getManoCartas());
-        }
+        mazoP.agregarCartas(persistencia.getMazo());
+        System.out.println(persistencia.getMazo().size());
+
+        pilaJugadas.llenarMazo();
+//        System.out.println(pilaJugadas.getMazoPrincipal().size());
+//        pilaJugadas.removeCartas(persistencia.getMazo());
+//        System.out.println(pilaJugadas.getMazoPrincipal().size());
+//
+//        for (int i = 0; i <listaJugadores.size() ; i++) {
+//            pilaJugadas.getMazoPrincipal().remove(persistencia.getListaJugadores().get(i).getManoCartas());
+//            System.out.println(persistencia.getListaJugadores().get(i).getManoCartas().size());
+//        }
 //        mazoP = mazo;
 //        pilaJugadas = aux;
+
+        System.out.println(pilaJugadas.getMazoPrincipal().size());
         jugadorFocus=persistencia.getJugadorFocus();
+
     }
 
     //////////Pozo como lista
@@ -827,6 +847,7 @@ public class JuegoNormal {
     }
 
     public ArrayList<Carta> generarMano2() {
+
         ArrayList<Carta> mano = new ArrayList<>();
         System.out.println("tamaño mazo antes de asignar cartas: " + getMazoP().getMazoPrincipal().size());
 
@@ -839,5 +860,6 @@ public class JuegoNormal {
         System.out.println("tamaño mano: " + mano.size());
         return mano;
     }
+
 
 }

@@ -1,10 +1,15 @@
 package Models;
 
+import java.util.Objects;
+
 public class Carta {
     
     private String color;
     private String valor;
     private String tipo;
+
+
+    private static int id;
 
     public Carta() {}
 
@@ -15,12 +20,13 @@ public class Carta {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
+
     public Carta(String color, String tipo,String valor) {
         this.color = color;
         this.tipo = tipo;
         this.valor=valor;
     }
+
 
     public String getColor() {
         return color;
@@ -57,4 +63,16 @@ public class Carta {
     public String toString() {
         return getTipo() + " " + getValor() + " " + getColor();
     }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (!(o instanceof Carta)) return false;
+//        Carta carta = (Carta) o;
+//        return Objects.equals(getColor(), carta.getColor()) &&
+//                Objects.equals(getValor(), carta.getValor()) &&
+//                Objects.equals(getTipo(), carta.getTipo());
+//    }
+
+
 }

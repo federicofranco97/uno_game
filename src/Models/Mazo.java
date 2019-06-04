@@ -121,4 +121,6 @@ public class Mazo {
     public void sacarCartaIndividual (Carta carta){
         mazoPrincipal.remove(carta);
     }
+
+
 }
