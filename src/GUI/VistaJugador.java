@@ -100,7 +100,6 @@ public class VistaJugador extends javax.swing.JFrame {
         switch (valorCarta) {
 
             case ("+2"):
-                nextPlayer();
                 int numeroRandom = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta ca1 = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(numeroRandom);
                 int numeroRandom2 = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size() - 2);
@@ -111,7 +110,6 @@ public class VistaJugador extends javax.swing.JFrame {
 
                 
             case ("+4"):
-                nextPlayer();
                 int n1 = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size()-1);
                 Carta c1 = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(n1);
                 int n2 = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size()-1);
@@ -125,12 +123,14 @@ public class VistaJugador extends javax.swing.JFrame {
                 cambioColor();
                 break;
             case ("skip"):
-                nextPlayer();
+                incrementFocus();
+                incrementFocus();
                 preguntarMov();
                 break;
 
             case ("spin"):
                 JuegoNormal.rondaHoraria = !JuegoNormal.rondaHoraria;
+                incrementFocus();
                 preguntarMov();
                 break;
 
@@ -166,25 +166,23 @@ public class VistaJugador extends javax.swing.JFrame {
         switch (choice) {
             case ("1"):
                 JuegoNormal.pozo.setColor("rojo");
-                VistaJugador vistaJugador = new VistaJugador(JuegoNormal.pozo,JuegoNormal.jugadorFocus);                vistaJugador.setVisible(true);                this.setVisible(false);
                 break;
             case ("2"):
                 JuegoNormal.pozo.setColor("azul");
-                preguntarMov();
                 break;
             case ("3"):
                 JuegoNormal.pozo.setColor("amarillo");
-                preguntarMov();
                 break;
             case ("4"):
                 JuegoNormal.pozo.setColor("verde");
-                preguntarMov();
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "La opcion ingresada no es valida!\nIntenta de nuevo.");
                 cambioColor();
                 break;
         }
+        incrementFocus();
+        preguntarMov();
     }
     
         public Jugador nextPlayer() {
@@ -208,14 +206,14 @@ public class VistaJugador extends javax.swing.JFrame {
             cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta2+".png")));
             int lugarJugador=JuegoNormal.jugadorFocus;
             JuegoNormal.listaJugadores.get(lugarJugador).removerCarta(cartaTirada);
-//            verificarEspecial(JuegoNormal.pozo);
-//            if(JuegoNormal.pozo.getTipo().equals("especial")){
-//                siguienteTurno("s");
-//            }else{
-//                siguienteTurno();
-//            }
-            incrementFocus();
-            preguntarMov();
+            verificarEspecial(JuegoNormal.pozo);
+            if(JuegoNormal.pozo.getTipo().equals("especial")){
+                preguntarMov();
+            }else{
+                incrementFocus();
+                preguntarMov();
+            }
+            
             return true;
         }else{
             JOptionPane.showMessageDialog(null, "Jugada No Valida!");
@@ -225,7 +223,6 @@ public class VistaJugador extends javax.swing.JFrame {
     
     public void cambiarImagen(){
         int tamañoMano2=JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getManoCartas().size();
-        System.out.println(tamañoMano2);
         for (int i = 0; i < tamañoMano2; i++) {
             String card=JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getManoCartas().get(i).getValor()+JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getManoCartas().get(i).getColor();
             listaCartas.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+card+".png")));
@@ -472,6 +469,11 @@ public class VistaJugador extends javax.swing.JFrame {
         });
 
         cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/1verde.png"))); // NOI18N
+        cartaPozo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cartaPozoMouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("Carta del Pozo");
@@ -583,8 +585,9 @@ public class VistaJugador extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cartaPozo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -789,6 +792,11 @@ public class VistaJugador extends javax.swing.JFrame {
             cartasLibres.add(carta18);
         }
     }//GEN-LAST:event_carta18MouseClicked
+
+    private void cartaPozoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartaPozoMouseClicked
+        String msj="El color del pozo es: "+JuegoNormal.pozo.getColor();
+        JOptionPane.showMessageDialog(null, msj);
+    }//GEN-LAST:event_cartaPozoMouseClicked
 
     /**
      * @param args the command line arguments
