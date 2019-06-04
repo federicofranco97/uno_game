@@ -52,13 +52,20 @@ public class VistaJugador extends javax.swing.JFrame {
         }
     }
     
-    public void validarTiro(String carta){
+    public boolean validarTiro(String carta){
         String [] cartaPartida=carta.split(" ");
         Carta cartaTirada = new Carta(cartaPartida[1],cartaPartida[2],cartaPartida[0]);
         if(pozo.validarCarta(cartaTirada)){
             JOptionPane.showMessageDialog(null, "Carta Valida!");
+            pozo.setColor(cartaTirada.getColor());
+            pozo.setValor(cartaTirada.getValor());
+            pozo.setTipo(cartaTirada.getTipo());
+            String carta2=pozo.getValor()+pozo.getColor();
+            cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta2+".png")));
+            return true;
         }else{
             JOptionPane.showMessageDialog(null, "Carta No Valida!");
+            return false;
         }
     }
     
@@ -435,75 +442,147 @@ public class VistaJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPasarActionPerformed
 
     private void carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseClicked
-        validarTiro(carta1.getName());
+        if(validarTiro(carta1.getName())){
+            carta1.setName("");
+            carta1.setIcon(null);
+            cartasLibres.add(carta1);
+        }
     }//GEN-LAST:event_carta1MouseClicked
 
     private void carta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2MouseClicked
-        validarTiro(carta2.getName());
+       if(validarTiro(carta2.getName())){
+            carta2.setName("");
+            carta2.setIcon(null);
+            cartasLibres.add(carta2);
+        }
     }//GEN-LAST:event_carta2MouseClicked
 
     private void carta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3MouseClicked
-        validarTiro(carta3.getName());
+        if(validarTiro(carta3.getName())){
+            carta3.setName("");
+            carta3.setIcon(null);
+            cartasLibres.add(carta3);
+        }
     }//GEN-LAST:event_carta3MouseClicked
 
     private void carta4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta4MouseClicked
-        validarTiro(carta4.getName());
+        if(validarTiro(carta4.getName())){
+            carta4.setName("");
+            carta4.setIcon(null);
+            cartasLibres.add(carta4);
+        }
     }//GEN-LAST:event_carta4MouseClicked
 
     private void carta5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta5MouseClicked
-        validarTiro(carta5.getName());
+       if(validarTiro(carta5.getName())){
+            carta5.setName("");
+            carta5.setIcon(null);
+            cartasLibres.add(carta5);
+        }
     }//GEN-LAST:event_carta5MouseClicked
 
     private void carta6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MouseClicked
-        validarTiro(carta6.getName());
+        if(validarTiro(carta6.getName())){
+            carta6.setName("");
+            carta6.setIcon(null);
+            cartasLibres.add(carta6);
+        }
     }//GEN-LAST:event_carta6MouseClicked
 
     private void carta7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta7MouseClicked
-        validarTiro(carta7.getName());
+        if(validarTiro(carta7.getName())){
+            carta7.setName("");
+            carta7.setIcon(null);
+            cartasLibres.add(carta7);
+        }
     }//GEN-LAST:event_carta7MouseClicked
 
     private void carta8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta8MouseClicked
-        validarTiro(carta8.getName());
+        if(validarTiro(carta8.getName())){
+            carta8.setName("");
+            carta8.setIcon(null);
+            cartasLibres.add(carta8);
+        }
     }//GEN-LAST:event_carta8MouseClicked
 
     private void carta9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta9MouseClicked
-        validarTiro(carta9.getName());
+       if(validarTiro(carta9.getName())){
+            carta9.setName("");
+            carta9.setIcon(null);
+            cartasLibres.add(carta9);
+        }
     }//GEN-LAST:event_carta9MouseClicked
 
     private void carta10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta10MouseClicked
-        validarTiro(carta10.getName());
+        if(validarTiro(carta10.getName())){
+            carta10.setName("");
+            carta10.setIcon(null);
+            cartasLibres.add(carta10);
+        }
     }//GEN-LAST:event_carta10MouseClicked
 
     private void carta11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta11MouseClicked
-        validarTiro(carta11.getName());
+        if(validarTiro(carta11.getName())){
+            carta11.setName("");
+            carta11.setIcon(null);
+            cartasLibres.add(carta11);
+        }
     }//GEN-LAST:event_carta11MouseClicked
 
     private void carta12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta12MouseClicked
-        validarTiro(carta12.getName());
+        if(validarTiro(carta12.getName())){
+            carta12.setName("");
+            carta12.setIcon(null);
+            cartasLibres.add(carta12);
+        }
     }//GEN-LAST:event_carta12MouseClicked
 
     private void carta13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta13MouseClicked
-        validarTiro(carta1.getName());
+       if(validarTiro(carta13.getName())){
+            carta13.setName("");
+            carta13.setIcon(null);
+            cartasLibres.add(carta13);
+        }
     }//GEN-LAST:event_carta13MouseClicked
 
     private void carta14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta14MouseClicked
-        validarTiro(carta14.getName());
+        if(validarTiro(carta14.getName())){
+            carta14.setName("");
+            carta14.setIcon(null);
+            cartasLibres.add(carta14);
+        }
     }//GEN-LAST:event_carta14MouseClicked
 
     private void carta15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta15MouseClicked
-        validarTiro(carta15.getName());
+        if(validarTiro(carta15.getName())){
+            carta15.setName("");
+            carta15.setIcon(null);
+            cartasLibres.add(carta15);
+        }
     }//GEN-LAST:event_carta15MouseClicked
 
     private void carta16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta16MouseClicked
-        validarTiro(carta16.getName());
+        if(validarTiro(carta16.getName())){
+            carta16.setName("");
+            carta16.setIcon(null);
+            cartasLibres.add(carta16);
+        }
     }//GEN-LAST:event_carta16MouseClicked
 
     private void carta17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta17MouseClicked
-        validarTiro(carta17.getName());
+        if(validarTiro(carta17.getName())){
+            carta17.setName("");
+            carta17.setIcon(null);
+            cartasLibres.add(carta17);
+        }
     }//GEN-LAST:event_carta17MouseClicked
 
     private void carta18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta18MouseClicked
-        validarTiro(carta18.getName());
+        if(validarTiro(carta18.getName())){
+            carta18.setName("");
+            carta18.setIcon(null);
+            cartasLibres.add(carta18);
+        }
     }//GEN-LAST:event_carta18MouseClicked
 
     /**
@@ -536,13 +615,13 @@ public class VistaJugador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Jugador jugador = new Jugador("Marcos");
+                Jugador jugador = new Jugador("Player 1");
                 Carta carta = new Carta("rojo", "numero", "3");
                 Carta carta2 = new Carta("azul", "numero", "9");
                 Carta carta3 = new Carta("verde", "numero", "2");
                 Carta carta4 = new Carta("verde", "especial", "+2");
                 Carta carta5 = new Carta("joker", "especial", "+4");
-                Carta carta6 = new Carta("rojo", "numero", "2");
+                Carta carta6 = new Carta("rojo", "numero", "9");
                 jugador.agregarCartas(Arrays.asList(carta,carta2,carta3,carta4,carta5));
                 new VistaJugador(jugador,carta6).setVisible(true);
             }
