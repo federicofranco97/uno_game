@@ -1,5 +1,6 @@
 package GUI;
 
+import Juego.JuegoNormal;
 import Models.Carta;
 import Models.Jugador;
 import java.util.ArrayList;
@@ -19,30 +20,36 @@ public class VistaJugador extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
     
-    public VistaJugador(Jugador j,Carta c) {
+    public VistaJugador(Carta c,int NumeroJugador) {
         initComponents();
         juntarCartas();
-        cambiarImagen(j);
+        asignarTemp(NumeroJugador);
+        cambiarImagen(temp);
         asignarPozo(c);
-        asignarNombre(j.getNombre());
+        asignarNombre();
         setLocationRelativeTo(null);
     }
 
     public ArrayList<JLabel>listaCartas=new ArrayList<>();
     public ArrayList<JLabel>cartasLibres=new ArrayList<>();
-    public Carta pozo = new Carta();
+    private Jugador temp;
     
-    public void asignarNombre(String nombre){
-        lblNombre.setText(nombre);
+    public void asignarNombre(){
+        lblNombre.setText(temp.getNombre());
+    }
+    
+    public void asignarTemp(int NumeroJugador){
+        temp=JuegoNormal.listaJugadores.get(NumeroJugador);
     }
     
     public void asignarPozo(Carta c){
         String carta=c.getValor()+c.getColor();
-        pozo.setColor(c.getColor());
-        pozo.setTipo(c.getTipo());
-        pozo.setValor(c.getValor());
+        JuegoNormal.pozo.setColor(c.getColor());
+        JuegoNormal.pozo.setTipo(c.getTipo());
+        JuegoNormal.pozo.setValor(c.getValor());
         cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta+".png")));
-        cartaPozo.setName(pozo.getValor()+" "+pozo.getColor()+" "+pozo.getTipo());
+        cartaPozo.setName(JuegoNormal.pozo.getValor()+" "+JuegoNormal.pozo.getColor()+" "+JuegoNormal.pozo.getTipo());
+        
     }
     
     public void cambiarImagen(){
@@ -55,24 +62,26 @@ public class VistaJugador extends javax.swing.JFrame {
     public boolean validarTiro(String carta){
         String [] cartaPartida=carta.split(" ");
         Carta cartaTirada = new Carta(cartaPartida[1],cartaPartida[2],cartaPartida[0]);
-        if(pozo.validarCarta(cartaTirada)){
-            JOptionPane.showMessageDialog(null, "Carta Valida!");
-            pozo.setColor(cartaTirada.getColor());
-            pozo.setValor(cartaTirada.getValor());
-            pozo.setTipo(cartaTirada.getTipo());
-            String carta2=pozo.getValor()+pozo.getColor();
+        if(JuegoNormal.pozo.validarCarta(cartaTirada)){
+            JOptionPane.showMessageDialog(null, "Carta Tirada!");
+            JuegoNormal.pozo.setColor(cartaTirada.getColor());
+            JuegoNormal.pozo.setValor(cartaTirada.getValor());
+            JuegoNormal.pozo.setTipo(cartaTirada.getTipo());
+            String carta2=JuegoNormal.pozo.getValor()+JuegoNormal.pozo.getColor();
             cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta2+".png")));
             return true;
         }else{
-            JOptionPane.showMessageDialog(null, "Carta No Valida!");
+            JOptionPane.showMessageDialog(null, "Jugada No Valida!");
             return false;
         }
     }
     
     public void cambiarImagen(Jugador j){
+        System.out.println(j.getManoCartas().size());
         for (int i = 0; i < j.getManoCartas().size(); i++) {
             String card=j.getManoCartas().get(i).getValor()+j.getManoCartas().get(i).getColor();
             listaCartas.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+card+".png")));
+            //listaCartas.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+2verde.png")));
             listaCartas.get(i).setName(j.getManoCartas().get(i).getValor()+" "+j.getManoCartas().get(i).getColor()+" "+j.getManoCartas().get(i).getTipo());
         }    
          
@@ -90,7 +99,40 @@ public class VistaJugador extends javax.swing.JFrame {
         this.listaCartas = listaCartas;
     }
     
+    public void checkMazoVacio() {
+        if (JuegoNormal.listaMazos.get(0).getMazoPrincipal().isEmpty()) {
+            rellenarMazo();
+        }
+    }
     
+    public void rellenarMazo() {
+        JuegoNormal.listaMazos.get(1).mezclarMazo();
+        JuegoNormal.listaMazos.get(0).getMazoPrincipal().addAll(JuegoNormal.listaMazos.get(1).getMazoPrincipal());
+    }
+    
+    public void levantarCartaMazo(Jugador j) {
+        checkMazoVacio();
+        if (!tieneCartaParaJugar(j)){
+            int numeroRandom = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size());
+            j.getManoCartas().add(JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
+            JuegoNormal.listaMazos.get(0).removerCarta(JuegoNormal.listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom-1));
+        } else {
+            JOptionPane.showMessageDialog(null, "Tienes al menos una carta válidad para jugar");            
+        }
+    }
+    /*
+    Método para verificar si el jugador tiene alguna carta válida antes de levantar una carta del mazo.
+     */
+    public boolean tieneCartaParaJugar (Jugador j){
+        checkMazoVacio();
+
+        for (int i = 0; i <j.getManoCartas().size() ; i++) {
+            if (JuegoNormal.pozo.validarCarta(j.getManoCartas().get(i)))
+                return true;
+
+        }
+        return false;
+    }
     
     public void juntarCartas(){
         listaCartas.add(carta1);
@@ -275,7 +317,7 @@ public class VistaJugador extends javax.swing.JFrame {
             }
         });
 
-        cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/color.png"))); // NOI18N
+        cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/1verde.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("Carta del Pozo");
@@ -422,7 +464,10 @@ public class VistaJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.exit(0);
+        this.setVisible(false);      
+        JuegoNormal.jugadorFocus++;
+        VistaJugador vistaJugador = new VistaJugador(JuegoNormal.pozo, JuegoNormal.jugadorFocus);
+        vistaJugador.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnLevantarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLevantarActionPerformed
@@ -430,6 +475,7 @@ public class VistaJugador extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Cupo Maximo de cartas en mano!");
             return;
         }
+        
         //Asigna una carta al, primer slot libre que haya
         String carta="+2rojo";
         cartasLibres.get(0).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta+".png")));
@@ -623,7 +669,7 @@ public class VistaJugador extends javax.swing.JFrame {
                 Carta carta5 = new Carta("joker", "especial", "+4");
                 Carta carta6 = new Carta("rojo", "numero", "9");
                 jugador.agregarCartas(Arrays.asList(carta,carta2,carta3,carta4,carta5));
-                new VistaJugador(jugador,carta6).setVisible(true);
+                new VistaJugador(carta6,0).setVisible(true);
             }
         });
     }

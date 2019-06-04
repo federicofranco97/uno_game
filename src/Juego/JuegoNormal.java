@@ -1,5 +1,6 @@
 package Juego;
 
+import GUI.VistaJugador;
 import Models.Carta;
 import Models.Jugador;
 import Models.Mazo;
@@ -11,16 +12,16 @@ import java.util.Arrays;
 
 public class JuegoNormal {
 
-    private ArrayList<Jugador> listaJugadores = new ArrayList<>();
-    private ArrayList<Jugador> listaGanadores = new ArrayList<>();
-    private ArrayList<Mazo> listaMazos = new ArrayList<>();
-    private int jugadorFocus = 0;
-    private boolean rondaHoraria = true;
-    private Carta pozo = new Carta();
+    public static ArrayList<Jugador> listaJugadores = new ArrayList<>();
+    public ArrayList<Jugador> listaGanadores = new ArrayList<>();
+    public static ArrayList<Mazo> listaMazos = new ArrayList<>();
+    public static int jugadorFocus = 0;
+    public boolean rondaHoraria = true;
+    public static Carta pozo = new Carta();
     static int acumulador = 0;
     private Persistencia persistencia = new Persistencia();
     private ArrayList<String> kdena= persistencia.getKdena();
-     final int tamañoMano=7;
+    private final int tamañoMano=7;
 
     public JuegoNormal() {}
     
@@ -429,9 +430,6 @@ public class JuegoNormal {
         }
         if(j.getVecesEnMenu()==1){
             otraValidacion(j);            
-//            while (!validarClave(JOptionPane.showInputDialog("Ingrese la clave de "+j.getNombre()),j)) {
-//                JOptionPane.showMessageDialog(null, "La clave ingresada no es valida");
-//            }
         }        
         String msj = "1-Ver mano" +
                 "\n2-Ver Pozo" +
@@ -516,6 +514,11 @@ public class JuegoNormal {
             case (salir):
                 guardarData();
                 System.exit(0);
+//            case(150):
+//                VistaJugador vista=new VistaJugador(pozo, jugadorFocus);
+//                vista.setVisible(true);
+//                verificarEspecial(pozo);
+//                break;
             case (casodefault):
                 JOptionPane.showMessageDialog(null, "¡El valor ingresado no es valido!");
                 preguntarMovida(j);
@@ -541,14 +544,11 @@ public class JuegoNormal {
         if (!tieneCartaParaJugar(j)){
             int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
             j.getManoCartas().add(listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
-
+            listaMazos.get(0).removerCarta(listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom-1));
         } else {
             JOptionPane.showMessageDialog(null, "Tienes al menos una carta válidad para jugar");
             preguntarMovida(j);
         }
-
-
-//        listaMazos.get(0).removeCarta(listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom-1));
     }
     /*
     Método para verificar si el jugador tiene alguna carta válida antes de levantar una carta del mazo.
