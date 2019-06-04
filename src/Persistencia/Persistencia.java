@@ -21,6 +21,7 @@ public class Persistencia {
     private int jugadorFocus=-1;
     private int valid=0;
 
+
     public Persistencia() {
         
     }
@@ -128,6 +129,19 @@ public class Persistencia {
                     mazo.add(carta);                    
                 }
             }
+
+            ///////////////////////////////////////////////////////
+            if(kdena.get(i).equals("PILA")){
+                String [] aux = (kdena.get(i+1).replaceAll("-", "")).split(",");
+                for (String string : aux) {
+                    String [] aux2=string.split(" ");
+                    Carta carta = new Carta(aux2[2], aux2[1], aux2[0]);
+                    mazoPila.add(carta);
+                }
+            }
+
+
+            /////////////////////////////////////////////////////
             
             if(kdena.get(i).equals("FOCUS")){
                 jugadorFocus=Integer.parseInt(kdena.get(i+1));
@@ -157,6 +171,19 @@ public class Persistencia {
                 data+=",";
             }
         }
+
+        //////////////////////////////////////////////////////////////////////
+        data+="-";
+        data+="PILA\n-";
+        for (Carta carta : getMazoPila()) {
+            data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+            if (getMazoPila().indexOf(carta)!=getMazoPila().size()-1){
+                data+=",";
+            }
+        }
+
+
+        /////////////////////////////////////////////////////////////////////
         data+="-";
         data+="\nPOZO\n"+pozo.getValor()+" "+pozo.getTipo()+" "+pozo.getColor();
         return data;
@@ -199,4 +226,11 @@ public class Persistencia {
         
     }//fin main
 
+    ///////////////////////////////////////////
+
+    private ArrayList<Carta> mazoPila = new ArrayList<>();
+
+    public ArrayList<Carta> getMazoPila() {
+        return mazoPila;
+    }
 }

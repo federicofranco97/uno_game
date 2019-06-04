@@ -742,10 +742,10 @@ public class JuegoNormal {
             }
         }/////////////////////////////////////////////////////////////////////////
         data+="-";
-        data+="PILA\n-";
+        data+="\nPILA\n-";
         for (Carta carta : getPilaJugadas().getMazoPrincipal()) {
             data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
-            if (getPilaJugadas().getMazoPrincipal().indexOf(carta)!=getMazoP().getMazoPrincipal().size()-1){
+            if (getPilaJugadas().getMazoPrincipal().indexOf(carta)!=getPilaJugadas().getMazoPrincipal().size()-1){
                 data+=",";
             }
         }
@@ -787,9 +787,8 @@ public class JuegoNormal {
         listaJugadores=persistencia.getListaJugadores();
         //Mazo mazo = new Mazo();
         mazoP.agregarCartas(persistencia.getMazo());
-        System.out.println(persistencia.getMazo().size());
-
-        pilaJugadas.llenarMazo();
+        pilaJugadas.agregarCartas(persistencia.getMazoPila());
+//        pilaJugadas.llenarMazo();
 //        System.out.println(pilaJugadas.getMazoPrincipal().size());
 //        pilaJugadas.removeCartas(persistencia.getMazo());
 //        System.out.println(pilaJugadas.getMazoPrincipal().size());
