@@ -735,9 +735,9 @@ public class JuegoNormal {
     
     public String mString(){
         String data="MAZO\n-";
-        for (Carta carta : getMazo()) {
+        for (Carta carta : getMazoP().getMazoPrincipal()) {
             data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
-            if (getMazo().indexOf(carta)!=getMazo().size()-1){
+            if (getMazoP().getMazoPrincipal().indexOf(carta)!=getMazoP().getMazoPrincipal().size()-1){
                 data+=",";
             }
         }
@@ -772,13 +772,17 @@ public class JuegoNormal {
         persistencia.leerArchivo();
         persistencia.agregarData();
         //setPozo(persistencia.getPozo());
+        cartaPozo = persistencia.getPozo();
         listaJugadores=persistencia.getListaJugadores();
-        Mazo mazo = new Mazo();        
-        mazo.agregarCartas(persistencia.getMazo());
-//        Mazo aux = new Mazo();
-//        aux.llenarMazo();
-//        getMazoP.add(mazo);
-//        getMazoP.add(aux);
+        //Mazo mazo = new Mazo();
+        getMazoP().agregarCartas(persistencia.getMazo());
+        getPilaJugadas().llenarMazo();
+        getPilaJugadas().removeCartas(getMazoP().getMazoPrincipal());
+        for (int i = 0; i <listaJugadores.size() ; i++) {
+            getPilaJugadas().removeCartas(listaJugadores.get(i).getManoCartas());
+        }
+//        mazoP = mazo;
+//        pilaJugadas = aux;
         jugadorFocus=persistencia.getJugadorFocus();
     }
 
@@ -802,7 +806,8 @@ public class JuegoNormal {
 
         for (int i = 0; i <getMazoP().getMazoPrincipal().size() ; i++) {
             if (!"especial".equalsIgnoreCase(getMazoP().getMazoPrincipal().get(i).getTipo())){
-            this.cartaPozo = getMazoP().getMazoPrincipal().get(getMazoP().getMazoPrincipal().size()-1);
+
+            this.cartaPozo = getMazoP().getMazoPrincipal().get(i);
             getMazoP().removeCarta(getMazoP().getMazoPrincipal().size()-1);
             getPilaJugadas().agregarCartaIndividual(cartaPozo);
             break;

@@ -11,12 +11,12 @@ public class Partida {
     
     public Partida(){
         JuegoNormal juego = new JuegoNormal();
-        juego.llenarMazo2();
+        //juego.llenarMazo2();
         //juego.llenarJugadores();
-        //juego.cargarData();
-        juego.setCartaPozo();
+        juego.cargarData();
+        //juego.setCartaPozo();
         juego.mensajeEntrada();           
-        juego.preguntarJugadores();
+        //juego.preguntarJugadores();
         juego.preguntarMovida(juego.getListaJugadores().get(juego.getJugadorFocus()));
     }
     
