@@ -16,7 +16,7 @@ public class JuegoNormal {
     public ArrayList<Jugador> listaGanadores = new ArrayList<>();
     public static ArrayList<Mazo> listaMazos = new ArrayList<>();
     public static int jugadorFocus = 0;
-    public boolean rondaHoraria = true;
+    public static boolean rondaHoraria = true;
     public static Carta pozo = new Carta();
     static int acumulador = 0;
     private Persistencia persistencia = new Persistencia();
@@ -514,11 +514,11 @@ public class JuegoNormal {
             case (salir):
                 guardarData();
                 System.exit(0);
-//            case(150):
-//                VistaJugador vista=new VistaJugador(pozo, jugadorFocus);
-//                vista.setVisible(true);
-//                verificarEspecial(pozo);
-//                break;
+            case(150):
+                VistaJugador vista=new VistaJugador(pozo, jugadorFocus);
+                vista.setVisible(true);
+                verificarEspecial(pozo);
+                break;
             case (casodefault):
                 JOptionPane.showMessageDialog(null, "¡El valor ingresado no es valido!");
                 preguntarMovida(j);

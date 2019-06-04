@@ -23,8 +23,7 @@ public class VistaJugador extends javax.swing.JFrame {
     public VistaJugador(Carta c,int NumeroJugador) {
         initComponents();
         juntarCartas();
-        asignarTemp(NumeroJugador);
-        cambiarImagen(temp);
+        cambiarImagen();
         asignarPozo(c);
         asignarNombre();
         setLocationRelativeTo(null);
@@ -32,16 +31,41 @@ public class VistaJugador extends javax.swing.JFrame {
 
     public ArrayList<JLabel>listaCartas=new ArrayList<>();
     public ArrayList<JLabel>cartasLibres=new ArrayList<>();
-    private Jugador temp;
+    
+    
+    public void incrementFocus() {
+        int lastPlayer = JuegoNormal.jugadorFocus;
+        if (JuegoNormal.rondaHoraria) {
+            if (lastPlayer + 1 == JuegoNormal.listaJugadores.size()) {
+                JuegoNormal.jugadorFocus = 0;
+            } else {
+                JuegoNormal.jugadorFocus = lastPlayer + 1;
+            }
+        } else {
+            if (lastPlayer - 1 < 0) {
+                JuegoNormal.jugadorFocus = JuegoNormal.listaJugadores.size() - 1;
+            } else {
+                JuegoNormal.jugadorFocus = lastPlayer - 1;
+            }
+        }
+    }
+    
+    public void siguienteTurno(){
+        incrementFocus();
+        cambiarImagen();
+        asignarNombre();
+    }
+    
+    public void siguienteTurno(String s){
+        cambiarImagen();
+        asignarNombre();
+    }
     
     public void asignarNombre(){
-        lblNombre.setText(temp.getNombre());
+        lblNombre.setText(JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getNombre());
     }
     
-    public void asignarTemp(int NumeroJugador){
-        temp=JuegoNormal.listaJugadores.get(NumeroJugador);
-    }
-    
+
     public void asignarPozo(Carta c){
         String carta=c.getValor()+c.getColor();
         JuegoNormal.pozo.setColor(c.getColor());
@@ -52,11 +76,124 @@ public class VistaJugador extends javax.swing.JFrame {
         
     }
     
-    public void cambiarImagen(){
+    public void cambiarImagen2(){
         String carta="+2azul";
         for (JLabel label : listaCartas) {
             label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta+".png")));
         }
+    }
+    
+    public void verificarEspecial(Carta c) {
+        if (c.getTipo().equals("especial")) {
+            aplicarCartaEspecial(c);
+        }
+        
+    }
+    
+    public void aplicarCartaEspecial(Carta c) {
+        checkMazoVacio();
+        checkCantidadCartas(c);
+        String tipoCarta = c.getTipo();
+        String valorCarta = c.getValor();
+        if (tipoCarta.equals("numero")) return;
+
+        switch (valorCarta) {
+
+            case ("+2"):
+                nextPlayer();
+                int numeroRandom = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size()-1);
+                Carta ca1 = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(numeroRandom);
+                int numeroRandom2 = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size() - 2);
+                Carta ca2 = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(numeroRandom2);
+                JuegoNormal.listaJugadores.get(numeroSiguiente()).agregarCartas(Arrays.asList(ca1, ca2));
+                JuegoNormal.listaMazos.get(0).removerCartas(Arrays.asList(ca1, ca2));
+                break;
+
+                
+            case ("+4"):
+                nextPlayer();
+                int n1 = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size()-1);
+                Carta c1 = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(n1);
+                int n2 = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size()-1);
+                Carta c2 = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(n2);
+                int n3 = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size()-1);
+                Carta c3 = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(n3);
+                int n4 = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size()-1);
+                Carta c4 = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(n4);
+                JuegoNormal.listaJugadores.get(numeroSiguiente()).agregarCartas(Arrays.asList(c1, c2, c3, c4));
+                JuegoNormal.listaMazos.get(0).removerCartas(Arrays.asList(c1, c2, c3, c4));
+                cambioColor();
+                break;
+            case ("skip"):
+                nextPlayer();
+                preguntarMov();
+                break;
+
+            case ("spin"):
+                JuegoNormal.rondaHoraria = !JuegoNormal.rondaHoraria;
+                preguntarMov();
+                break;
+
+            case ("color"):
+                cambioColor();
+                break;
+
+        }
+    }
+    
+    public void preguntarMov(){
+        VistaJugador vistaJugador = new VistaJugador(JuegoNormal.pozo,JuegoNormal.jugadorFocus);
+        vistaJugador.setVisible(true);
+        this.setVisible(false);
+    }
+    
+    public void checkCantidadCartas(Carta c){
+        int tamañoActual=JuegoNormal.listaMazos.get(0).getMazoPrincipal().size();
+        if(c.getTipo().equals("especial") && c.getValor().equals("+4") || c.getValor().equals("+2") && tamañoActual<4 ){
+            rellenarMazo();
+        }
+    }
+    
+    private int numeroSiguiente() {
+        incrementFocus();
+        return JuegoNormal.jugadorFocus;
+    }
+    
+    public void cambioColor() {
+        String msj = "Elija a que color quiere cambiar:\n"
+                + "1-rojo\n2-azul\n3-amarillo\n4-verde";
+        String choice = JOptionPane.showInputDialog(msj);
+        switch (choice) {
+            case ("1"):
+                JuegoNormal.pozo.setColor("rojo");
+                VistaJugador vistaJugador = new VistaJugador(JuegoNormal.pozo,JuegoNormal.jugadorFocus);                vistaJugador.setVisible(true);                this.setVisible(false);
+                break;
+            case ("2"):
+                JuegoNormal.pozo.setColor("azul");
+                preguntarMov();
+                break;
+            case ("3"):
+                JuegoNormal.pozo.setColor("amarillo");
+                preguntarMov();
+                break;
+            case ("4"):
+                JuegoNormal.pozo.setColor("verde");
+                preguntarMov();
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "La opcion ingresada no es valida!\nIntenta de nuevo.");
+                cambioColor();
+                break;
+        }
+    }
+    
+        public Jugador nextPlayer() {
+        for (Jugador jug : JuegoNormal.listaJugadores) {
+            jug.setVecesEnMenu(0);
+        }
+        incrementFocus();
+        int nextPlayer = JuegoNormal.jugadorFocus;
+        return JuegoNormal.listaJugadores.get(nextPlayer);
     }
     
     public boolean validarTiro(String carta){
@@ -69,6 +206,15 @@ public class VistaJugador extends javax.swing.JFrame {
             JuegoNormal.pozo.setTipo(cartaTirada.getTipo());
             String carta2=JuegoNormal.pozo.getValor()+JuegoNormal.pozo.getColor();
             cartaPozo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta2+".png")));
+            int lugarJugador=JuegoNormal.jugadorFocus;
+            JuegoNormal.listaJugadores.get(lugarJugador).removerCarta(cartaTirada);
+//            verificarEspecial(JuegoNormal.pozo);
+//            if(JuegoNormal.pozo.getTipo().equals("especial")){
+//                siguienteTurno("s");
+//            }else{
+//                siguienteTurno();
+//            }
+            siguienteTurno();
             return true;
         }else{
             JOptionPane.showMessageDialog(null, "Jugada No Valida!");
@@ -76,18 +222,25 @@ public class VistaJugador extends javax.swing.JFrame {
         }
     }
     
-    public void cambiarImagen(Jugador j){
-        System.out.println(j.getManoCartas().size());
-        for (int i = 0; i < j.getManoCartas().size(); i++) {
-            String card=j.getManoCartas().get(i).getValor()+j.getManoCartas().get(i).getColor();
+    public void cambiarImagen(){
+        int tamañoMano2=JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getManoCartas().size();
+        System.out.println(tamañoMano2);
+        for (int i = 0; i < tamañoMano2; i++) {
+            String card=JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getManoCartas().get(i).getValor()+JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getManoCartas().get(i).getColor();
             listaCartas.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+card+".png")));
-            //listaCartas.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/+2verde.png")));
-            listaCartas.get(i).setName(j.getManoCartas().get(i).getValor()+" "+j.getManoCartas().get(i).getColor()+" "+j.getManoCartas().get(i).getTipo());
+            listaCartas.get(i).setName(JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getManoCartas().get(i).getValor()+" "+JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getManoCartas().get(i).getColor()+" "+JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).getManoCartas().get(i).getTipo());
         }    
          
-        for (int i = j.getManoCartas().size(); i < listaCartas.size(); i++) {            
-            listaCartas.get(i).setIcon(null);
-            cartasLibres.add(listaCartas.get(i));
+        for (int i = tamañoMano2; i < listaCartas.size(); i++) {            
+            cartasLibres.add(listaCartas.get(i));            
+        }
+        for (int i = tamañoMano2; i < listaCartas.size(); i++) {            
+            listaCartas.remove(i);            
+        }
+        
+        for (JLabel car : cartasLibres) {
+            car.setIcon(null);
+            car.setName("");
         }
     }
 
@@ -475,16 +628,21 @@ public class VistaJugador extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Cupo Maximo de cartas en mano!");
             return;
         }
-        
+        checkMazoVacio();
+        Carta cartaLevantada = JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(0);
         //Asigna una carta al, primer slot libre que haya
-        String carta="+2rojo";
+        String carta=cartaLevantada.getValor()+cartaLevantada.getColor();
+        JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus).agregarCartas(Arrays.asList(cartaLevantada));
         cartasLibres.get(0).setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/recartas/"+carta+".png")));
-        cartasLibres.get(0).setName("+2 rojo especial");
+        cartasLibres.get(0).setName(cartaLevantada.getValor()+" "+cartaLevantada.getColor()+" "+cartaLevantada.getTipo());
         cartasLibres.remove(0);
+        JuegoNormal.listaMazos.get(0).getMazoPrincipal().remove(0);
     }//GEN-LAST:event_btnLevantarActionPerformed
 
     private void btnPasarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarActionPerformed
         JOptionPane.showMessageDialog(null, "Turno Cedido!");
+        incrementFocus();
+        preguntarMov();
     }//GEN-LAST:event_btnPasarActionPerformed
 
     private void carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseClicked
@@ -701,4 +859,6 @@ public class VistaJugador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
+
+
 }
