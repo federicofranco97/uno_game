@@ -490,10 +490,7 @@ public class JuegoNormal {
                 break;
             case (salir):
                 try {
-                    if(nombrePartida.equalsIgnoreCase("")) {
-                        nombrePartida = JOptionPane.showInputDialog(null, "Nombre de la partida:");
-                        guardarData();
-                    }
+                    nombrePartida = JOptionPane.showInputDialog(null, "Nombre de la partida:");
                     guardarData();
                 } catch (IOException e) {
                     e.printStackTrace();
