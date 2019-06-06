@@ -1,9 +1,11 @@
 package Models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Carta {
-    
+public class Carta implements Serializable {
+
+    private static final long serialVersionUID = -7844649437148088720L;
     private String color;
     private String valor;
     private String tipo;

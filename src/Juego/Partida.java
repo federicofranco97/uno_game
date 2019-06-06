@@ -1,5 +1,7 @@
 package Juego;
 
+import java.io.IOException;
+
 public class Partida {
     /*
     pasos:
@@ -13,7 +15,13 @@ public class Partida {
         JuegoNormal juego = new JuegoNormal();
         //juego.llenarMazo2();
         //juego.llenarJugadores();
-        juego.cargarData();
+        try {
+            juego.cargarData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         //juego.setCartaPozo();
         juego.mensajeEntrada();           
         //juego.preguntarJugadores();

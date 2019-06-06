@@ -1,18 +1,18 @@
 JUGADOR
-j1
 1
--4 numero amarillo,7 numero amarillo,7 numero rojo,3 numero azul,color especial joker,spin especial rojo-
+1
+-6 numero rojo,9 numero verde,5 numero amarillo,color especial joker,spin especial rojo,spin especial verde,1 numero verde-
 JUGADOR
-j2
 2
--skip especial verde,7 numero amarillo,8 numero amarillo,3 numero rojo,spin especial verde,skip especial amarillo,8 numero verde-
+2
+-2 numero azul,7 numero amarillo,6 numero amarillo,color especial joker,8 numero amarillo,7 numero azul,2 numero amarillo-
 FOCUS
-1
+0
 MAZO
--5 numero verde,skip especial rojo,9 numero rojo,7 numero verde,+4 especial joker,2 numero azul,+2 especial amarillo,0 numero amarillo,5 numero amarillo,spin especial amarillo,0 numero rojo,1 numero azul,4 numero azul,6 numero amarillo,3 numero verde,6 numero amarillo,9 numero amarillo,3 numero verde,1 numero verde,color especial joker,2 numero amarillo,5 numero verde,+2 especial rojo,7 numero rojo,2 numero rojo,9 numero verde,3 numero amarillo,2 numero rojo,9 numero azul,7 numero azul,8 numero amarillo,6 numero verde,6 numero rojo,skip especial rojo,5 numero azul,8 numero rojo,4 numero verde,3 numero azul,7 numero verde,9 numero verde,4 numero azul,1 numero amarillo,spin especial azul,0 numero verde,0 numero azul,8 numero azul,+4 especial joker,3 numero amarillo,color especial joker,spin especial rojo,6 numero azul,9 numero amarillo,+2 especial verde,4 numero verde,6 numero verde,9 numero rojo,1 numero rojo,skip especial azul,8 numero verde,spin especial amarillo,color especial joker,8 numero rojo,+2 especial azul,5 numero azul,3 numero rojo,9 numero azul,1 numero azul,skip especial azul,2 numero verde,1 numero amarillo,+4 especial joker,+2 especial amarillo,5 numero rojo,7 numero azul,+4 especial joker,2 numero amarillo,skip especial amarillo,4 numero rojo,6 numero rojo,4 numero rojo,+2 especial azul,+2 especial verde,spin especial verde,6 numero azul,spin especial azul,2 numero verde,4 numero amarillo,1 numero verde,2 numero azul,5 numero rojo,8 numero azul,5 numero amarillo,skip especial verde-
+-4 numero amarillo,5 numero verde,2 numero amarillo,3 numero amarillo,skip especial amarillo,2 numero verde,3 numero verde,4 numero azul,1 numero rojo,1 numero amarillo,5 numero rojo,color especial joker,skip especial verde,3 numero rojo,0 numero azul,2 numero azul,8 numero verde,8 numero azul,8 numero amarillo,6 numero verde,+4 especial joker,6 numero azul,4 numero verde,2 numero rojo,9 numero azul,6 numero rojo,8 numero rojo,7 numero verde,4 numero amarillo,0 numero amarillo,9 numero rojo,color especial joker,4 numero rojo,3 numero rojo,8 numero azul,5 numero verde,+4 especial joker,3 numero verde,7 numero verde,9 numero verde,spin especial azul,7 numero azul,6 numero verde,+2 especial verde,7 numero rojo,2 numero verde,+2 especial rojo,5 numero amarillo,9 numero amarillo,+2 especial verde,skip especial rojo,5 numero azul,9 numero rojo,+2 especial azul,9 numero azul,8 numero rojo,skip especial azul,4 numero rojo,skip especial rojo,spin especial azul,spin especial amarillo,1 numero amarillo,0 numero rojo,+2 especial amarillo,5 numero rojo,6 numero amarillo,4 numero verde,spin especial verde,4 numero azul,5 numero azul,3 numero amarillo,+2 especial azul,+4 especial joker,6 numero azul,3 numero azul,7 numero amarillo,+4 especial joker,1 numero azul,skip especial verde,+2 especial rojo,0 numero verde,9 numero amarillo,spin especial amarillo,skip especial azul,1 numero verde,skip especial amarillo,2 numero rojo,1 numero rojo,1 numero azul,spin especial rojo,7 numero rojo,3 numero azul,8 numero verde,-
 PILA
--1 numero rojo,1 numero rojo-
+-6 numero rojo-
 POZO
-1 numero rojo
+6 numero rojo
 V
-57443
+57257

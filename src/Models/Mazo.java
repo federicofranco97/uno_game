@@ -1,11 +1,14 @@
 package Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
-public class Mazo {
+public class Mazo implements Serializable {
+
+    private static final long serialVersionUID = -1458293465913195793L;
     private ArrayList<Carta> mazoPrincipal= new ArrayList<>();
 
     public Mazo() {

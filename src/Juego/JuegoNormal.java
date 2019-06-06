@@ -6,6 +6,7 @@ import Models.Mazo;
 import Persistencia.Persistencia;
 
 import javax.swing.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -488,7 +489,11 @@ public class JuegoNormal {
                 preguntarMovida(nextPlayer());
                 break;
             case (salir):
-                guardarData();
+                try {
+                    guardarData();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 System.exit(0);
             case (casodefault):
                 JOptionPane.showMessageDialog(null, "¡El valor ingresado no es valido!");
@@ -775,33 +780,37 @@ public class JuegoNormal {
     }
     
     
-    public void guardarData(){
-        persistencia.escribirArchivo(jString(), mString());
+    public void guardarData()throws FileNotFoundException, IOException{
+        //persistencia.escribirArchivo(jString(), mString());
+        generarArchivo();
     }
    
-    public void cargarData(){
-        persistencia.leerArchivo();
-        persistencia.agregarData();
-        //setPozo(persistencia.getPozo());
-        cartaPozo = persistencia.getPozo();
-        listaJugadores=persistencia.getListaJugadores();
-        //Mazo mazo = new Mazo();
-        mazoP.agregarCartas(persistencia.getMazo());
-        pilaJugadas.agregarCartas(persistencia.getMazoPila());
-//        pilaJugadas.llenarMazo();
-//        System.out.println(pilaJugadas.getMazoPrincipal().size());
-//        pilaJugadas.removeCartas(persistencia.getMazo());
-//        System.out.println(pilaJugadas.getMazoPrincipal().size());
+    public void cargarData() throws IOException, ClassNotFoundException {
+//        persistencia.leerArchivo();
+//        persistencia.agregarData();
+//        //setPozo(persistencia.getPozo());
+//        cartaPozo = persistencia.getPozo();
+//        listaJugadores=persistencia.getListaJugadores();
+//        //Mazo mazo = new Mazo();
+//        mazoP.agregarCartas(persistencia.getMazo());
+//        pilaJugadas.agregarCartas(persistencia.getMazoPila());
+////        pilaJugadas.llenarMazo();
+////        System.out.println(pilaJugadas.getMazoPrincipal().size());
+////        pilaJugadas.removeCartas(persistencia.getMazo());
+////        System.out.println(pilaJugadas.getMazoPrincipal().size());
+////
+////        for (int i = 0; i <listaJugadores.size() ; i++) {
+////            pilaJugadas.getMazoPrincipal().remove(persistencia.getListaJugadores().get(i).getManoCartas());
+////            System.out.println(persistencia.getListaJugadores().get(i).getManoCartas().size());
+////        }
+////        mazoP = mazo;
+////        pilaJugadas = aux;
 //
-//        for (int i = 0; i <listaJugadores.size() ; i++) {
-//            pilaJugadas.getMazoPrincipal().remove(persistencia.getListaJugadores().get(i).getManoCartas());
-//            System.out.println(persistencia.getListaJugadores().get(i).getManoCartas().size());
-//        }
-//        mazoP = mazo;
-//        pilaJugadas = aux;
+//        System.out.println(pilaJugadas.getMazoPrincipal().size());
+//        jugadorFocus=persistencia.getJugadorFocus();
 
-        System.out.println(pilaJugadas.getMazoPrincipal().size());
-        jugadorFocus=persistencia.getJugadorFocus();
+        /////////////////Serializable//////////////////////
+            leerArchivo();
 
     }
 
@@ -858,6 +867,31 @@ public class JuegoNormal {
         System.out.println("tamaño mazo después del for: " + getMazoP().getMazoPrincipal().size());
         System.out.println("tamaño mano: " + mano.size());
         return mano;
+    }
+    ////////////////////////////Versión con archivo serializable/////////////////////////////////////////////////////
+    public void generarArchivo() throws FileNotFoundException, IOException {
+
+        ObjectOutputStream escrbirArchivo = new ObjectOutputStream(new FileOutputStream("Datos.txt"));
+        escrbirArchivo.writeObject(listaJugadores);
+        escrbirArchivo.writeObject(mazoP);
+        escrbirArchivo.writeObject(pilaJugadas);
+        escrbirArchivo.writeObject(cartaPozo);
+        escrbirArchivo.write(jugadorFocus);
+
+        escrbirArchivo.close();
+
+    }
+
+    public void leerArchivo() throws FileNotFoundException, IOException, ClassNotFoundException {
+
+        ObjectInputStream leerArchivo = new ObjectInputStream(new FileInputStream("Datos.txt"));
+        listaJugadores = (ArrayList<Jugador>) leerArchivo.readObject();
+        mazoP = (Mazo) leerArchivo.readObject();
+        pilaJugadas = (Mazo) leerArchivo.readObject();
+        cartaPozo = (Carta) leerArchivo.readObject();
+        jugadorFocus = leerArchivo.read();
+        leerArchivo.close();
+
     }
 
 

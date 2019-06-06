@@ -1,11 +1,13 @@
 package Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.JOptionPane;
 
-public class Jugador {
-    
+public class Jugador implements Serializable {
+
+    private static final long serialVersionUID = -3051214141392711151L;
     private String nombre;
     private ArrayList<Carta> manoCartas= new ArrayList<>();
     private String clave;
