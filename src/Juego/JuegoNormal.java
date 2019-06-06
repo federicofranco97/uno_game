@@ -490,6 +490,10 @@ public class JuegoNormal {
                 break;
             case (salir):
                 try {
+                    if(nombrePartida.equalsIgnoreCase("")) {
+                        nombrePartida = JOptionPane.showInputDialog(null, "Nombre de la partida:");
+                        guardarData();
+                    }
                     guardarData();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -785,7 +789,7 @@ public class JuegoNormal {
         generarArchivo();
     }
    
-    public void cargarData() throws IOException, ClassNotFoundException {
+    public void cargarData(String nombreP) throws IOException, ClassNotFoundException {
 //        persistencia.leerArchivo();
 //        persistencia.agregarData();
 //        //setPozo(persistencia.getPozo());
@@ -810,7 +814,7 @@ public class JuegoNormal {
 //        jugadorFocus=persistencia.getJugadorFocus();
 
         /////////////////Serializable//////////////////////
-            leerArchivo();
+            leerArchivo(nombreP);
 
     }
 
@@ -818,6 +822,7 @@ public class JuegoNormal {
     private Mazo mazoP = new Mazo();
     private Mazo pilaJugadas = new Mazo();
     private Carta cartaPozo = new Carta();
+    private String nombrePartida ="";
 
     public void llenarMazo2(){
         mazoP.llenarMazo();
@@ -870,7 +875,7 @@ public class JuegoNormal {
     ////////////////////////////Versión con archivo serializable/////////////////////////////////////////////////////
     public void generarArchivo() throws FileNotFoundException, IOException {
 
-        ObjectOutputStream escrbirArchivo = new ObjectOutputStream(new FileOutputStream("Datos.txt"));
+        ObjectOutputStream escrbirArchivo = new ObjectOutputStream(new FileOutputStream(nombrePartida + ".txt"));
         escrbirArchivo.writeObject(listaJugadores);
         escrbirArchivo.writeObject(mazoP);
         escrbirArchivo.writeObject(pilaJugadas);
@@ -881,9 +886,9 @@ public class JuegoNormal {
 
     }
 
-    public void leerArchivo() throws FileNotFoundException, IOException, ClassNotFoundException {
+    public void leerArchivo(String nombreP) throws FileNotFoundException, IOException, ClassNotFoundException {
 
-        ObjectInputStream leerArchivo = new ObjectInputStream(new FileInputStream("Datos.txt"));
+        ObjectInputStream leerArchivo = new ObjectInputStream(new FileInputStream(nombreP + ".txt"));
         listaJugadores = (ArrayList<Jugador>) leerArchivo.readObject();
         mazoP = (Mazo) leerArchivo.readObject();
         pilaJugadas = (Mazo) leerArchivo.readObject();

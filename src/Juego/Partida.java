@@ -1,5 +1,6 @@
 package Juego;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class Partida {
@@ -15,13 +16,16 @@ public class Partida {
         JuegoNormal juego = new JuegoNormal();
         //juego.llenarMazo2();
         //juego.llenarJugadores();
+
         try {
-            juego.cargarData();
+            String nombrePartida = JOptionPane.showInputDialog(null, "¿Qué partida quieres reanudar?");
+            juego.cargarData(nombrePartida);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
         //juego.setCartaPozo();
         juego.mensajeEntrada();           
         //juego.preguntarJugadores();
