@@ -153,6 +153,7 @@ public class Persistencia {
             System.out.println("Es valido el fichero");
         }else{
             System.out.println("Fichero corrupto");
+            System.out.println(validarData());
             //falta implementar que haga algo como no cargar la partida
         }
     }
@@ -160,6 +161,8 @@ public class Persistencia {
     public boolean validarData(){
         String conjunto=jString()+"\n"+mString();
         int validNumber=conjunto.length()*31;
+        System.out.println(validNumber);
+        System.out.println(valid);
         return validNumber==valid;
     }
     
@@ -167,7 +170,7 @@ public class Persistencia {
         String data="MAZO\n-";
         for (Carta carta : getMazo()) {
             data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
-            if (getMazo().indexOf(carta)!=getMazo().size()-1){
+            if (getMazo().indexOf(carta)!= getMazo().size()-1){
                 data+=",";
             }
         }
@@ -177,7 +180,7 @@ public class Persistencia {
         data+="PILA\n-";
         for (Carta carta : getMazoPila()) {
             data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
-            if (getMazoPila().indexOf(carta)!=getMazoPila().size()-1){
+            if (mazoPila.indexOf(carta)!=mazoPila.size()-1){
                 data+=",";
             }
         }

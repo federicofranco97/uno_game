@@ -748,9 +748,9 @@ public class JuegoNormal {
         }/////////////////////////////////////////////////////////////////////////
         data+="-";
         data+="\nPILA\n-";
-        for (Carta carta : getPilaJugadas().getMazoPrincipal()) {
+        for (Carta carta : pilaJugadas.getMazoPrincipal()) {
             data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
-            if (getPilaJugadas().getMazoPrincipal().indexOf(carta)!=getPilaJugadas().getMazoPrincipal().size()-1){
+            if (pilaJugadas.getMazoPrincipal().indexOf(carta)!=pilaJugadas.getMazoPrincipal().size()-1){
                 data+=",";
             }
         }
@@ -834,10 +834,9 @@ public class JuegoNormal {
 
         for (int i = 0; i <getMazoP().getMazoPrincipal().size() ; i++) {
             if (!"especial".equalsIgnoreCase(getMazoP().getMazoPrincipal().get(i).getTipo())){
-
             this.cartaPozo = getMazoP().getMazoPrincipal().get(i);
-            getMazoP().removeCarta(getMazoP().getMazoPrincipal().size()-1);
-            getPilaJugadas().agregarCartaIndividual(cartaPozo);
+            getMazoP().getMazoPrincipal().remove(cartaPozo);
+            pilaJugadas.getMazoPrincipal().add(cartaPozo);
             break;
             }
         }
