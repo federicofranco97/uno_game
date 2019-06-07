@@ -1,5 +1,6 @@
 package Juego;
 
+import GUI.MenuPrincipal;
 import GUI.VistaJugador;
 import Models.Carta;
 import Models.Jugador;
@@ -22,7 +23,18 @@ public class JuegoNormal {
     public static Persistencia persistencia = new Persistencia();
     private ArrayList<String> kdena= persistencia.getKdena();
     private final int tamañoMano=7;
+    public boolean isValid=true;
 
+    public boolean isIsValid() {
+        return isValid;
+    }
+
+    public void setIsValid(boolean isValid) {
+        this.isValid = isValid;
+    }
+
+    
+    
     public JuegoNormal() {}
     
     /*
@@ -805,9 +817,23 @@ public class JuegoNormal {
         persistencia.escribirArchivo(jString(), mString());
     }
    
+    public void volverMenu(){
+        MenuPrincipal menu = new MenuPrincipal(1);
+        menu.setVisible(true);
+        
+    }
+    
+    
     public void cargarData(){
         persistencia.leerArchivo();
         persistencia.agregarData();
+        if(persistencia.corrupto){
+            JOptionPane.showMessageDialog(null, "El fichero fue alterado, y fue eliminado!\n"
+                    + "O el fichero no tiene contenido!\n"
+                    + "Para Jugar crea una nueva partida.");
+            isValid=false;
+            return;
+        }
         setPozo(persistencia.getPozo());
         listaJugadores=persistencia.getListaJugadores();
         Mazo mazo = new Mazo();        
@@ -817,5 +843,6 @@ public class JuegoNormal {
         listaMazos.add(mazo);
         listaMazos.add(aux);
         jugadorFocus=persistencia.getJugadorFocus();
+        
     }
 }

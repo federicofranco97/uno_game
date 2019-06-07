@@ -12,11 +12,17 @@ public class Partida {
     public Partida(){
         JuegoNormal juego = new JuegoNormal();
         juego.cargarData();
-        juego.primerCartaPozo();
-        juego.mensajeEntrada();           
+        if(juego.isValid){
+            juego.primerCartaPozo();
+            juego.mensajeEntrada();   
+            juego.preguntarMovida();
+        }else{
+            juego.volverMenu();
+        }
+        
         //juego.preguntarJugadores();
         //juego.preguntarMovida(juego.getListaJugadores().get(juego.getJugadorFocus()));
-        juego.preguntarMovida();
+        
     }
     
     public static void main(String[] args) {

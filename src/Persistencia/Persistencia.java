@@ -21,6 +21,7 @@ public class Persistencia {
     private ArrayList<Carta> mazo = new ArrayList<>();
     private int jugadorFocus=-1;
     private int valid=0;
+    public boolean corrupto=false;
 
     public Persistencia() {
         
@@ -77,6 +78,14 @@ public class Persistencia {
         return "V\n"+String.valueOf(tamaño*31);
     }
     
+    public void limpiarFichero(){
+        try {            
+            PrintWriter writer = new PrintWriter(archivo);
+            writer.print("");
+            writer.close();
+        } catch (IOException ex) {}
+    }
+    
     public void escribirArchivo(String j,String m){
         //limpiar el fichero
         try {
@@ -104,51 +113,58 @@ public class Persistencia {
        
     public void agregarData(){
         boolean archivoValido=true;
-        for (int i = 0; i < kdena.size(); i++) {
-            if (kdena.get(i).equals("JUGADOR")) {
-                Jugador jugador = new Jugador(kdena.get(i+1), kdena.get(i+2));
-                String aux1= kdena.get(i+3).replaceAll("-", "");
-                String [] cartaLista = aux1.split(",");
-                int codigoAuxiliar=Integer.parseInt(kdena.get(i+4));
-                
-                for (String carta : cartaLista) {
-                    String [] aux2=carta.split(" ");
-                    jugador.agregarCartas(Arrays.asList(new Carta(aux2[2], aux2[1], aux2[0])));
+        if(!kdena.isEmpty()){
+            for (int i = 0; i < kdena.size(); i++) {
+                if (kdena.get(i).equals("JUGADOR")) {
+                    Jugador jugador = new Jugador(kdena.get(i+1), kdena.get(i+2));
+                    String aux1= kdena.get(i+3).replaceAll("-", "");
+                    String [] cartaLista = aux1.split(",");
+                    int codigoAuxiliar=Integer.parseInt(kdena.get(i+4));
+
+                    for (String carta : cartaLista) {
+                        String [] aux2=carta.split(" ");
+                        jugador.agregarCartas(Arrays.asList(new Carta(aux2[2], aux2[1], aux2[0])));
+                    }
+                    if(calcularValores(jugador.getManoCartas())==codigoAuxiliar){
+                        listaJugadores.add(jugador);
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Mano alterada, fuiste eliminado: "+jugador.getNombre());
+                        archivoValido=false;
+                    }
+
                 }
-                if(calcularValores(jugador.getManoCartas())==codigoAuxiliar){
-                    listaJugadores.add(jugador);
-                }else{
-                    JOptionPane.showMessageDialog(null,"Mano alterada, fuiste eliminado: "+jugador.getNombre());
-                    archivoValido=false;
+                if (kdena.get(i).equals("POZO")) {
+                    String [] aux=kdena.get(i+1).split(" ");
+                    pozo.setValor(aux[0]);
+                    pozo.setTipo(aux[1]);
+                    pozo.setColor(aux[2]);
                 }
-                
-            }
-            if (kdena.get(i).equals("POZO")) {
-                String [] aux=kdena.get(i+1).split(" ");
-                pozo.setValor(aux[0]);
-                pozo.setTipo(aux[1]);
-                pozo.setColor(aux[2]);
-            }
-            
-            if(kdena.get(i).equals("MAZO")){
-                String [] aux = (kdena.get(i+1).replaceAll("-", "")).split(",");
-                for (String string : aux) {
-                    String [] aux2=string.split(" ");
-                    Carta carta = new Carta(aux2[2], aux2[1], aux2[0]);
-                    mazo.add(carta);                    
+
+                if(kdena.get(i).equals("MAZO")){
+                    String [] aux = (kdena.get(i+1).replaceAll("-", "")).split(",");
+                    for (String string : aux) {
+                        String [] aux2=string.split(" ");
+                        Carta carta = new Carta(aux2[2], aux2[1], aux2[0]);
+                        mazo.add(carta);                    
+                    }
                 }
+
+                if(kdena.get(i).equals("FOCUS")){
+                    jugadorFocus=Integer.parseInt(kdena.get(i+1));
+                }            
+
+                if(kdena.get(i).equals("V")) valid=Integer.parseInt(kdena.get(i+1));
             }
-            
-            if(kdena.get(i).equals("FOCUS")){
-                jugadorFocus=Integer.parseInt(kdena.get(i+1));
-            }            
-            
-            if(kdena.get(i).equals("V")) valid=Integer.parseInt(kdena.get(i+1));
+        }else{
+            corrupto=true;
         }
-        if (validarData() || archivoValido) {
+        
+        if (validarData() || archivoValido || !corrupto) {
             System.out.println("Es valido el fichero");
         }else{
-            System.out.println("Fichero corrupto");
+            
+            limpiarFichero();
+            corrupto=true;
             //falta implementar que haga algo como no cargar la partida
         }
     }
