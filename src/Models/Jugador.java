@@ -77,6 +77,18 @@ public class Jugador {
         manoCartas.remove(posicion);
     }
     
+    public void removerCarta(Carta c){
+        int posicion=-1;
+        for (int i = 0; i < manoCartas.size(); i++) {
+            if(manoCartas.get(i).equals(c) ){
+                posicion=i;
+                break;
+            }
+        }
+            
+        manoCartas.remove(posicion);
+    }
+    
     public boolean validarMano(Carta c){
         for (Carta carta : manoCartas) {
             if(carta.validarCarta(c))return true;            
