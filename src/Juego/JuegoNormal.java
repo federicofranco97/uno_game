@@ -19,7 +19,7 @@ public class JuegoNormal {
     public static boolean rondaHoraria = true;
     public static Carta pozo = new Carta();
     static int acumulador = 0;
-    private Persistencia persistencia = new Persistencia();
+    public static Persistencia persistencia = new Persistencia();
     private ArrayList<String> kdena= persistencia.getKdena();
     private final int tamañoMano=7;
 
@@ -412,6 +412,11 @@ public class JuegoNormal {
         return false;            
     }
     
+    public void preguntarMovida(){
+        VistaJugador vista=new VistaJugador(pozo, jugadorFocus);
+        vista.setVisible(true);
+    }
+    
     /*
     Accion a tomar en el turno
     (Faltan implementar)
@@ -516,7 +521,7 @@ public class JuegoNormal {
             case(150):
                 VistaJugador vista=new VistaJugador(pozo, jugadorFocus);
                 vista.setVisible(true);
-                verificarEspecial(pozo);
+                
                 break;
             case (casodefault):
                 JOptionPane.showMessageDialog(null, "¡El valor ingresado no es valido!");
@@ -712,7 +717,8 @@ public class JuegoNormal {
         for (Jugador jugador : listaJugadores) {
             asignarValores(jugador.getManoCartas());
         }
-        preguntarMovida(listaJugadores.get(jugadorFocus));
+        //preguntarMovida(listaJugadores.get(jugadorFocus));
+        preguntarMovida();
     }
 
     public boolean validarNombre(String nombre) {
