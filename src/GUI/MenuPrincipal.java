@@ -20,6 +20,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UNO");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/unoLogo.png"))); // NOI18N
 

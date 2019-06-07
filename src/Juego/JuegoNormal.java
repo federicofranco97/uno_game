@@ -19,7 +19,7 @@ public class JuegoNormal {
     public static boolean rondaHoraria = true;
     public static Carta pozo = new Carta();
     static int acumulador = 0;
-    private Persistencia persistencia = new Persistencia();
+    public static Persistencia persistencia = new Persistencia();
     private ArrayList<String> kdena= persistencia.getKdena();
     private final int tamañoMano=7;
 

@@ -150,11 +150,95 @@ public class VistaJugador extends javax.swing.JFrame {
         
     }
     
+    public int verValor(Carta c){
+        int valor=0;
+        if(c.getTipo().equals("especial")){
+            switch(c.getValor()){
+                case("spin"):valor=7;break;
+                case("skip"):valor=4;break;
+                case("color"):valor=10;break;
+                case("+2"):valor=8;break;
+                case("+4"):valor=6;break;
+            }
+        }else{
+            valor=Integer.parseInt(c.getValor());
+        }
+        return valor;
+    }
+    
+    public int verTipo(Carta c){
+        if(c.getTipo().equals("especial")){
+            return 10;
+        }else{
+            return 5;
+        }        
+    }
+    
+    public int verColor(Carta c){
+        int valor;
+        String colorCarta=c.getColor();
+        switch(colorCarta){
+            case("rojo"):valor=15;break;            
+            case("amarillo"):valor=25;break;
+            case("azul"):valor=20;break;
+            case("verde"):valor=10;break;
+            case("joker"):valor=5;break;
+            default:valor=0;break;
+        }
+        return valor;
+    }
+    
     public void checkCantidadCartas(Carta c){
         int tamañoActual=JuegoNormal.listaMazos.get(0).getMazoPrincipal().size();
         if(c.getTipo().equals("especial") && c.getValor().equals("+4") || c.getValor().equals("+2") && tamañoActual<4 ){
             rellenarMazo();
         }
+    }
+    
+    public String mString(){
+        String data="MAZO\n-";
+        for (Carta carta : JuegoNormal.listaMazos.get(0).getMazoPrincipal()) {
+            data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+            if (JuegoNormal.listaMazos.get(0).getMazoPrincipal().indexOf(carta)!=JuegoNormal.listaMazos.get(0).getMazoPrincipal().size()-1){
+                data+=",";
+            }
+        }
+        data+="-";
+        data+="\nPOZO\n"+JuegoNormal.pozo.getValor()+" "+JuegoNormal.pozo.getTipo()+" "+JuegoNormal.pozo.getColor();
+        return data;
+    }
+    
+    public void asignarValores(ArrayList<Carta> listaCartas){
+        for (Carta carta : listaCartas) {
+           int aux=0;
+           aux+= verTipo(carta)+verColor(carta)+verValor(carta);
+           carta.setCodigo(aux*31);
+        }
+    }
+    
+    public String jString(){
+        String data="";
+        for (Jugador jug : JuegoNormal.listaJugadores) {
+            int codigoJug=0;
+            data+="JUGADOR\n";
+            data+=jug.getNombre()+"\n"+jug.getClave()+"\n-";
+            asignarValores(jug.getManoCartas());
+            for (Carta carta : jug.getManoCartas()) {
+                codigoJug+=carta.getCodigo();
+                data+=carta.getValor()+" "+carta.getTipo()+" "+carta.getColor();
+                if (jug.getManoCartas().indexOf(carta)!=jug.getManoCartas().size()-1){
+                    data+=",";
+                }
+            }
+            data+="-\n";            
+            data+=codigoJug+"\n";            
+        }   
+        data+="FOCUS\n"+JuegoNormal.jugadorFocus;
+        return data;
+    }
+    
+    public void guardarData(){
+        JuegoNormal.persistencia.escribirArchivo(jString(), mString());
     }
     
     private int numeroSiguiente() {
@@ -397,6 +481,7 @@ public class VistaJugador extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UNO");
         setPreferredSize(new java.awt.Dimension(1340, 1024));
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 1024));
@@ -681,7 +766,8 @@ public class VistaJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "No implementado");
+        guardarData();
+        JOptionPane.showMessageDialog(null, "La partida fue guardada!");
         System.exit(0);
         
     }//GEN-LAST:event_jButton1ActionPerformed
