@@ -9,6 +9,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
+    
+    public MenuPrincipal(int i) {
+        initComponents();
+        bloquearReanudar();
+        setLocationRelativeTo(null);
+    }
+    
+    public void bloquearReanudar(){
+        btnReanudar.setEnabled(false);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
