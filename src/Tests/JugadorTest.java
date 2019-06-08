@@ -1,9 +1,10 @@
-package Models;
-
+package Tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import Models.Jugador;
 
 class JugadorTest {
 	
@@ -23,4 +24,5 @@ class JugadorTest {
 		assertEquals("alex", jugador.getClave());
 		assertNotEquals("Alex", jugador.getClave());
 	}
+
 }

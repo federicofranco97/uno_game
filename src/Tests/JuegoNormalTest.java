@@ -1,10 +1,12 @@
-package Juego;
+package Tests;
 
 import Models.Mazo;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import Juego.JuegoNormal;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,7 +1,9 @@
-package Models;
+package Tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import Models.Carta;
 
 import java.security.InvalidParameterException;
 
