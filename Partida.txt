@@ -1,4 +1,23 @@
 JUGADOR
+<<<<<<< HEAD
+jug1
+q
+-skip especial rojo,9 numero rojo,+4 especial joker,color especial joker,8 numero azul,1 numero amarillo,+4 especial joker,8 numero amarillo,6 numero verde,5 numero verde,+2 especial rojo,5 numero amarillo,+2 especial azul,color especial joker,9 numero amarillo,9 numero rojo,7 numero rojo,spin especial amarillo-
+16616
+JUGADOR
+jug2
+q
+-1 numero amarillo,+2 especial verde,7 numero rojo,+2 especial amarillo,+2 especial rojo,skip especial verde,7 numero rojo,+4 especial joker,color especial joker,+2 especial amarillo,+4 especial joker,+2 especial amarillo,color especial joker,+2 especial verde,+2 especial rojo,skip especial verde,-
+14756
+FOCUS
+1
+MAZO
+-skip especial amarillo,spin especial verde,skip especial azul,+4 especial joker,spin especial azul,spin especial amarillo,skip especial rojo,spin especial rojo,color especial joker,+4 especial joker,skip especial amarillo,spin especial verde,+2 especial azul,+2 especial verde,skip especial verde,spin especial rojo,skip especial rojo,skip especial azul,spin especial azul,-
+POZO
+6 numero amarillo
+V
+33077
+=======
 1
 1
 -+4 especial joker,spin especial amarillo,9 numero amarillo,spin especial verde,7 numero azul,1 numero verde,+4 especial joker,-
@@ -16,3 +35,4 @@ POZO
 7 numero rojo
 V
 44671
+>>>>>>> 623d46dea2bf1616bc7db4ea4206f1b838cd69ec
