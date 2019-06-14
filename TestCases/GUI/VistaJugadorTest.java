@@ -33,7 +33,7 @@ class VistaJugadorTest {
         juego = new JuegoNormal();
         listaMazos = new ArrayList<>();
         juego.setRondaHoraria(true);
-        carta = new Carta();
+        carta = new Carta("rojo", "número", "9");
         juego.setIsValid(true);
         listaJugadores = new ArrayList<>();
         jugador1 = new Jugador("jugador 1", "123");
@@ -70,6 +70,19 @@ class VistaJugadorTest {
         vistaJugador.asignarNombre();
         Assertions.assertEquals("jugador 2", vistaJugador.getLblNombre().getText());
     }
+
+    @Test
+    void asignarPozoTest (){
+        vistaJugador.asignarPozo(carta);
+        Assertions.assertEquals(carta, juego.getPozo());
+        Assertions.assertEquals(carta.getColor(), juego.getPozo().getColor());
+        Assertions.assertEquals(carta.getValor(), juego.getPozo().getValor());
+        Assertions.assertEquals(carta.getTipo(), juego.getPozo().getTipo());
+    }
+
+
+
+
 
 
 
