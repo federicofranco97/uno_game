@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -35,6 +36,7 @@ class VistaJugadorTest {
     @BeforeEach
     void setUp() {
         mazo = new Mazo();
+        mazo.llenarMazo();
         juego = new JuegoNormal();
         listaMazos = new ArrayList<>();
         juego.setRondaHoraria(true);
@@ -56,6 +58,7 @@ class VistaJugadorTest {
         jugador3.setManoCartas(juego.generarMano());
         juego.getListaJugadores().addAll(listaJugadores);
         juego.setJugadorFocus(0);
+
         vistaJugador = new VistaJugador();
 
 
@@ -144,7 +147,14 @@ class VistaJugadorTest {
         Assertions.assertEquals(5, vistaJugador.verColor(cambioColor));
     }
 
+    @Test
+    void checkCantidadCartasTest(){
+        juego.getListaMazos().get(0).removerCartas(mazo.getMazoPrincipal());
+        Assertions.assertEquals(0, juego.getListaMazos().get(0).getMazoPrincipal().size());
+        vistaJugador.checkCantidadCartas(mas4);
+        Assertions.assertEquals(108, juego.getListaMazos().get(0).getMazoPrincipal().size());
 
+    }
 
 
 

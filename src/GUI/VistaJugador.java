@@ -190,7 +190,7 @@ public class VistaJugador extends javax.swing.JFrame {
     
     public void checkCantidadCartas(Carta c){
         int tamañoActual=JuegoNormal.listaMazos.get(0).getMazoPrincipal().size();
-        if(c.getTipo().equals("especial") && c.getValor().equals("+4") || c.getValor().equals("+2") && tamañoActual<4 ){
+        if((c.getTipo().equals("especial") && (c.getValor().equals("+4") || c.getValor().equals("+2"))) && tamañoActual<4 ){
             rellenarMazo();
         }
     }
