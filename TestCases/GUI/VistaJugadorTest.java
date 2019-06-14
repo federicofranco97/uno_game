@@ -21,6 +21,11 @@ class VistaJugadorTest {
     JuegoNormal juego;
     ArrayList<Mazo> listaMazos;
     Carta carta;
+    Carta cartaEspecial;
+    Carta skip;
+    Carta mas4;
+    Carta spin;
+    Carta cambioColor;
     List<Jugador> listaJugadores;
     Jugador jugador1;
     Jugador jugador2;
@@ -34,6 +39,11 @@ class VistaJugadorTest {
         listaMazos = new ArrayList<>();
         juego.setRondaHoraria(true);
         carta = new Carta("rojo", "número", "9");
+        cartaEspecial = new Carta("verde", "especial", "+2");
+        skip = new Carta("azul", "especial", "skip");
+        mas4 = new Carta("joker", "especial", "+4");
+        spin = new Carta("amarillo", "especial", "spin");
+        cambioColor = new Carta("joker", "especial", "color");
         juego.setIsValid(true);
         listaJugadores = new ArrayList<>();
         jugador1 = new Jugador("jugador 1", "123");
@@ -80,6 +90,31 @@ class VistaJugadorTest {
         Assertions.assertEquals(carta.getTipo(), juego.getPozo().getTipo());
     }
 
+    @Test
+    void verificarEspecialTest(){
+        Assertions.assertEquals(0, juego.getJugadorFocus());
+        vistaJugador.verificarEspecial(cartaEspecial);
+        Assertions.assertEquals(2, juego.getJugadorFocus());
+        Assertions.assertEquals(9, jugador2.getManoCartas().size());
+
+        vistaJugador.verificarEspecial(skip);
+        Assertions.assertEquals(1, juego.getJugadorFocus());
+
+        vistaJugador.verificarEspecial(spin);
+        Assertions.assertEquals(false, juego.isRondaHoraria());
+        Assertions.assertEquals(0, juego.getJugadorFocus());
+
+        vistaJugador.verificarEspecial(cambioColor);
+        Assertions.assertEquals(2, juego.getJugadorFocus());
+        Assertions.assertEquals("verde", juego.getPozo().getColor());
+
+        vistaJugador.verificarEspecial(mas4);
+        Assertions.assertEquals(0, juego.getJugadorFocus());
+        Assertions.assertEquals(13, jugador2.getManoCartas().size());
+        Assertions.assertEquals("azul", juego.getPozo().getColor());
+
+
+    }
 
 
 
