@@ -180,6 +180,15 @@ class VistaJugadorTest {
     Assertions.assertEquals(1, juego.getListaGanadores().size());
     }
 
+    @Test
+    void checkPerderTest(){
+        juego.getListaJugadores().remove(jugador1);
+        juego.getListaJugadores().remove(jugador2);
+        Assertions.assertTrue(vistaJugador.checkPerder());
+        juego.getListaJugadores().add(jugador2);
+        Assertions.assertFalse(vistaJugador.checkPerder());
+    }
+
 
 
 
