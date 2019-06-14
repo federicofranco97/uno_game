@@ -17,7 +17,7 @@ class VerValorTest {
 
 	@Test
 	void testVerValor() {	
-		JuegoNormal.verValor(carta);
+		
 	}
 
 }
