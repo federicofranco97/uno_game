@@ -166,8 +166,21 @@ class VistaJugadorTest {
 
     @Test
     void cambioColorTest(){
-
+        vistaJugador.cambioColor();
+        Assertions.assertEquals("amarillo", juego.getPozo().getColor());
+        Assertions.assertEquals(1, juego.getJugadorFocus());
     }
+
+    @Test
+    void checkManoJugTest(){
+    Jugador jugador4 = new Jugador("jugador 4", "123");
+    juego.getListaJugadores().add(jugador4);
+    vistaJugador.checkManoJug(jugador4);
+    Assertions.assertEquals(3, juego.getListaJugadores().size());
+    Assertions.assertEquals(1, juego.getListaGanadores().size());
+    }
+
+
 
 
 
