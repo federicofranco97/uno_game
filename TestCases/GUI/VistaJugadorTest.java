@@ -25,6 +25,7 @@ class VistaJugadorTest {
     Jugador jugador1;
     Jugador jugador2;
     Jugador jugador3;
+    VistaJugador vistaJugador;
 
     @BeforeEach
     void setUp() {
@@ -32,7 +33,6 @@ class VistaJugadorTest {
         juego = new JuegoNormal();
         listaMazos = new ArrayList<>();
         juego.setRondaHoraria(true);
-        juego.setJugadorFocus(0);
         carta = new Carta();
         juego.setIsValid(true);
         listaJugadores = new ArrayList<>();
@@ -41,6 +41,14 @@ class VistaJugadorTest {
         jugador3 = new Jugador("jugador 3", "789");
         listaJugadores.addAll(Arrays.asList(jugador1, jugador2, jugador3));
         juego.llenarMazos();
+        jugador1.setManoCartas(juego.generarMano());
+        jugador2.setManoCartas(juego.generarMano());
+        jugador3.setManoCartas(juego.generarMano());
+        juego.getListaJugadores().addAll(listaJugadores);
+        juego.setJugadorFocus(0);
+        vistaJugador = new VistaJugador();
+
+
     }
 
     @AfterEach
@@ -50,9 +58,20 @@ class VistaJugadorTest {
     @Test
     void incrementarFocusTest(){
        Assertions.assertEquals(0, juego.getJugadorFocus());
-       juego.incrementFocus();
+       vistaJugador.incrementFocus();
        Assertions.assertEquals(1, juego.getJugadorFocus());
     }
+
+    @Test
+    void asignarNombreTest(){
+        vistaJugador.asignarNombre();
+        Assertions.assertEquals("jugador 1", vistaJugador.getLblNombre().getText());
+        vistaJugador.incrementFocus();
+        vistaJugador.asignarNombre();
+        Assertions.assertEquals("jugador 2", vistaJugador.getLblNombre().getText());
+    }
+
+
 
 
 

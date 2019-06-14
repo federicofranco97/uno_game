@@ -1014,5 +1014,8 @@ public class VistaJugador extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 
-
+    ////////Para los test
+    public JLabel getLblNombre() {
+        return lblNombre;
+    }
 }
