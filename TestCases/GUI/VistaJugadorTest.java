@@ -156,6 +156,19 @@ class VistaJugadorTest {
 
     }
 
+    @Test
+    void asignarValoresTest(){
+        ArrayList<Carta> lista = new ArrayList<>(Arrays.asList(carta, cartaEspecial));
+        vistaJugador.asignarValores(lista);
+        Assertions.assertEquals(899, carta.getCodigo());
+        Assertions.assertEquals(868, cartaEspecial.getCodigo());
+    }
+
+    @Test
+    void cambioColorTest(){
+
+    }
+
 
 
 
