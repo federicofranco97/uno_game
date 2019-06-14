@@ -13,7 +13,7 @@ public class Partida {
         JuegoNormal juego = new JuegoNormal();
         juego.cargarData();
         if(juego.isValid){
-            juego.primerCartaPozo();
+            //juego.primerCartaPozo();
             juego.mensajeEntrada();   
             juego.preguntarMovida();
         }else{
