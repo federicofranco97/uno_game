@@ -411,7 +411,8 @@ public class VistaJugador extends javax.swing.JFrame {
         if (!tieneCartaParaJugar(j)){
             int numeroRandom = (int) (Math.random() * JuegoNormal.listaMazos.get(0).getMazoPrincipal().size());
             j.getManoCartas().add(JuegoNormal.listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
-            JuegoNormal.listaMazos.get(0).removerCarta(JuegoNormal.listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom-1));
+//            JuegoNormal.listaMazos.get(0).removerCarta(JuegoNormal.listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom-1));
+            JuegoNormal.listaMazos.get(0).getMazoPrincipal().remove(j.getManoCartas().get(j.getManoCartas().size()-1));
         } else {
             JOptionPane.showMessageDialog(null, "Tienes al menos una carta válidad para jugar");            
         }
