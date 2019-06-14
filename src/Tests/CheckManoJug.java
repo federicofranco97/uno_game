@@ -36,7 +36,7 @@ class CheckManoJug {
 	void testCheckManoJug() {
 		ArrayList<Carta> manoCartas = new ArrayList<>();
 		manoCartas.clear();
-		assertFalse(listaJugadores.isEmpty());
+		assertFalse(JuegoNormal.listaJugadores.isEmpty());
 	}
 
 }
