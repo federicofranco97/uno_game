@@ -8,15 +8,20 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Juego.JuegoNormal;
 import Models.Carta;
 import Models.Jugador;
+import Models.Mazo;
 
 
 class CheckManoJug {
 	
 	Jugador j1;
-	List<Jugador>listaJugadores;
-	ArrayList<Carta> manoCartas;
+    Mazo mazo;
+    JuegoNormal juego;
+    ArrayList<Mazo> listaMazos;
+    Carta carta;
+    List<Jugador>listaJugadores;
 
 	@BeforeEach
 	void setUp() {
