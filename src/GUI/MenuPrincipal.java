@@ -28,60 +28,58 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnNueva = new javax.swing.JButton();
         btnReanudar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UNO");
+        setMaximumSize(new java.awt.Dimension(828, 390));
+        setMinimumSize(new java.awt.Dimension(828, 390));
+        setPreferredSize(new java.awt.Dimension(828, 390));
+        getContentPane().setLayout(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/unoLogo.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 415, 378);
 
+        btnNueva.setBackground(new java.awt.Color(0, 0, 0));
+        btnNueva.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnNueva.setForeground(new java.awt.Color(255, 255, 255));
         btnNueva.setText("Nueva Partida");
         btnNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevaActionPerformed(evt);
             }
         });
+        getContentPane().add(btnNueva);
+        btnNueva.setBounds(521, 61, 234, 64);
 
+        btnReanudar.setBackground(new java.awt.Color(0, 0, 0));
+        btnReanudar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnReanudar.setForeground(new java.awt.Color(255, 255, 255));
         btnReanudar.setText("Reanudar Partida");
         btnReanudar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReanudarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnReanudar);
+        btnReanudar.setBounds(521, 143, 234, 64);
 
+        btnSalir.setBackground(new java.awt.Color(0, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSalir);
+        btnSalir.setBounds(521, 225, 234, 64);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(106, 106, 106)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReanudar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 73, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnReanudar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Resources/Webp.net-resizeimage.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -5, 830, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,5 +139,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnReanudar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

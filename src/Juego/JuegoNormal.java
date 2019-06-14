@@ -48,7 +48,8 @@ public class JuegoNormal {
     public void llenarMazos() {
         Mazo mazoPrincipal = new Mazo();
         mazoPrincipal.llenarMazo();
-        Mazo mazoSecundario = mazoPrincipal;
+        Mazo mazoSecundario = new Mazo();
+        mazoSecundario.llenarMazo();
         listaMazos.addAll(Arrays.asList(mazoPrincipal, mazoSecundario));
     }
 

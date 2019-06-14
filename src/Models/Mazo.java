@@ -81,7 +81,6 @@ public class Mazo {
 
         //cartas totales 108
 
-        System.out.println(mazoPrincipal.size());
     }   
     
     public void imprimirMazo(){

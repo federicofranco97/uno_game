@@ -128,8 +128,9 @@ public class Persistencia {
                     if(calcularValores(jugador.getManoCartas())==codigoAuxiliar){
                         listaJugadores.add(jugador);
                     }else{
-                        JOptionPane.showMessageDialog(null,"Mano alterada, fuiste eliminado: "+jugador.getNombre());
                         archivoValido=false;
+                        corrupto=true;
+                        return;
                     }
 
                 }
