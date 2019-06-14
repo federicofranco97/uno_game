@@ -112,9 +112,20 @@ class VistaJugadorTest {
         Assertions.assertEquals(0, juego.getJugadorFocus());
         Assertions.assertEquals(13, jugador2.getManoCartas().size());
         Assertions.assertEquals("azul", juego.getPozo().getColor());
-
-
     }
+
+    @Test
+    void verValorTest (){
+        Assertions.assertEquals(4, vistaJugador.verValor(skip));
+        Assertions.assertEquals(7, vistaJugador.verValor(spin));
+        Assertions.assertEquals(10, vistaJugador.verValor(cambioColor));
+        Assertions.assertEquals(8, vistaJugador.verValor(cartaEspecial));
+        Assertions.assertEquals(6, vistaJugador.verValor(mas4));
+
+        Assertions.assertEquals(9, vistaJugador.verValor(carta));
+    }
+
+
 
 
 
