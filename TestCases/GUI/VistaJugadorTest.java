@@ -121,8 +121,17 @@ class VistaJugadorTest {
         Assertions.assertEquals(10, vistaJugador.verValor(cambioColor));
         Assertions.assertEquals(8, vistaJugador.verValor(cartaEspecial));
         Assertions.assertEquals(6, vistaJugador.verValor(mas4));
-
         Assertions.assertEquals(9, vistaJugador.verValor(carta));
+    }
+
+    @Test
+    void verTipoTest(){
+        Assertions.assertEquals(10, vistaJugador.verTipo(mas4));
+        Assertions.assertEquals(10, vistaJugador.verTipo(cartaEspecial));
+        Assertions.assertEquals(10, vistaJugador.verTipo(skip));
+        Assertions.assertEquals(10, vistaJugador.verTipo(spin));
+        Assertions.assertEquals(10, vistaJugador.verTipo(cambioColor));
+        Assertions.assertEquals(5, vistaJugador.verTipo(carta));
     }
 
 
