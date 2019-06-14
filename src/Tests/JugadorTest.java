@@ -9,8 +9,6 @@ import Models.Jugador;
 class JugadorTest {
 	
 	Jugador jugador;
-	String nombre;
-	String clave;
 
 	@BeforeEach
 	void setUp() {
