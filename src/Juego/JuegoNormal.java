@@ -851,4 +851,9 @@ public class JuegoNormal {
         jugadorFocus=persistencia.getJugadorFocus();
         
     }
+
+    ///Para test
+    public static ArrayList<Jugador> getListaGanadores() {
+        return listaGanadores;
+    }
 }
