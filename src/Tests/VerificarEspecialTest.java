@@ -18,12 +18,12 @@ class VerificarEspecialTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		c = new Carta ("verde", "número", "3");
+		c = new Carta ("verde", "especial", "skip");
 	}
 
 	@Test
 	void testVerificarEspecial() {
-		//(false, juego.verificarEspecial(c));
+		assertTrue(juego.aplicarCartaEspecial(c),juego.verificarEspecial(c));
 	}
 
 }
