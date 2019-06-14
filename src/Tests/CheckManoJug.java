@@ -1,5 +1,6 @@
 package Tests;
 
+import static org.junit.Assert.assertFalse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import Models.Carta;
 import Models.Jugador;
-import Juego.JuegoNormal;
 
 
 class CheckManoJug {
@@ -24,16 +24,14 @@ class CheckManoJug {
 	    listaJugadores = new ArrayList<>();
 	    listaJugadores.addAll(Arrays.asList(j1));	    
 	}
+	
+	/*Se verifica que una vez que la mano sea una mano vacia, el jugador sea borrado de la lista de jugadores*/
 
 	@Test
 	void testCheckManoJug() {
 		ArrayList<Carta> manoCartas = new ArrayList<>();
 		manoCartas.clear();
-		if (listaJugadores.size() == 0){
-			System.out.println("ListaJugadores es una lista vacia.");			
-		} else {
-			System.out.println("ListaJugadores no es vacia.");
-		}
+		assertFalse(listaJugadores.isEmpty());
 	}
 
 }

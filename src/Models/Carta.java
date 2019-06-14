@@ -22,7 +22,7 @@ public class Carta {
     public Carta(String color, String tipo,String valor) {
         this.color = color;
         this.tipo = tipo;
-        this.valor=valor;
+        this.valor = valor;
     }
 
     public int getCodigo() {
