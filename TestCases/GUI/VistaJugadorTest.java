@@ -221,10 +221,10 @@ class VistaJugadorTest {
         Jugador jugador4 = new Jugador("jugador 4", "123");
         Carta carta2 = new Carta("amarillo", "numero", "3" );
         jugador4.getManoCartas().add(carta2);
-        juego.levantarCartaMazo(jugador4);
+        vistaJugador.levantarCartaMazo(jugador4);
         assertEquals(2, jugador4.getManoCartas().size());
-
     }
+
 
 
 
