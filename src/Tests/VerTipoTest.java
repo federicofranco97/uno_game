@@ -5,19 +5,22 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Juego.JuegoNormal;
 import Models.Carta;
 
 class VerTipoTest {
 	
 	Carta c;
+	JuegoNormal juego;
 
 	@BeforeEach
-	void setUp() throws Exception {
+	void setUp(){		
+		c = new Carta ("verde", "número", "3");
 	}
 
 	@Test
 	void testVerTipo() {
-		fail("Not yet implemented");
+		assertEquals(5, juego.verValor(c));
 	}
 
 }
