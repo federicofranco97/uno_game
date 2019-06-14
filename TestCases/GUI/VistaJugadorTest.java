@@ -200,7 +200,31 @@ class VistaJugadorTest {
         Assertions.assertFalse(vistaJugador.validarTiro("9 amarillo numero"));
     }
 
+    @Test
+    void checkMazoVacioTest(){
+        juego.getListaMazos().get(0).removerCartas(mazo.getMazoPrincipal());
+        Assertions.assertEquals(0, juego.getListaMazos().get(0).getMazoPrincipal().size());
+        juego.checkMazoVacio();
+        Assertions.assertEquals(108, juego.getListaMazos().get(0).getMazoPrincipal().size());
+    }
 
+    @Test
+    void rellenarMazoTest(){
+        juego.getListaMazos().get(0).removerCartas(mazo.getMazoPrincipal());
+        Assertions.assertEquals(0, juego.getListaMazos().get(0).getMazoPrincipal().size());
+        juego.rellenarMazo();
+        Assertions.assertEquals(108, juego.getListaMazos().get(0).getMazoPrincipal().size());
+    }
+
+    @Test
+    void levantarCartaMazoTest(){
+        Jugador jugador4 = new Jugador("jugador 4", "123");
+        Carta carta2 = new Carta("amarillo", "numero", "3" );
+        jugador4.getManoCartas().add(carta2);
+        juego.levantarCartaMazo(jugador4);
+        assertEquals(2, jugador4.getManoCartas().size());
+
+    }
 
 
 

@@ -565,7 +565,8 @@ public class JuegoNormal {
         if (!tieneCartaParaJugar(j)){
             int numeroRandom = (int) (Math.random() * listaMazos.get(0).getMazoPrincipal().size());
             j.getManoCartas().add(listaMazos.get(0).getMazoPrincipal().get(numeroRandom));
-            listaMazos.get(0).removerCarta(listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom-1));
+//           listaMazos.get(0).getMazoPrincipal().remove(listaMazos.get(0).getMazoPrincipal().indexOf(numeroRandom-1));
+            listaMazos.get(0).getMazoPrincipal().remove(j.getManoCartas().get(j.getManoCartas().size()-1));
         } else {
             JOptionPane.showMessageDialog(null, "Tienes al menos una carta válidad para jugar");
             preguntarMovida(j);
