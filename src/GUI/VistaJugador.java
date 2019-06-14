@@ -5,6 +5,7 @@ import Models.Carta;
 import Models.Jugador;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -190,7 +191,7 @@ public class VistaJugador extends javax.swing.JFrame {
     
     public void checkCantidadCartas(Carta c){
         int tamañoActual=JuegoNormal.listaMazos.get(0).getMazoPrincipal().size();
-        if(c.getTipo().equals("especial") && c.getValor().equals("+4") || c.getValor().equals("+2") && tamañoActual<4 ){
+        if((c.getTipo().equals("especial") && (c.getValor().equals("+4") || c.getValor().equals("+2"))) && tamañoActual<4 ){
             rellenarMazo();
         }
     }
@@ -971,5 +972,8 @@ public class VistaJugador extends javax.swing.JFrame {
     private javax.swing.JButton lblNombre1;
     // End of variables declaration//GEN-END:variables
 
-
+    ////////Para los test
+    public JButton getLblNombre() {
+        return lblNombre;
+    }
 }

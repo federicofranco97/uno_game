@@ -25,6 +25,10 @@ public class JuegoNormal {
     private final int tamañoMano=7;
     public boolean isValid=true;
 
+    public void setJugadorFocus (int num){
+        jugadorFocus = num;
+    }
+
     public boolean isIsValid() {
         return isValid;
     }
@@ -44,7 +48,8 @@ public class JuegoNormal {
     public void llenarMazos() {
         Mazo mazoPrincipal = new Mazo();
         mazoPrincipal.llenarMazo();
-        Mazo mazoSecundario = mazoPrincipal;
+        Mazo mazoSecundario = new Mazo();
+        mazoSecundario.llenarMazo();
         listaMazos.addAll(Arrays.asList(mazoPrincipal, mazoSecundario));
     }
 
@@ -620,6 +625,7 @@ public class JuegoNormal {
         int siguiente;
         if (rondaHoraria) {
             if (lastPlayer + 1 == listaJugadores.size()) {
+
                 siguiente = 0;
             } else {
                 siguiente = lastPlayer + 1;

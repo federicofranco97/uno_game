@@ -1,5 +1,7 @@
 package Juego;
 
+import Models.Carta;
+import Models.Jugador;
 import Models.Mazo;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -8,19 +10,36 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 class JuegoNormalTest {
     Mazo mazo;
     JuegoNormal juego;
     ArrayList<Mazo> listaMazos;
+    Carta carta;
+    List<Jugador>listaJugadores;
+    Jugador jugador1;
+    Jugador jugador2;
+    Jugador jugador3;
+
 
     @BeforeEach
-    void setUp() {
+     void setUp() {
         mazo = new Mazo();
         juego = new JuegoNormal();
         listaMazos = new ArrayList<>();
-
+        juego.setRondaHoraria(true);
+        juego.setJugadorFocus(0);
+        carta = new Carta();
+        juego.setIsValid(true);
+        listaJugadores = new ArrayList<>();
+        jugador1 = new Jugador("jugador 1", "123");
+        jugador2 = new Jugador("jugador 2", "456");
+        jugador3 = new Jugador("jugador 3", "789");
+        listaJugadores.addAll(Arrays.asList(jugador1, jugador2, jugador3));
+        juego.llenarMazos();
     }
+
 
     @AfterEach
     void tearDown() {
@@ -57,6 +76,20 @@ class JuegoNormalTest {
         Assertions.assertEquals(false, juego.validarNombre(claveIn2));
 
     }
+
+    @Test
+    void numeroSiguiente(){
+
+        Assertions.assertEquals(1, juego.numeroSiguiente());
+        juego.setRondaHoraria(false);
+        Assertions.assertEquals(-1, juego.numeroSiguiente());
+        juego.setRondaHoraria(true);
+        listaJugadores.remove(jugador1);
+        listaJugadores.remove(jugador2);
+        Assertions.assertEquals(0, juego.numeroSiguiente());
+    }
+
+
 
 
 
