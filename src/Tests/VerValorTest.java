@@ -1,17 +1,14 @@
 package Tests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Juego.JuegoNormal;
 import Models.Carta;
+import Juego.JuegoNormal;
 
 class VerValorTest {
 	
-	Carta carta;
-	
+	Carta carta;	
 
 	@BeforeEach
 	void setUp() {
@@ -19,10 +16,8 @@ class VerValorTest {
 	}
 
 	@Test
-	void testVerValor() {
-		
-		
-		
+	void testVerValor() {	
+		JuegoNormal.verValor(carta);
 	}
 
 }
