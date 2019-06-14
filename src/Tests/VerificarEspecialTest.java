@@ -1,10 +1,10 @@
 package Tests;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Assertions;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,14 +16,14 @@ class VerificarEspecialTest {
 	Carta c;
 	JuegoNormal juego;
 
-	@BeforeEach
+	/*@BeforeEach
 	void setUp() throws Exception {
 		c = new Carta ("verde", "especial", "skip");
 	}
 
 	@Test
 	void testVerificarEspecial() {
-		//assertTrue(juego.aplicarCartaEspecial(c),juego.verificarEspecial(c));
-	}
+		assertFalse(juego.aplicarCartaEspecial(c),juego.verificarEspecial(c));
+	}*/
 
 }
