@@ -40,6 +40,7 @@ class JuegoNormalTest {
         jugador3 = new Jugador("jugador 3", "789");
         listaJugadores.addAll(Arrays.asList(jugador1, jugador2, jugador3));
         juego.llenarMazos();
+
     }
 
 

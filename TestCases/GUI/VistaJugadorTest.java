@@ -40,7 +40,7 @@ class VistaJugadorTest {
         juego = new JuegoNormal();
         listaMazos = new ArrayList<>();
         juego.setRondaHoraria(true);
-        carta = new Carta("rojo", "número", "9");
+        carta = new Carta("rojo", "numero", "9");
         cartaEspecial = new Carta("verde", "especial", "+2");
         skip = new Carta("azul", "especial", "skip");
         mas4 = new Carta("joker", "especial", "+4");
@@ -58,6 +58,7 @@ class VistaJugadorTest {
         jugador3.setManoCartas(juego.generarMano());
         juego.getListaJugadores().addAll(listaJugadores);
         juego.setJugadorFocus(0);
+        juego.setPozo(carta);
 
         vistaJugador = new VistaJugador();
 
@@ -179,6 +180,30 @@ class VistaJugadorTest {
     Assertions.assertEquals(3, juego.getListaJugadores().size());
     Assertions.assertEquals(1, juego.getListaGanadores().size());
     }
+
+    @Test
+    void checkPerderTest(){
+        juego.getListaJugadores().remove(jugador1);
+        juego.getListaJugadores().remove(jugador2);
+        Assertions.assertTrue(vistaJugador.checkPerder());
+        juego.getListaJugadores().add(jugador2);
+        Assertions.assertFalse(vistaJugador.checkPerder());
+    }
+
+    @Test
+    void validarTiroTest(){
+
+        Carta carta2 = new Carta("rojo", "numero", "7" );
+        jugador1.getManoCartas().add(carta2);
+        Assertions.assertTrue(vistaJugador.validarTiro("7 rojo numero"));
+        Assertions.assertEquals(carta2, juego.getPozo());
+        Assertions.assertFalse(vistaJugador.validarTiro("9 amarillo numero"));
+    }
+
+
+
+
+
 
 
 
