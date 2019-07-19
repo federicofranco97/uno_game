@@ -313,7 +313,16 @@ public class VistaJugador extends javax.swing.JFrame {
     public boolean otraValidacion(){
         Jugador j = JuegoNormal.listaJugadores.get(JuegoNormal.jugadorFocus);
         JPasswordField pwd = new JPasswordField();
-        JOptionPane.showConfirmDialog(null, pwd, "Ingrese su clave "+j.getNombre(),JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        Object[] options = {"OK"};
+        JOptionPane.showOptionDialog(this,
+                   pwd,"Ingrese su clave "+j.getNombre(),
+                   JOptionPane.PLAIN_MESSAGE,
+                   JOptionPane.QUESTION_MESSAGE,
+                   null,
+                   options,
+                   options[0]);
+        //JOptionPane.showConfirmDialog(null, pwd, "Ingrese su clave "+j.getNombre(),JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        pwd.requestFocus();
         if(pwd.getText().equals(j.getClave())){
             return true;
         }else{

@@ -6,6 +6,8 @@ import Models.Carta;
 import Models.Jugador;
 import Models.Mazo;
 import Persistencia.Persistencia;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -419,7 +421,7 @@ public class JuegoNormal {
 
     public boolean otraValidacion(Jugador j){
         JPasswordField pwd = new JPasswordField();
-        JOptionPane.showConfirmDialog(null, pwd, "Ingrese su clave "+j.getNombre(),JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showConfirmDialog(null, pwd, "Ingrese su contraseña "+j.getNombre(),JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
         if(pwd.getText().equals(j.getClave())){
             return true;
         }else{
